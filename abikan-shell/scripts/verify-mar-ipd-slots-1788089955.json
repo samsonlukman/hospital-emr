@@ -1,0 +1,549 @@
+{
+  "synthetic": {
+    "patients": {
+      "a": "8c14a0dd-d509-4a0d-afcd-251b76fc1b5e",
+      "b": "6ebf8f62-5561-4245-8393-7d195f636c3d"
+    },
+    "visits": {
+      "a": "52364c0a-807e-4d63-b52c-193c3141aa86",
+      "b": "7a6a2217-fb6d-446b-8fd6-46c41dee36d4",
+      "beds": {
+        "a": {
+          "bedUuid": "6cfdad7a-0511-4db1-b121-49516540dc96",
+          "bedId": 2,
+          "bedNumber": "Bed 02",
+          "status": "AVAILABLE",
+          "areaName": "Hawawu Maternity Ward",
+          "areaUuid": "f0f005dd-c95d-47f1-894a-b263783dd5e6",
+          "patientUuid": null,
+          "patientName": null,
+          "mrn": null,
+          "sex": null,
+          "age": null,
+          "admitted": null
+        },
+        "b": {
+          "bedUuid": "1ae58ba6-eda5-43ea-98b4-f85519320e9b",
+          "bedId": 3,
+          "bedNumber": "Bed 03",
+          "status": "AVAILABLE",
+          "areaName": "Hawawu Maternity Ward",
+          "areaUuid": "f0f005dd-c95d-47f1-894a-b263783dd5e6",
+          "patientUuid": null,
+          "patientName": null,
+          "mrn": null,
+          "sex": null,
+          "age": null,
+          "admitted": null
+        }
+      }
+    }
+  },
+  "checks": [
+    {
+      "name": "login_reception.abikan",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "login_doctor.abikan",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "login_nurse.abikan",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "login_lab.abikan",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "login_pharmacy.abikan",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "login_accountant.abikan",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "login_admin.abikan",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "metadata",
+      "ok": true,
+      "detail": {
+        "status": 200
+      }
+    },
+    {
+      "name": "drug_order_config",
+      "ok": true,
+      "detail": {
+        "status": 200
+      }
+    },
+    {
+      "name": "doctor_provider",
+      "ok": true,
+      "detail": {
+        "provider": "17dec510-ef20-4282-9d9e-4d33d4693675",
+        "names": {
+          "tablet": "Tablet",
+          "oral": "Oral",
+          "once": "Once a day",
+          "days": "Days",
+          "qty": "Tablet"
+        }
+      }
+    },
+    {
+      "name": "register_ALPHA89955",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "uuid": "8c14a0dd-d509-4a0d-afcd-251b76fc1b5e"
+      }
+    },
+    {
+      "name": "register_BRAVO89955",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "uuid": "6ebf8f62-5561-4245-8393-7d195f636c3d"
+      }
+    },
+    {
+      "name": "start_opd",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "uuid": "15d75e8f-c0ec-43e1-b9d2-7a61ea11c397"
+      }
+    },
+    {
+      "name": "start_opd",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "uuid": "30ada200-fb2d-4ac6-8692-adcfb675a7dc"
+      }
+    },
+    {
+      "name": "admit",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "message": "Admission requested. Nursing will assign a bed."
+      }
+    },
+    {
+      "name": "assign_bed",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "bed": "Bed 02"
+      }
+    },
+    {
+      "name": "admit",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "message": "Admission requested. Nursing will assign a bed."
+      }
+    },
+    {
+      "name": "assign_bed",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "bed": "Bed 03"
+      }
+    },
+    {
+      "name": "ipd_visits",
+      "ok": true,
+      "detail": {
+        "a": "52364c0a-807e-4d63-b52c-193c3141aa86",
+        "b": "7a6a2217-fb6d-446b-8fd6-46c41dee36d4"
+      }
+    },
+    {
+      "name": "ipd_order_a",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "ms": 1073
+      }
+    },
+    {
+      "name": "schedule_a",
+      "ok": false,
+      "detail": {
+        "status": 200,
+        "body": {
+          "status": "ok",
+          "patientUuid": "8c14a0dd-d509-4a0d-afcd-251b76fc1b5e",
+          "visitUuid": "52364c0a-807e-4d63-b52c-193c3141aa86",
+          "admissionEncounterUuid": "f2bf7d46-b034-4aae-a0fa-1f6d6589a605",
+          "createdOrderUuids": [],
+          "alreadyScheduledOrderUuids": [],
+          "issues": []
+        },
+        "ms": 1212
+      }
+    },
+    {
+      "name": "schedule_retry_no_duplicate",
+      "ok": false,
+      "detail": {
+        "status": 200,
+        "body": {
+          "status": "ok",
+          "patientUuid": "8c14a0dd-d509-4a0d-afcd-251b76fc1b5e",
+          "visitUuid": "52364c0a-807e-4d63-b52c-193c3141aa86",
+          "admissionEncounterUuid": "f2bf7d46-b034-4aae-a0fa-1f6d6589a605",
+          "createdOrderUuids": [],
+          "alreadyScheduledOrderUuids": [],
+          "issues": []
+        }
+      }
+    },
+    {
+      "name": "mar_slots_a",
+      "ok": false,
+      "detail": {
+        "status": 200,
+        "slots": 0,
+        "orders": []
+      }
+    },
+    {
+      "name": "mar_slots_b",
+      "ok": false,
+      "detail": {
+        "status": 200,
+        "slots": 0
+      }
+    },
+    {
+      "name": "discharge_b",
+      "ok": true,
+      "detail": {
+        "status": 200
+      }
+    },
+    {
+      "name": "no_schedule_after_discharge",
+      "ok": true,
+      "detail": {
+        "status": 409,
+        "code": "not_admitted"
+      }
+    },
+    {
+      "name": "historical_mar_readable",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "orders": 0
+      }
+    },
+    {
+      "name": "no_administer_after_discharge",
+      "ok": true,
+      "detail": {
+        "status": 409,
+        "code": "not_admitted"
+      }
+    },
+    {
+      "name": "e2e_historical_mar",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "orders": 3
+      }
+    },
+    {
+      "name": "nursing_notes",
+      "ok": true,
+      "detail": {
+        "status": 200
+      }
+    },
+    {
+      "name": "vitals",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "code": null
+      }
+    }
+  ],
+  "performance": {
+    "orderCreationMs": 1073,
+    "scheduleCreationMs": 1212,
+    "slotAvailabilityMs": 1212,
+    "asynchronous": false
+  },
+  "workflow": {
+    "order": {
+      "concept": {
+        "uuid": "73136AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "name": "Cetirizine",
+        "dataType": "N/A",
+        "shortName": "Cetirizine",
+        "units": null,
+        "conceptClass": "Drug",
+        "hiNormal": null,
+        "lowNormal": null,
+        "set": false,
+        "mappings": [
+          {
+            "code": "73136",
+            "name": null,
+            "source": "CIEL"
+          },
+          {
+            "code": "20610",
+            "name": null,
+            "source": "RxNORM"
+          },
+          {
+            "code": "779",
+            "name": null,
+            "source": "AMPATH"
+          },
+          {
+            "code": "108655000",
+            "name": null,
+            "source": "SNOMED-CT"
+          }
+        ]
+      },
+      "instructions": null,
+      "uuid": "51fb91b8-b3c8-4c51-873f-54a7dcc0fa49",
+      "orderType": "Drug Order",
+      "accessionNumber": null,
+      "orderGroup": null,
+      "dateCreated": null,
+      "dateChanged": null,
+      "dateStopped": null,
+      "orderNumber": "ORD-41",
+      "careSetting": "INPATIENT",
+      "action": "NEW",
+      "commentToFulfiller": null,
+      "autoExpireDate": 1788349177000,
+      "urgency": null,
+      "previousOrderUuid": null,
+      "drug": {
+        "name": "Cetirizine 10 mg",
+        "uuid": "7e0766e1-b679-4eb3-ab93-d63910ad6eb4",
+        "form": "Tablet",
+        "strength": "10 mg"
+      },
+      "drugNonCoded": null,
+      "dosingInstructionType": "org.openmrs.module.bahmniemrapi.drugorder.dosinginstructions.FlexibleDosingInstructions",
+      "dosingInstructions": {
+        "dose": 1.0,
+        "doseUnits": "Tablet",
+        "route": "Oral",
+        "frequency": "Once a day",
+        "asNeeded": false,
+        "administrationInstructions": null,
+        "quantity": 3.0,
+        "quantityUnits": "Tablet",
+        "numberOfRefills": null
+      },
+      "dateActivated": 1788089978000,
+      "scheduledDate": 1788089978000,
+      "effectiveStartDate": 1788089978000,
+      "effectiveStopDate": 1788349177000,
+      "orderReasonText": null,
+      "duration": 3,
+      "durationUnits": "Days",
+      "voided": false,
+      "voidReason": null,
+      "orderReasonConcept": null,
+      "sortWeight": null,
+      "conceptUuid": "73136AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "visit": {
+        "uuid": "52364c0a-807e-4d63-b52c-193c3141aa86",
+        "startDateTime": 1788089967000
+      },
+      "drugOrder": {
+        "concept": {
+          "uuid": "73136AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+          "name": "Cetirizine",
+          "dataType": "N/A",
+          "shortName": "Cetirizine",
+          "units": null,
+          "conceptClass": "Drug",
+          "hiNormal": null,
+          "lowNormal": null,
+          "set": false,
+          "mappings": [
+            {
+              "code": "73136",
+              "name": null,
+              "source": "CIEL"
+            },
+            {
+              "code": "20610",
+              "name": null,
+              "source": "RxNORM"
+            },
+            {
+              "code": "779",
+              "name": null,
+              "source": "AMPATH"
+            },
+            {
+              "code": "108655000",
+              "name": null,
+              "source": "SNOMED-CT"
+            }
+          ]
+        },
+        "instructions": null,
+        "uuid": "51fb91b8-b3c8-4c51-873f-54a7dcc0fa49",
+        "orderType": "Drug Order",
+        "accessionNumber": null,
+        "orderGroup": null,
+        "dateCreated": null,
+        "dateChanged": null,
+        "dateStopped": null,
+        "orderNumber": "ORD-41",
+        "careSetting": "INPATIENT",
+        "action": "NEW",
+        "commentToFulfiller": null,
+        "autoExpireDate": 1788349177000,
+        "urgency": null,
+        "previousOrderUuid": null,
+        "drug": {
+          "name": "Cetirizine 10 mg",
+          "uuid": "7e0766e1-b679-4eb3-ab93-d63910ad6eb4",
+          "form": "Tablet",
+          "strength": "10 mg"
+        },
+        "drugNonCoded": null,
+        "dosingInstructionType": "org.openmrs.module.bahmniemrapi.drugorder.dosinginstructions.FlexibleDosingInstructions",
+        "dosingInstructions": {
+          "dose": 1.0,
+          "doseUnits": "Tablet",
+          "route": "Oral",
+          "frequency": "Once a day",
+          "asNeeded": false,
+          "administrationInstructions": null,
+          "quantity": 3.0,
+          "quantityUnits": "Tablet",
+          "numberOfRefills": null
+        },
+        "dateActivated": 1788089978000,
+        "scheduledDate": 1788089978000,
+        "effectiveStartDate": 1788089978000,
+        "effectiveStopDate": 1788349177000,
+        "orderReasonText": null,
+        "duration": 3,
+        "durationUnits": "Days",
+        "voided": false,
+        "voidReason": null,
+        "orderReasonConcept": null,
+        "sortWeight": null,
+        "conceptUuid": "73136AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+      },
+      "provider": {
+        "uuid": "17dec510-ef20-4282-9d9e-4d33d4693675",
+        "name": "Clinical Doctor",
+        "encounterRoleUuid": null
+      },
+      "orderAttributes": null,
+      "retired": false,
+      "encounterUuid": "dcb24e97-efdb-4e7a-9530-4f389a0216c4",
+      "creatorName": "Clinical Doctor"
+    },
+    "schedule": {
+      "status": "ok",
+      "patientUuid": "8c14a0dd-d509-4a0d-afcd-251b76fc1b5e",
+      "visitUuid": "52364c0a-807e-4d63-b52c-193c3141aa86",
+      "admissionEncounterUuid": "f2bf7d46-b034-4aae-a0fa-1f6d6589a605",
+      "createdOrderUuids": [],
+      "alreadyScheduledOrderUuids": [],
+      "issues": []
+    },
+    "mar": {
+      "status": "ok",
+      "patientUuid": "8c14a0dd-d509-4a0d-afcd-251b76fc1b5e",
+      "visitUuid": "52364c0a-807e-4d63-b52c-193c3141aa86",
+      "admissionEncounterUuid": "f2bf7d46-b034-4aae-a0fa-1f6d6589a605",
+      "activeAdmission": true,
+      "administrationWindow": {
+        "earlyMinutes": 30,
+        "lateMinutes": 60
+      },
+      "orders": [],
+      "scheduleIssues": []
+    }
+  },
+  "failed": [
+    {
+      "name": "schedule_a",
+      "ok": false,
+      "detail": {
+        "status": 200,
+        "body": {
+          "status": "ok",
+          "patientUuid": "8c14a0dd-d509-4a0d-afcd-251b76fc1b5e",
+          "visitUuid": "52364c0a-807e-4d63-b52c-193c3141aa86",
+          "admissionEncounterUuid": "f2bf7d46-b034-4aae-a0fa-1f6d6589a605",
+          "createdOrderUuids": [],
+          "alreadyScheduledOrderUuids": [],
+          "issues": []
+        },
+        "ms": 1212
+      }
+    },
+    {
+      "name": "schedule_retry_no_duplicate",
+      "ok": false,
+      "detail": {
+        "status": 200,
+        "body": {
+          "status": "ok",
+          "patientUuid": "8c14a0dd-d509-4a0d-afcd-251b76fc1b5e",
+          "visitUuid": "52364c0a-807e-4d63-b52c-193c3141aa86",
+          "admissionEncounterUuid": "f2bf7d46-b034-4aae-a0fa-1f6d6589a605",
+          "createdOrderUuids": [],
+          "alreadyScheduledOrderUuids": [],
+          "issues": []
+        }
+      }
+    },
+    {
+      "name": "mar_slots_a",
+      "ok": false,
+      "detail": {
+        "status": 200,
+        "slots": 0,
+        "orders": []
+      }
+    },
+    {
+      "name": "mar_slots_b",
+      "ok": false,
+      "detail": {
+        "status": 200,
+        "slots": 0
+      }
+    }
+  ],
+  "passed": 27
+}

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--
+      This changes presentation only. The receipt remains the existing Odoo
+      account.payment report and keeps Odoo's payment number and amounts.
+    -->
+    <template id="external_layout">
+        <div class="header" style="border-bottom: 2px solid #08777b; padding-bottom: 8px;">
+            <div class="row align-items-center">
+                <div class="col-2">
+                    <img
+                        src="/abikan_receipt/static/src/img/abikan-logo.png"
+                        alt="Hospital EMR"
+                        style="height: 52px; width: 52px;"
+                    />
+                </div>
+                <div class="col-10">
+                    <div style="font-size: 22px; font-weight: 700; color: #12324a;">
+                        Hospital EMR
+                    </div>
+                    <div style="font-size: 12px; color: #08777b;">
+                        Hospital &amp; Wellness Centre
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div
+            class="article"
+            t-att-data-oe-model="o and o._name"
+            t-att-data-oe-id="o and o.id"
+            t-att-data-oe-lang="o and o.env.context.get('lang')"
+        >
+            <t t-out="0"/>
+        </div>
+
+        <div class="footer" style="border-top: 1px solid #d7e1e5; padding-top: 6px;">
+            <div class="text-center" style="font-size: 10px; color: #536775;">
+                Hospital EMR Hospital &amp; Wellness Centre
+                <span class="mx-2">·</span>
+                Payment receipt
+                <span class="float-end">
+                    Page <span class="page"/> of <span class="topage"/>
+                </span>
+            </div>
+        </div>
+    </template>
+
+    <template
+        id="report_payment_invoice_abikan"
+        inherit_id="bahmni_auto_payment_reconciliation.report_payment_invoice"
+    >
+        <xpath expr="//t[@t-call='web.external_layout']" position="attributes">
+            <attribute name="t-call">abikan_receipt.external_layout</attribute>
+        </xpath>
+    </template>
+
+    <!-- Always render the branded layout, including for older payments whose
+         original receipt may already have been cached as an attachment. -->
+    <record
+        id="bahmni_auto_payment_reconciliation.account_payment_invoices_receipt"
+        model="ir.actions.report"
+    >
+        <field name="name">Hospital EMR Receipt</field>
+        <field name="attachment_use">False</field>
+        <field name="attachment">False</field>
+    </record>
+</odoo>

@@ -1,0 +1,39 @@
+.nursing-tasks {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.nursing-tasks a {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 12px 14px;
+  border: 1px solid var(--color-line);
+  border-radius: 10px;
+  background: var(--color-surface);
+  color: inherit;
+  text-decoration: none;
+}
+
+.nursing-tasks a:hover,
+.nursing-tasks a:focus-visible {
+  border-color: var(--color-brand);
+}
+
+.nursing-tasks strong {
+  font-size: 0.95rem;
+}
+
+.nursing-tasks span {
+  color: var(--color-ink-muted);
+  font-size: 0.85rem;
+}
+
+.nursing-tasks__muted {
+  margin: 0;
+  color: var(--color-ink-muted);
+}

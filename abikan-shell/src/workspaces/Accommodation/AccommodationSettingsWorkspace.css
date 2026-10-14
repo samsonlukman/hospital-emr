@@ -1,0 +1,49 @@
+.acc-settings {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.acc-settings__nav {
+  display: flex;
+  align-items: center;
+}
+
+.acc-settings__hint {
+  margin: 4px 0 0;
+  color: var(--color-ink-muted);
+  font-size: 0.82rem;
+  font-weight: 500;
+}
+
+.acc-settings__price {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.acc-settings__currency {
+  color: var(--color-ink);
+  font-weight: 700;
+}
+
+.acc-settings__price input {
+  min-height: 40px;
+  width: 8rem;
+  padding: 0 12px;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-sm);
+  background: #fff;
+}
+
+.acc-settings__sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

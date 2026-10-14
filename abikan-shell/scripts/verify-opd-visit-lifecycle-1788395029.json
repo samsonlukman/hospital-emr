@@ -1,0 +1,189 @@
+{
+  "stamp": 1788395029,
+  "checks": [
+    {
+      "name": "metadata",
+      "ok": true,
+      "detail": {
+        "status": 200
+      }
+    },
+    {
+      "name": "no_openmrs_visit_expiry_task",
+      "ok": true,
+      "detail": {
+        "status": 403,
+        "visitTasks": [],
+        "count": 0
+      }
+    },
+    {
+      "name": "register_synthetic",
+      "ok": true,
+      "detail": {
+        "uuid": "0315af12-27ad-4b38-91c3-afbcd90c080b",
+        "mrn": "ABC200045"
+      }
+    },
+    {
+      "name": "create_visit_context_has_no_card",
+      "ok": true,
+      "detail": {
+        "keys": [
+          "admissionActive",
+          "canStartVisit",
+          "code",
+          "message",
+          "patient",
+          "status",
+          "visit",
+          "visitTypes"
+        ]
+      }
+    },
+    {
+      "name": "start_opd",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "visit": "3c2f9e05-d2dc-4d83-a49f-c43b5ab3c220"
+      }
+    },
+    {
+      "name": "openmrs_visit_open",
+      "ok": true,
+      "detail": {
+        "uuid": "3c2f9e05-d2dc-4d83-a49f-c43b5ab3c220",
+        "visitType": {
+          "name": "OPD"
+        },
+        "startDatetime": "2026-09-03T00:23:54.000+0000",
+        "stopDatetime": null,
+        "patient": {
+          "uuid": "0315af12-27ad-4b38-91c3-afbcd90c080b"
+        }
+      }
+    },
+    {
+      "name": "duplicate_blocked",
+      "ok": true,
+      "detail": {
+        "status": 409,
+        "code": "visit_already_open"
+      }
+    },
+    {
+      "name": "doctor_attended",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "encounter": "caf72e00-c5f8-47ee-8fe3-db421c93c153"
+      }
+    },
+    {
+      "name": "consultation_on_same_visit",
+      "ok": true,
+      "detail": {
+        "uuid": "caf72e00-c5f8-47ee-8fe3-db421c93c153",
+        "encounterDatetime": "2026-09-03T00:23:56.000+0000",
+        "encounterType": {
+          "uuid": "d34fe3ab-5e07-11ef-8f7c-0242ac120002",
+          "name": "Consultation"
+        },
+        "visit": {
+          "uuid": "3c2f9e05-d2dc-4d83-a49f-c43b5ab3c220"
+        },
+        "patient": {
+          "uuid": "0315af12-27ad-4b38-91c3-afbcd90c080b"
+        },
+        "encounterProviders": [
+          {
+            "provider": {
+              "uuid": "17dec510-ef20-4282-9d9e-4d33d4693675",
+              "display": "doctor.abikan - Clinical Doctor",
+              "person": {
+                "display": "Clinical Doctor"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "consultation_does_not_close_visit",
+      "ok": true,
+      "detail": {
+        "uuid": "3c2f9e05-d2dc-4d83-a49f-c43b5ab3c220",
+        "stopDatetime": null,
+        "visitType": {
+          "name": "OPD"
+        }
+      }
+    },
+    {
+      "name": "manual_rest_close_sets_stop",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "stop": "2026-09-03T00:23:56.000+0000"
+      }
+    },
+    {
+      "name": "subsequent_create_visit_after_close",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "new": "6f049ca9-6b3d-4aa5-bdfc-0c8880c32971"
+      }
+    },
+    {
+      "name": "ipd_unaffected",
+      "ok": true,
+      "detail": {
+        "status": 409,
+        "code": "admission_in_progress",
+        "ipd": [
+          "2db4f84e-d5e6-4916-ba9e-c327f6f74b70"
+        ]
+      }
+    }
+  ],
+  "failures": [],
+  "visit": {
+    "uuid": "3c2f9e05-d2dc-4d83-a49f-c43b5ab3c220",
+    "visitType": {
+      "name": "OPD"
+    },
+    "startDatetime": "2026-09-03T00:23:54.000+0000",
+    "stopDatetime": null,
+    "patient": {
+      "uuid": "0315af12-27ad-4b38-91c3-afbcd90c080b"
+    }
+  },
+  "attendance": {
+    "uuid": "caf72e00-c5f8-47ee-8fe3-db421c93c153",
+    "encounterDatetime": "2026-09-03T00:23:56.000+0000",
+    "encounterType": {
+      "uuid": "d34fe3ab-5e07-11ef-8f7c-0242ac120002",
+      "name": "Consultation"
+    },
+    "visit": {
+      "uuid": "3c2f9e05-d2dc-4d83-a49f-c43b5ab3c220"
+    },
+    "patient": {
+      "uuid": "0315af12-27ad-4b38-91c3-afbcd90c080b"
+    },
+    "encounterProviders": [
+      {
+        "provider": {
+          "uuid": "17dec510-ef20-4282-9d9e-4d33d4693675",
+          "display": "doctor.abikan - Clinical Doctor",
+          "person": {
+            "display": "Clinical Doctor"
+          }
+        }
+      }
+    ]
+  },
+  "scheduler": []
+}

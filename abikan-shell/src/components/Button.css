@@ -1,0 +1,67 @@
+.abikan-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 18px;
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  cursor: pointer;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  transition: background-color 120ms ease, border-color 120ms ease, color 120ms ease;
+}
+
+.abikan-button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.abikan-button--primary {
+  background: var(--color-teal);
+  color: #fff;
+}
+
+.abikan-button--primary:hover:not(:disabled) {
+  background: var(--color-teal-hover);
+}
+
+.abikan-button--secondary {
+  background: var(--color-surface);
+  color: var(--color-navy);
+  border-color: var(--color-line-strong);
+}
+
+.abikan-button--secondary:hover:not(:disabled) {
+  border-color: var(--color-teal);
+  color: var(--color-teal);
+}
+
+.abikan-button--ghost {
+  background: transparent;
+  color: var(--color-teal);
+  min-height: 32px;
+  padding: 0 8px;
+  font-weight: 500;
+}
+
+.abikan-button--ghost:hover:not(:disabled) {
+  background: var(--color-teal-soft);
+}
+
+.abikan-button__spinner {
+  width: 14px;
+  height: 14px;
+  margin-right: 8px;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: abikan-spin 700ms linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes abikan-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,241 @@
+.abikan-docs {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.abikan-docs__block {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.abikan-docs h4 {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--color-navy);
+}
+
+.abikan-docs label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.abikan-docs label span {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-ink-subtle);
+}
+
+.abikan-docs input,
+.abikan-docs textarea,
+.abikan-docs select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--color-line-strong);
+  border-radius: var(--radius-sm);
+  background: #fff;
+  color: var(--color-navy);
+  font: inherit;
+}
+
+.abikan-docs textarea {
+  resize: vertical;
+  min-height: 88px;
+}
+
+.abikan-docs input:focus,
+.abikan-docs textarea:focus,
+.abikan-docs select:focus {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 1px;
+}
+
+.abikan-docs input:disabled,
+.abikan-docs textarea:disabled,
+.abikan-docs select:disabled {
+  background: #f4f6f8;
+  color: var(--color-ink-muted);
+}
+
+.abikan-docs__complaint-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 110px 150px auto;
+  gap: 8px;
+  align-items: end;
+  margin-bottom: 10px;
+}
+
+.abikan-docs__complaint {
+  position: relative;
+  min-width: 0;
+}
+
+.abikan-docs__add,
+.abikan-docs__remove {
+  min-height: 36px;
+  padding: 0 12px;
+  border: 1px solid var(--color-line-strong);
+  border-radius: var(--radius-sm);
+  background: #fff;
+  color: var(--color-navy);
+  font: inherit;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.abikan-docs__add {
+  justify-self: start;
+}
+
+.abikan-docs__remove {
+  margin-bottom: 2px;
+}
+
+@media (max-width: 720px) {
+  .abikan-docs__complaint-row {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+
+  .abikan-docs__complaint {
+    grid-column: 1 / -1;
+  }
+}
+
+.abikan-docs__hits {
+  position: absolute;
+  z-index: 7;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  max-height: 240px;
+  overflow: auto;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-sm);
+  background: #fff;
+  box-shadow: var(--shadow-card);
+}
+
+.abikan-docs__hits button,
+.abikan-docs__empty {
+  display: block;
+  width: 100%;
+  min-height: 40px;
+  padding: 8px 12px;
+  border: 0;
+  border-bottom: 1px solid var(--color-line);
+  background: #fff;
+  color: var(--color-navy);
+  text-align: left;
+  cursor: pointer;
+}
+
+.abikan-docs__hits li:last-child button,
+.abikan-docs__empty {
+  border-bottom: 0;
+}
+
+.abikan-docs__hits button:hover {
+  background: var(--color-registration-soft);
+}
+
+.abikan-docs__empty {
+  color: var(--color-ink-muted);
+  cursor: default;
+}
+
+.abikan-docs__duration {
+  display: grid;
+  grid-template-columns: minmax(0, 140px) minmax(0, 200px);
+  gap: var(--space-3);
+  max-width: 520px;
+}
+
+.abikan-docs__recorded,
+.abikan-docs__muted,
+.abikan-docs__hint,
+.abikan-docs__blocked,
+.abikan-docs__chosen {
+  margin: 0;
+  color: var(--color-ink-muted);
+  font-size: 0.86rem;
+}
+
+.abikan-docs__recorded {
+  color: var(--color-navy);
+}
+
+.abikan-docs__chosen {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  color: var(--color-navy);
+  font-weight: 650;
+}
+
+.abikan-docs__clear {
+  border: 0;
+  background: none;
+  color: var(--color-link);
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.abikan-docs__optional-list {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.abikan-docs__optional {
+  border-bottom: 1px solid var(--color-line);
+  background: #f8fafb;
+}
+
+.abikan-docs__optional:last-child {
+  border-bottom: 0;
+}
+
+.abikan-docs__optional summary {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 var(--space-4);
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 650;
+  color: var(--color-navy);
+  list-style: none;
+}
+
+.abikan-docs__optional summary::-webkit-details-marker {
+  display: none;
+}
+
+.abikan-docs__optional summary::before {
+  content: "▸";
+  margin-right: 10px;
+  color: var(--color-ink-subtle);
+}
+
+.abikan-docs__optional[open] summary::before {
+  content: "▾";
+}
+
+.abikan-docs__optional .abikan-docs__muted {
+  padding: 0 var(--space-4) 12px 2.1rem;
+}
+
+@media (max-width: 800px) {
+  .abikan-docs__duration {
+    grid-template-columns: 1fr;
+  }
+}

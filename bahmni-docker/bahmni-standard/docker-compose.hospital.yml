@@ -1,0 +1,36 @@
+# Optional hospital overlay. Do not apply on the development MacBook.
+#
+# Usage (from bahmni-standard, after .env is populated):
+#   docker compose --env-file .env \
+#     -f docker-compose.yml \
+#     -f docker-compose.override.yml \
+#     -f docker-compose.hospital.yml \
+#     up -d
+#
+# Uses Compose reset/override so published ports are replaced, not appended.
+
+services:
+  abikan-api:
+    ports: !reset []
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "python",
+          "-c",
+          "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8787/health', timeout=3)",
+        ]
+      interval: 30s
+      timeout: 5s
+      retries: 5
+      start_period: 20s
+
+  odoo:
+    ports: !override
+      - "127.0.0.1:8069:8069"
+
+  dcm4chee:
+    ports: !override
+      - "127.0.0.1:8055:8055"
+      # DICOM C-STORE is LAN-wide if published. Uncomment only when a modality needs it.
+      # - "11112:11112"

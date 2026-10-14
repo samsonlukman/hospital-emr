@@ -1,0 +1,61 @@
+.abikan-sheet {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 188px;
+  gap: 12px;
+  align-items: start;
+}
+
+.abikan-sheet__main {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.abikan-sheet [id] {
+  scroll-margin-top: 72px;
+}
+
+.abikan-index {
+  position: sticky;
+  top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 8px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-sm);
+}
+
+.abikan-index button {
+  border: 0;
+  background: transparent;
+  color: var(--color-ink-muted);
+  font: inherit;
+  font-size: 0.84rem;
+  font-weight: 650;
+  text-align: left;
+  padding: 8px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.abikan-index button:hover,
+.abikan-index button.is-active {
+  background: var(--color-registration-soft);
+  color: var(--color-registration);
+}
+
+@media (max-width: 980px) {
+  .abikan-sheet {
+    grid-template-columns: 1fr;
+  }
+
+  .abikan-index {
+    position: static;
+    flex-direction: row;
+    flex-wrap: wrap;
+    order: -1;
+  }
+}

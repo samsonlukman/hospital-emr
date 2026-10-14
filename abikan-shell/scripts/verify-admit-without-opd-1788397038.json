@@ -1,0 +1,543 @@
+{
+  "stamp": 1788397038,
+  "checks": [
+    {
+      "name": "metadata",
+      "ok": true,
+      "detail": {
+        "status": 200
+      }
+    },
+    {
+      "name": "register_ADMITNO97038",
+      "ok": true,
+      "detail": {
+        "uuid": "c4d0aba2-aa72-4c41-aad9-9f8765e70f8c",
+        "mrn": "ABC200051"
+      }
+    },
+    {
+      "name": "register_ADMITOP97038",
+      "ok": true,
+      "detail": {
+        "uuid": "cbcf234c-74dc-425a-979e-44074f57cdf4",
+        "mrn": "ABC200052"
+      }
+    },
+    {
+      "name": "no_opd_patient_has_no_open_opd",
+      "ok": true,
+      "detail": {
+        "visits": 0
+      }
+    },
+    {
+      "name": "reception_cannot_admit",
+      "ok": true,
+      "detail": {
+        "status": 403,
+        "code": "forbidden"
+      }
+    },
+    {
+      "name": "admit_without_opd",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "body": {
+          "status": "ok",
+          "patient": {
+            "uuid": "c4d0aba2-aa72-4c41-aad9-9f8765e70f8c",
+            "name": "UATFIX ADMITNO97038",
+            "mrn": "ABC200051",
+            "sex": "Female",
+            "age": "34"
+          },
+          "assignment": null,
+          "awaiting": true,
+          "visitUuid": "e183b13f-9830-49d8-9333-e179615b3670",
+          "visitStartDatetime": "2026-09-03T00:57:21.000+0000",
+          "admissionEncounterUuid": "9a13a435-2d99-40af-97e6-90ec5cd1b6a6",
+          "message": "Admission requested. Nursing will assign a bed."
+        }
+      }
+    },
+    {
+      "name": "no_artificial_opd",
+      "ok": true,
+      "detail": {
+        "opd": 0,
+        "ipd": [
+          "e183b13f-9830-49d8-9333-e179615b3670"
+        ]
+      }
+    },
+    {
+      "name": "admission_encounter_on_ipd",
+      "ok": true,
+      "detail": {
+        "encounters": [
+          {
+            "uuid": "9a13a435-2d99-40af-97e6-90ec5cd1b6a6",
+            "encounterType": {
+              "name": "ADMISSION",
+              "uuid": "d3785931-5e07-11ef-8f7c-0242ac120002"
+            },
+            "encounterDatetime": "2026-09-03T00:57:21.000+0000"
+          }
+        ]
+      }
+    },
+    {
+      "name": "awaiting_bed_before_assignment",
+      "ok": true,
+      "detail": {
+        "status": "ok",
+        "patient": {
+          "uuid": "c4d0aba2-aa72-4c41-aad9-9f8765e70f8c",
+          "name": "UATFIX ADMITNO97038",
+          "mrn": "ABC200051",
+          "sex": "Female",
+          "age": "34"
+        },
+        "assignment": null,
+        "awaiting": true,
+        "visitUuid": "e183b13f-9830-49d8-9333-e179615b3670",
+        "visitStartDatetime": "2026-09-03T00:57:21.000+0000",
+        "admissionEncounterUuid": "9a13a435-2d99-40af-97e6-90ec5cd1b6a6",
+        "billing": {
+          "status": "needs_attention",
+          "message": "This patient has no financial account yet.",
+          "paymentLabel": null
+        }
+      }
+    },
+    {
+      "name": "nursing_sees_awaiting",
+      "ok": true,
+      "detail": {
+        "awaiting": [
+          "a14e9bac-ccc7-48c6-91b2-c4fd63c3afe5",
+          "c4d0aba2-aa72-4c41-aad9-9f8765e70f8c",
+          "7b220767-cc0a-4d14-897d-69b4a8b7f377",
+          "3db7f823-8e87-4264-8d04-693096e655d5",
+          "26b50a91-0e06-4153-b872-530a9c67a4c8"
+        ]
+      }
+    },
+    {
+      "name": "orders_blocked_while_awaiting_bed",
+      "ok": true,
+      "detail": {
+        "status": 409,
+        "body": {
+          "status": "error",
+          "code": "awaiting_bed",
+          "message": "This patient is waiting for a bed. Nursing must assign a bed before inpatient orders."
+        }
+      }
+    },
+    {
+      "name": "start_opd_for_second_patient",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "uuid": "772fe02d-f095-45c3-b27d-eb568517b50f"
+      }
+    },
+    {
+      "name": "opd_consultation_documented",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "encounter": "d672d447-8095-40fc-b510-85691cc35c02"
+      }
+    },
+    {
+      "name": "admit_with_existing_opd",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "body": {
+          "status": "ok",
+          "patient": {
+            "uuid": "cbcf234c-74dc-425a-979e-44074f57cdf4",
+            "name": "UATFIX ADMITOP97038",
+            "mrn": "ABC200052",
+            "sex": "Female",
+            "age": "34"
+          },
+          "assignment": null,
+          "awaiting": true,
+          "visitUuid": "bb47ee1c-bdb8-408f-92db-6078f41ca1e7",
+          "visitStartDatetime": "2026-09-03T00:57:25.000+0000",
+          "admissionEncounterUuid": "234f6de7-325b-4974-bc81-095d6cb80edb",
+          "message": "Admission requested. Nursing will assign a bed."
+        }
+      }
+    },
+    {
+      "name": "opd_ended_one_ipd",
+      "ok": true,
+      "detail": {
+        "ipd": [
+          "bb47ee1c-bdb8-408f-92db-6078f41ca1e7"
+        ],
+        "openOpd": 0,
+        "endedOpd": [
+          [
+            "772fe02d-f095-45c3-b27d-eb568517b50f",
+            "2026-09-03T00:57:25.000+0000"
+          ]
+        ]
+      }
+    },
+    {
+      "name": "opd_documentation_kept",
+      "ok": true,
+      "detail": {
+        "endedOpd": [
+          "772fe02d-f095-45c3-b27d-eb568517b50f"
+        ]
+      }
+    },
+    {
+      "name": "assign_bed_reuses_admission",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "body": {
+          "status": "ok",
+          "patient": {
+            "uuid": "c4d0aba2-aa72-4c41-aad9-9f8765e70f8c",
+            "name": "UATFIX ADMITNO97038",
+            "mrn": "ABC200051",
+            "sex": "Female",
+            "age": "34"
+          },
+          "assignment": {
+            "areaName": "Aisha Children Ward",
+            "areaUuid": "652ff562-62e2-4a0c-8564-f17df728d731",
+            "bedNumber": "Bed 02",
+            "bedUuid": "190f592e-4eaf-4785-92dd-e713b40ca349",
+            "bedId": 6,
+            "status": "OCCUPIED",
+            "admitted": "2026-09-03T00:57:21.000+0000"
+          },
+          "awaiting": false,
+          "visitUuid": "e183b13f-9830-49d8-9333-e179615b3670",
+          "visitStartDatetime": "2026-09-03T00:57:21.000+0000",
+          "admissionEncounterUuid": "9a13a435-2d99-40af-97e6-90ec5cd1b6a6",
+          "message": "Admitted to Aisha Children Ward \u00b7 Bed 02.",
+          "billing": {
+            "status": "needs_attention",
+            "message": "This patient has no financial account yet. Accommodation can be billed when the account is ready."
+          }
+        },
+        "bed": "Bed 02"
+      }
+    },
+    {
+      "name": "same_ipd_after_bed",
+      "ok": true,
+      "detail": {
+        "ipd": [
+          "e183b13f-9830-49d8-9333-e179615b3670"
+        ]
+      }
+    },
+    {
+      "name": "occupied_stay",
+      "ok": true,
+      "detail": {
+        "status": "ok",
+        "patient": {
+          "uuid": "c4d0aba2-aa72-4c41-aad9-9f8765e70f8c",
+          "name": "UATFIX ADMITNO97038",
+          "mrn": "ABC200051",
+          "sex": "Female",
+          "age": "34"
+        },
+        "assignment": {
+          "areaName": "Aisha Children Ward",
+          "areaUuid": "652ff562-62e2-4a0c-8564-f17df728d731",
+          "bedNumber": "Bed 02",
+          "bedUuid": "190f592e-4eaf-4785-92dd-e713b40ca349",
+          "bedId": 6,
+          "status": "OCCUPIED",
+          "admitted": "2026-09-03T00:57:21.000+0000"
+        },
+        "awaiting": false,
+        "visitUuid": "e183b13f-9830-49d8-9333-e179615b3670",
+        "visitStartDatetime": "2026-09-03T00:57:21.000+0000",
+        "admissionEncounterUuid": "9a13a435-2d99-40af-97e6-90ec5cd1b6a6",
+        "billing": {
+          "status": "tariff_missing",
+          "message": "Accommodation tariff has not been configured for this room."
+        }
+      }
+    },
+    {
+      "name": "ipd_prescription",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "encounter": "c468057a-3aef-4d8e-a0ec-a0e30d891d76"
+      }
+    },
+    {
+      "name": "mar_schedule",
+      "ok": true,
+      "detail": {
+        "status": "ok",
+        "patientUuid": "c4d0aba2-aa72-4c41-aad9-9f8765e70f8c",
+        "visitUuid": "e183b13f-9830-49d8-9333-e179615b3670",
+        "admissionEncounterUuid": "9a13a435-2d99-40af-97e6-90ec5cd1b6a6",
+        "createdOrderUuids": [
+          "10fecc44-86d6-47a5-86a2-0a984874d16c"
+        ],
+        "alreadyScheduledOrderUuids": [],
+        "issues": []
+      }
+    },
+    {
+      "name": "prescription_did_not_create_opd",
+      "ok": true,
+      "detail": {
+        "ipd": [
+          "e183b13f-9830-49d8-9333-e179615b3670"
+        ]
+      }
+    },
+    {
+      "name": "ipd_lab_order",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "body": {
+          "status": "ok",
+          "encounterUuid": "c468057a-3aef-4d8e-a0ec-a0e30d891d76",
+          "orders": [
+            {
+              "uuid": "ac8ae458-9e13-40d8-b6fb-fec894dc713f",
+              "orderNumber": "ORD-78",
+              "testName": "Malarial smear",
+              "conceptUuid": "32AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "patientUuid": "c4d0aba2-aa72-4c41-aad9-9f8765e70f8c",
+              "visitUuid": "e183b13f-9830-49d8-9333-e179615b3670",
+              "encounterUuid": "c468057a-3aef-4d8e-a0ec-a0e30d891d76",
+              "urgency": "ROUTINE",
+              "accession": "",
+              "ordered": "2026-09-03T00:57:34.000+0000",
+              "provider": "doctor.abikan - Clinical Doctor",
+              "comment": "",
+              "patientName": "UATFIX ADMITNO97038",
+              "mrn": "ABC200051"
+            }
+          ],
+          "message": "Laboratory order saved.",
+          "charge": {
+            "status": "ok",
+            "patient": {
+              "uuid": "c4d0aba2-aa72-4c41-aad9-9f8765e70f8c",
+              "name": "UATFIX ADMITNO97038",
+              "mrn": "ABC200051"
+            },
+            "tests": [
+              {
+                "orderUuid": "ac8ae458-9e13-40d8-b6fb-fec894dc713f",
+                "orderNumber": "ORD-78",
+                "testName": "Malarial smear",
+                "visitUuid": "e183b13f-9830-49d8-9333-e179615b3670",
+                "encounterUuid": "c468057a-3aef-4d8e-a0ec-a0e30d891d76",
+                "feeName": "Microscopy MP",
+                "feeAmount": {
+                  "amount": 1500.0,
+                  "formatted": "\u20a61,500.00",
+                  "currencyCode": "NGN",
+                  "currencySymbol": "\u20a6",
+                  "decimalPlaces": 2
+                },
+                "paymentStatus": "UNPAID",
+                "hasCharge": true,
+                "outstanding": {
+                  "amount": 1500.0,
+                  "formatted": "\u20a61,500.00",
+                  "currencyCode": "NGN",
+                  "currencySymbol": "\u20a6",
+                  "decimalPlaces": 2
+                },
+                "tax": {
+                  "amount": 0.0,
+                  "formatted": "\u20a60.00",
+                  "currencyCode": "NGN",
+                  "currencySymbol": "\u20a6",
+                  "decimalPlaces": 2
+                }
+              }
+            ],
+            "feeAmount": {
+              "amount": 1500.0,
+              "formatted": "\u20a61,500.00",
+              "currencyCode": "NGN",
+              "currencySymbol": "\u20a6",
+              "decimalPlaces": 2
+            },
+            "paymentStatus": "UNPAID",
+            "hasCharge": true,
+            "canCreateCharge": false,
+            "blockReason": "Please proceed to the cashier for payment.",
+            "partnerFound": true,
+            "outstanding": {
+              "amount": 1500.0,
+              "formatted": "\u20a61,500.00",
+              "currencyCode": "NGN",
+              "currencySymbol": "\u20a6",
+              "decimalPlaces": 2
+            },
+            "message": null,
+            "alreadyCreated": false,
+            "recordedBy": "doctor.abikan"
+          },
+          "chargeError": null
+        }
+      }
+    },
+    {
+      "name": "ipd_radiology_order",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "body": {
+          "status": "ok",
+          "encounterUuid": "c468057a-3aef-4d8e-a0ec-a0e30d891d76",
+          "visitUuid": "e183b13f-9830-49d8-9333-e179615b3670",
+          "orders": [
+            {
+              "uuid": "19fb024e-ef5f-40a6-bbcc-8a22e7cf4c5a",
+              "orderNumber": "ORD-79",
+              "testName": "Chest X-ray",
+              "conceptUuid": "165152AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "patientUuid": "c4d0aba2-aa72-4c41-aad9-9f8765e70f8c",
+              "visitUuid": "e183b13f-9830-49d8-9333-e179615b3670",
+              "encounterUuid": "c468057a-3aef-4d8e-a0ec-a0e30d891d76",
+              "urgency": "ROUTINE",
+              "accession": "",
+              "ordered": "2026-09-03T00:57:37.000+0000",
+              "provider": "doctor.abikan - Clinical Doctor"
+            }
+          ],
+          "message": "Radiology order created."
+        }
+      }
+    },
+    {
+      "name": "orders_did_not_create_opd",
+      "ok": true,
+      "detail": {
+        "openOpd": 0
+      }
+    },
+    {
+      "name": "cannot_use_other_patient_visit",
+      "ok": true,
+      "detail": {
+        "status": 409,
+        "body": {
+          "status": "error",
+          "code": "wrong_patient",
+          "message": "This visit does not belong to this patient."
+        }
+      }
+    },
+    {
+      "name": "create_visit_no_card_after_admit",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "keys": [
+          "admissionActive",
+          "canStartVisit",
+          "code",
+          "message",
+          "patient",
+          "status",
+          "visit",
+          "visitTypes"
+        ],
+        "code": "admission_in_progress"
+      }
+    },
+    {
+      "name": "create_visit_blocked_for_admitted",
+      "ok": true,
+      "detail": {
+        "status": 409,
+        "body": {
+          "status": "existing",
+          "created": false,
+          "code": "admission_in_progress",
+          "message": "This patient is already admitted. Continue with the existing admission visit.",
+          "uuid": "bb47ee1c-bdb8-408f-92db-6078f41ca1e7",
+          "visitType": "IPD",
+          "visitTypeLabel": "Admission",
+          "location": "OPD-1",
+          "locationUuid": "",
+          "startDatetime": "2026-09-03T00:57:25.000+0000",
+          "dailyVisitNumber": "",
+          "open": true
+        }
+      }
+    },
+    {
+      "name": "register_ADMITRV97038",
+      "ok": true,
+      "detail": {
+        "uuid": "9b65f188-4eba-4e56-a693-7f98a35c21e6",
+        "mrn": "ABC200053"
+      }
+    },
+    {
+      "name": "create_visit_existing_patient_no_card",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "keys": [
+          "admissionActive",
+          "canStartVisit",
+          "code",
+          "message",
+          "patient",
+          "status",
+          "visit",
+          "visitTypes"
+        ]
+      }
+    }
+  ],
+  "failures": [],
+  "patients": {
+    "noOpd": {
+      "uuid": "c4d0aba2-aa72-4c41-aad9-9f8765e70f8c",
+      "mrn": "ABC200051"
+    },
+    "withOpd": {
+      "uuid": "cbcf234c-74dc-425a-979e-44074f57cdf4",
+      "mrn": "ABC200052"
+    }
+  },
+  "objects": {
+    "noOpd": {
+      "patientUuid": "c4d0aba2-aa72-4c41-aad9-9f8765e70f8c",
+      "ipdVisitUuid": "e183b13f-9830-49d8-9333-e179615b3670",
+      "admissionEncounterUuid": "9a13a435-2d99-40af-97e6-90ec5cd1b6a6",
+      "encounterType": "ADMISSION",
+      "startDatetime": "2026-09-03T00:57:21.000+0000"
+    },
+    "withOpd": {
+      "patientUuid": "cbcf234c-74dc-425a-979e-44074f57cdf4",
+      "endedOpdVisitUuid": "772fe02d-f095-45c3-b27d-eb568517b50f",
+      "ipdVisitUuid": "bb47ee1c-bdb8-408f-92db-6078f41ca1e7"
+    }
+  }
+}

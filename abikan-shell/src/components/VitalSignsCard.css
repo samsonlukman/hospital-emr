@@ -1,0 +1,280 @@
+.abikan-vital {
+  padding: var(--space-5) var(--space-6);
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-left: 3px solid var(--color-registration);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+}
+
+.abikan-vital__actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.abikan-vital__toggle {
+  display: inline-flex;
+  padding: 2px;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-sm);
+  background: #f8fafb;
+}
+
+.abikan-vital__toggle button {
+  min-height: 28px;
+  padding: 0 10px;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--color-ink-muted);
+  font-size: 0.8rem;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.abikan-vital__toggle button.is-active {
+  background: #fff;
+  color: var(--color-navy);
+  box-shadow: var(--shadow-card);
+}
+
+.abikan-vital__toggle button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.abikan-vital__record {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 36px;
+  padding: 0 12px;
+  border: 0;
+  background: none;
+  color: var(--color-ink-subtle);
+  font-weight: 600;
+  cursor: not-allowed;
+}
+
+.abikan-vital__record.is-live {
+  color: var(--color-teal);
+  cursor: pointer;
+}
+
+.abikan-vital__record.is-live:hover {
+  background: var(--color-teal-soft);
+  border-radius: var(--radius-sm);
+}
+
+.abikan-vital__blocked {
+  color: var(--color-ink-muted);
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.abikan-vital__form {
+  margin: 0 0 var(--space-5);
+  padding: var(--space-4);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-sm);
+  background: #f8fafb;
+}
+
+.abikan-vital__form-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-4);
+}
+
+.abikan-vital__field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--color-ink-subtle);
+}
+
+.abikan-vital__field em {
+  margin-left: 6px;
+  font-style: normal;
+  font-weight: 600;
+  text-transform: none;
+  letter-spacing: 0;
+  color: var(--color-ink-muted);
+}
+
+.abikan-vital__field input {
+  min-height: 44px;
+  padding: 0 12px;
+  border: 1px solid var(--color-line-strong);
+  border-radius: var(--radius-sm);
+  background: #fff;
+  color: var(--color-navy);
+  font-size: 1rem;
+  font-weight: 650;
+}
+
+.abikan-vital__field input:focus {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 1px;
+}
+
+.abikan-vital__field small {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.abikan-vital__field small.is-block {
+  color: var(--color-danger);
+}
+
+.abikan-vital__field small.is-warn {
+  color: var(--color-warning);
+}
+
+.abikan-vital__bmi-preview,
+.abikan-vital__form-warn,
+.abikan-vital__form-block,
+.abikan-vital__draft {
+  margin: var(--space-3) 0 0;
+  font-size: 0.84rem;
+}
+
+.abikan-vital__form-warn,
+.abikan-vital__draft {
+  color: var(--color-warning);
+}
+
+.abikan-vital__form-block {
+  color: var(--color-danger);
+}
+
+.abikan-vital__form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+}
+
+.abikan-vital__grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-5) var(--space-4);
+}
+
+.abikan-vital__label {
+  margin: 0;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-ink-subtle);
+}
+
+.abikan-vital__value {
+  margin: 6px 0 0;
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--color-navy);
+}
+
+.abikan-vital__value span {
+  margin-left: 6px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--color-ink-muted);
+}
+
+.abikan-vital__when,
+.abikan-vital__who,
+.abikan-vital__empty,
+.abikan-vital__note {
+  margin: 4px 0 0;
+  color: var(--color-ink-muted);
+  font-size: 0.82rem;
+}
+
+.abikan-vital__empty {
+  margin-top: 0;
+}
+
+.abikan-vital__confirm {
+  display: grid;
+  gap: var(--space-3);
+  margin: var(--space-3) 0 0;
+}
+
+.abikan-vital__confirm div {
+  min-width: 0;
+}
+
+.abikan-vital__confirm dt {
+  color: var(--color-ink-muted);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.abikan-vital__confirm dd {
+  margin: 4px 0 0;
+  overflow-wrap: anywhere;
+  color: var(--color-ink);
+  font-weight: 650;
+}
+
+@media (max-width: 1200px) {
+  .abikan-vital__grid,
+  .abikan-vital__form-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 800px) {
+  .abikan-vital__grid,
+  .abikan-vital__form-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .abikan-vital {
+    padding: var(--space-4);
+  }
+
+  .abikan-vital__actions {
+    width: 100%;
+  }
+
+  .abikan-vital__toggle,
+  .abikan-vital__record {
+    flex: 1 1 auto;
+  }
+
+  .abikan-vital__grid,
+  .abikan-vital__form-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .abikan-vital__form-actions {
+    flex-direction: column;
+  }
+
+  .abikan-vital__form-actions button {
+    width: 100%;
+  }
+
+  .abikan-vital__value,
+  .abikan-vital__who,
+  .abikan-table td {
+    overflow-wrap: anywhere;
+  }
+}

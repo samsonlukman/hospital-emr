@@ -1,0 +1,17 @@
+{
+  "currency": "NGN",
+  "cards": {
+    "individual": {
+      "id": "individual",
+      "label": "Individual Card",
+      "amount": 2000,
+      "productName": "Individual Card"
+    },
+    "family": {
+      "id": "family",
+      "label": "Family Card",
+      "amount": 5000,
+      "productName": "Family Card"
+    }
+  }
+}

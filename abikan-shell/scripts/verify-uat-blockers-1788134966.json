@@ -1,0 +1,2222 @@
+{
+  "stamp": 1788134966,
+  "synthetic": {
+    "patients": {
+      "labA": {
+        "uuid": "795a8ad0-745a-4c5e-b55e-6943e78e3a7c",
+        "mrn": "ABC200033 - UATFIX LABA34966",
+        "given": "UATFIX",
+        "family": "LABA34966",
+        "body": {
+          "status": "ok",
+          "uuid": "795a8ad0-745a-4c5e-b55e-6943e78e3a7c",
+          "identifier": "ABC200033",
+          "display": "ABC200033 - UATFIX LABA34966",
+          "identifierSource": "ABC",
+          "matches": []
+        }
+      },
+      "labB": {
+        "uuid": "f4bc965b-5b56-483a-8a4a-fcd5c3a54c43",
+        "mrn": "ABC200034 - UATFIX LABB34966",
+        "given": "UATFIX",
+        "family": "LABB34966",
+        "body": {
+          "status": "ok",
+          "uuid": "f4bc965b-5b56-483a-8a4a-fcd5c3a54c43",
+          "identifier": "ABC200034",
+          "display": "ABC200034 - UATFIX LABB34966",
+          "identifierSource": "ABC",
+          "matches": []
+        }
+      },
+      "pharmacy": {
+        "uuid": "4451a85c-759a-440c-8489-cf922cd9a1d1",
+        "mrn": "ABC200035 - UATFIX PHARM34966",
+        "given": "UATFIX",
+        "family": "PHARM34966",
+        "body": {
+          "status": "ok",
+          "uuid": "4451a85c-759a-440c-8489-cf922cd9a1d1",
+          "identifier": "ABC200035",
+          "display": "ABC200035 - UATFIX PHARM34966",
+          "identifierSource": "ABC",
+          "matches": []
+        }
+      },
+      "accommodation": {
+        "uuid": "bb238d0b-eed8-4e5d-a3ef-77c69a01588a",
+        "mrn": "ABC200036 - UATFIX ACC34966",
+        "given": "UATFIX",
+        "family": "ACC34966",
+        "body": {
+          "status": "ok",
+          "uuid": "bb238d0b-eed8-4e5d-a3ef-77c69a01588a",
+          "identifier": "ABC200036",
+          "display": "ABC200036 - UATFIX ACC34966",
+          "identifierSource": "ABC",
+          "matches": []
+        }
+      }
+    },
+    "visits": {
+      "a": "22417027-5d80-4167-b82f-3a6e7b4bd110",
+      "b": "403a66a2-dc98-47a3-8013-ca9009d0e91b",
+      "c": "16a2c775-f68b-4d83-a296-590085004bf8"
+    },
+    "encounters": {
+      "labA": "faee3e47-1fbe-46b7-a219-cba06f999a5a",
+      "pharmacy": "af6fb0e8-c4cc-4e2a-9bf3-c67085880f8b"
+    },
+    "labCatalogue": {
+      "id": "32AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "original": 1500.0
+    },
+    "labOrder": {
+      "uuid": "79253a61-3d74-4b79-b1b6-fb5ee0010f51",
+      "fee": 1500.0,
+      "invoice": null,
+      "raw": null
+    },
+    "stockReceipt": {
+      "status": 404,
+      "body": {
+        "status": "error",
+        "code": "not_found",
+        "message": "This medicine is not in the hospital catalogue."
+      }
+    },
+    "pharmacyCatalogue": {
+      "id": "2ee7a8c8-e9f0-4637-898f-4fcea987bea2",
+      "original": 2500.0
+    },
+    "prescription": {
+      "status": "ok",
+      "orderUuid": "867ff7c1-bfbf-4abf-88a5-9850a9864376",
+      "orderNumber": "ORD-45",
+      "patientUuid": "4451a85c-759a-440c-8489-cf922cd9a1d1",
+      "patientName": "UATFIX PHARM34966",
+      "mrn": "ABC200035",
+      "prescriber": "doctor.abikan - Clinical Doctor",
+      "ordered": "2026-08-31T00:10:44.000+0000",
+      "drugName": "Amoxicillin 500 mg \u2014 TEST",
+      "strength": "500 mg",
+      "dose": "1.0",
+      "doseUnits": "Tablet",
+      "route": "Oral",
+      "frequency": "Once a day",
+      "duration": "2 Days",
+      "instructions": "",
+      "quantity": 2.0,
+      "quantityUnits": "Tablet",
+      "paymentStatus": "UNPAID",
+      "dispensingStatus": "UNPAID",
+      "canDispense": false,
+      "blockReason": "Payment required before dispensing. Please proceed to the cashier.",
+      "stockOnHand": 0.0,
+      "stockAfter": 0.0,
+      "delivered": 0.0
+    },
+    "pharmacySale": [
+      {
+        "id": 71,
+        "price_unit": 2500.0,
+        "product_uom_qty": 2.0,
+        "order_id": [
+          66,
+          "S00066"
+        ],
+        "name": "Amoxicillin 500 mg \u2014 TEST - 2.0 Tablet"
+      }
+    ],
+    "pharmacyPayment": {
+      "status": "ok",
+      "success": true,
+      "requestId": "uat-pay-c-1788134966",
+      "recordedBy": "accountant.abikan",
+      "patient": {
+        "uuid": "4451a85c-759a-440c-8489-cf922cd9a1d1",
+        "name": "UATFIX PHARM34966",
+        "mrn": "ABC200035"
+      },
+      "journal": {
+        "id": 6,
+        "name": "Cash",
+        "code": "CSH1",
+        "type": "cash"
+      },
+      "payment": {
+        "id": 24,
+        "reference": "PCSH1/2026/00016",
+        "date": "2026-08-31",
+        "amount": {
+          "amount": 2000.0,
+          "formatted": "2,000.00 \u20a6",
+          "currencyCode": "NGN",
+          "currencySymbol": "\u20a6",
+          "decimalPlaces": 2
+        },
+        "journal": "Cash",
+        "journalId": 6,
+        "method": "Manual",
+        "state": "posted",
+        "patientName": "UATFIX PHARM34966",
+        "mrn": "ABC200035",
+        "patientUuid": "4451a85c-759a-440c-8489-cf922cd9a1d1",
+        "relatedInvoices": [
+          {
+            "id": 79,
+            "number": "INV/2026/00055"
+          }
+        ],
+        "createUid": "Administrator",
+        "createDate": "2026-08-31 00:11:16"
+      },
+      "account": {
+        "status": "ok",
+        "readOnly": true,
+        "patient": {
+          "uuid": "4451a85c-759a-440c-8489-cf922cd9a1d1",
+          "name": "UATFIX PHARM34966",
+          "mrn": "ABC200035"
+        },
+        "partnerFound": true,
+        "message": null,
+        "currency": {
+          "code": "NGN",
+          "symbol": "\u20a6",
+          "decimalPlaces": 2,
+          "position": "after"
+        },
+        "summary": {
+          "outstandingByCurrency": [],
+          "paidByCurrency": [
+            {
+              "amount": 2000.0,
+              "formatted": "2,000.00 \u20a6",
+              "currencyCode": "NGN",
+              "currencySymbol": "\u20a6",
+              "decimalPlaces": 2
+            }
+          ],
+          "billedByCurrency": [
+            {
+              "amount": 2000.0,
+              "formatted": "2,000.00 \u20a6",
+              "currencyCode": "NGN",
+              "currencySymbol": "\u20a6",
+              "decimalPlaces": 2
+            }
+          ]
+        },
+        "departments": [
+          "Pharmacy",
+          "Registration"
+        ],
+        "activity": [
+          {
+            "kind": "invoice",
+            "department": "Registration",
+            "departmentIdentified": true,
+            "description": "Individual Card",
+            "invoiceNumber": "INV/2026/00055",
+            "invoiceId": 79,
+            "statusLabel": "PAID",
+            "amount": {
+              "amount": 2000.0,
+              "formatted": "2,000.00 \u20a6",
+              "currencyCode": "NGN",
+              "currencySymbol": "\u20a6",
+              "decimalPlaces": 2
+            },
+            "outstanding": {
+              "amount": 0.0,
+              "formatted": "0.00 \u20a6",
+              "currencyCode": "NGN",
+              "currencySymbol": "\u20a6",
+              "decimalPlaces": 2
+            },
+            "pharmacyStatus": null
+          },
+          {
+            "kind": "unbilled_order",
+            "department": "Pharmacy",
+            "departmentIdentified": true,
+            "description": "Amoxicillin 500 mg \u2014 TEST (Oral capsule)",
+            "invoiceNumber": null,
+            "invoiceId": null,
+            "statusLabel": "UNBILLED",
+            "amount": {
+              "amount": 5750.0,
+              "formatted": "5,750.00 \u20a6",
+              "currencyCode": "NGN",
+              "currencySymbol": "\u20a6",
+              "decimalPlaces": 2
+            },
+            "outstanding": {
+              "amount": 5750.0,
+              "formatted": "5,750.00 \u20a6",
+              "currencyCode": "NGN",
+              "currencySymbol": "\u20a6",
+              "decimalPlaces": 2
+            },
+            "pharmacyStatus": "UNPAID",
+            "orderName": "S00066"
+          }
+        ],
+        "invoices": [
+          {
+            "id": 79,
+            "number": "INV/2026/00055",
+            "date": "2026-08-31",
+            "department": "Registration",
+            "departmentIdentified": true,
+            "state": "posted",
+            "paymentState": "paid",
+            "paymentStateLabel": "PAID",
+            "origin": "S00064",
+            "description": "Individual Card",
+            "untaxed": {
+              "amount": 2000.0,
+              "formatted": "2,000.00 \u20a6",
+              "currencyCode": "NGN",
+              "currencySymbol": "\u20a6",
+              "decimalPlaces": 2
+            },
+            "tax": {
+              "amount": 0.0,
+              "formatted": "0.00 \u20a6",
+              "currencyCode": "NGN",
+              "currencySymbol": "\u20a6",
+              "decimalPlaces": 2
+            },
+            "hasTax": false,
+            "total": {
+              "amount": 2000.0,
+              "formatted": "2,000.00 \u20a6",
+              "currencyCode": "NGN",
+              "currencySymbol": "\u20a6",
+              "decimalPlaces": 2
+            },
+            "paid": {
+              "amount": 2000.0,
+              "formatted": "2,000.00 \u20a6",
+              "currencyCode": "NGN",
+              "currencySymbol": "\u20a6",
+              "decimalPlaces": 2
+            },
+            "outstanding": {
+              "amount": 0.0,
+              "formatted": "0.00 \u20a6",
+              "currencyCode": "NGN",
+              "currencySymbol": "\u20a6",
+              "decimalPlaces": 2
+            },
+            "lines": [
+              {
+                "description": "Individual Card",
+                "quantity": 1.0,
+                "unitPrice": {
+                  "amount": 2000.0,
+                  "formatted": "2,000.00 \u20a6",
+                  "currencyCode": "NGN",
+                  "currencySymbol": "\u20a6",
+                  "decimalPlaces": 2
+                },
+                "subtotal": {
+                  "amount": 2000.0,
+                  "formatted": "2,000.00 \u20a6",
+                  "currencyCode": "NGN",
+                  "currencySymbol": "\u20a6",
+                  "decimalPlaces": 2
+                },
+                "total": {
+                  "amount": 2000.0,
+                  "formatted": "2,000.00 \u20a6",
+                  "currencyCode": "NGN",
+                  "currencySymbol": "\u20a6",
+                  "decimalPlaces": 2
+                },
+                "taxNames": []
+              }
+            ],
+            "pharmacyStatus": null
+          }
+        ],
+        "payments": [
+          {
+            "id": 24,
+            "reference": "PCSH1/2026/00016",
+            "date": "2026-08-31",
+            "amount": {
+              "amount": 2000.0,
+              "formatted": "2,000.00 \u20a6",
+              "currencyCode": "NGN",
+              "currencySymbol": "\u20a6",
+              "decimalPlaces": 2
+            },
+            "journal": "Cash",
+            "method": "Manual",
+            "state": "posted",
+            "relatedInvoices": [
+              {
+                "id": 79,
+                "number": "INV/2026/00055"
+              }
+            ],
+            "allocationConfirmed": true
+          }
+        ],
+        "pharmacy": [
+          {
+            "orderName": "S00066",
+            "description": "Amoxicillin 500 mg \u2014 TEST (Oral capsule)",
+            "invoiceNumber": null,
+            "invoiceId": null,
+            "paymentStateLabel": "UNPAID",
+            "dispensingStatus": "UNPAID",
+            "pickingName": null,
+            "pickingState": null
+          }
+        ],
+        "limitations": {
+          "paymentAllocation": "confirmed",
+          "partialPaymentExample": false
+        }
+      },
+      "receiptAvailable": true,
+      "idempotentReplay": false
+    },
+    "dispense": {
+      "status": "error",
+      "code": "unpaid",
+      "message": "Payment required before dispensing. Please proceed to the cashier."
+    },
+    "pickings": [],
+    "accommodationConfigBefore": {
+      "company": [
+        {
+          "id": 1,
+          "name": "Bahmni",
+          "currency_id": [
+            2,
+            "USD"
+          ]
+        }
+      ],
+      "shop": [
+        {
+          "id": 6,
+          "name": "Accommodation",
+          "pricelist_id": [
+            7,
+            "Hospital Accommodation (NGN)"
+          ]
+        }
+      ],
+      "hawawu": [
+        {
+          "id": 2393,
+          "name": "Accommodation \u2014 Hawawu Maternity Ward",
+          "list_price": 55000.0
+        }
+      ],
+      "historical": [
+        {
+          "id": 77,
+          "name": "INV/2026/00053",
+          "amount_total": 55000.0,
+          "currency_id": [
+            2,
+            "USD"
+          ],
+          "payment_state": "not_paid"
+        }
+      ]
+    },
+    "admission": {
+      "bed": {
+        "bedUuid": "5daaed3b-6249-47e1-a184-259fd4484dd8",
+        "bedId": 3,
+        "bedNumber": "Bed 03",
+        "status": "AVAILABLE",
+        "areaName": "Hawawu Maternity Ward",
+        "areaUuid": "f0f005dd-c95d-47f1-894a-b263783dd5e6",
+        "patientUuid": null,
+        "patientName": null,
+        "mrn": null,
+        "sex": null,
+        "age": null,
+        "admitted": null
+      },
+      "assign": {
+        "status": "ok",
+        "patient": {
+          "uuid": "bb238d0b-eed8-4e5d-a3ef-77c69a01588a",
+          "name": "UATFIX ACC34966",
+          "mrn": "ABC200036",
+          "sex": "Female",
+          "age": "37"
+        },
+        "assignment": {
+          "areaName": "Hawawu Maternity Ward",
+          "areaUuid": "f0f005dd-c95d-47f1-894a-b263783dd5e6",
+          "bedNumber": "Bed 03",
+          "bedUuid": "5daaed3b-6249-47e1-a184-259fd4484dd8",
+          "bedId": 3,
+          "status": "OCCUPIED",
+          "admitted": "2026-08-31T00:11:39.000+0000"
+        },
+        "awaiting": false,
+        "message": "Admitted to Hawawu Maternity Ward \u00b7 Bed 03.",
+        "billing": {
+          "status": "ok",
+          "message": null,
+          "paymentLabel": "OUTSTANDING",
+          "chargeCount": 1,
+          "outstanding": {
+            "amount": 55000.0,
+            "formatted": "\u20a655,000.00",
+            "currencyCode": "NGN",
+            "currencySymbol": "\u20a6",
+            "decimalPlaces": 2
+          },
+          "paid": {
+            "amount": 0.0,
+            "formatted": "\u20a60.00",
+            "currencyCode": "NGN",
+            "currencySymbol": "\u20a6",
+            "decimalPlaces": 2
+          },
+          "total": {
+            "amount": 55000.0,
+            "formatted": "\u20a655,000.00",
+            "currencyCode": "NGN",
+            "currencySymbol": "\u20a6",
+            "decimalPlaces": 2
+          },
+          "created": true
+        }
+      }
+    },
+    "accommodationInvoices": [
+      {
+        "id": 82,
+        "number": "INV/2026/00057",
+        "date": "2026-08-31",
+        "department": "Accommodation",
+        "departmentIdentified": true,
+        "state": "posted",
+        "paymentState": "not_paid",
+        "paymentStateLabel": "UNPAID",
+        "origin": "S00067",
+        "description": "Hawawu Maternity Ward \u00b7 Bed 03 \u00b7 31 Aug",
+        "untaxed": {
+          "amount": 55000.0,
+          "formatted": "55,000.00 \u20a6",
+          "currencyCode": "NGN",
+          "currencySymbol": "\u20a6",
+          "decimalPlaces": 2
+        },
+        "tax": {
+          "amount": 0.0,
+          "formatted": "0.00 \u20a6",
+          "currencyCode": "NGN",
+          "currencySymbol": "\u20a6",
+          "decimalPlaces": 2
+        },
+        "hasTax": false,
+        "total": {
+          "amount": 55000.0,
+          "formatted": "55,000.00 \u20a6",
+          "currencyCode": "NGN",
+          "currencySymbol": "\u20a6",
+          "decimalPlaces": 2
+        },
+        "paid": {
+          "amount": 0.0,
+          "formatted": "0.00 \u20a6",
+          "currencyCode": "NGN",
+          "currencySymbol": "\u20a6",
+          "decimalPlaces": 2
+        },
+        "outstanding": {
+          "amount": 55000.0,
+          "formatted": "55,000.00 \u20a6",
+          "currencyCode": "NGN",
+          "currencySymbol": "\u20a6",
+          "decimalPlaces": 2
+        },
+        "lines": [
+          {
+            "description": "Hawawu Maternity Ward \u00b7 Bed 03 \u00b7 31 Aug",
+            "quantity": 1.0,
+            "unitPrice": {
+              "amount": 55000.0,
+              "formatted": "55,000.00 \u20a6",
+              "currencyCode": "NGN",
+              "currencySymbol": "\u20a6",
+              "decimalPlaces": 2
+            },
+            "subtotal": {
+              "amount": 55000.0,
+              "formatted": "55,000.00 \u20a6",
+              "currencyCode": "NGN",
+              "currencySymbol": "\u20a6",
+              "decimalPlaces": 2
+            },
+            "total": {
+              "amount": 55000.0,
+              "formatted": "55,000.00 \u20a6",
+              "currencyCode": "NGN",
+              "currencySymbol": "\u20a6",
+              "decimalPlaces": 2
+            },
+            "taxNames": []
+          }
+        ],
+        "pharmacyStatus": null
+      }
+    ],
+    "accommodationOdooMoves": [
+      {
+        "id": 82,
+        "name": "INV/2026/00057",
+        "amount_total": 55000.0,
+        "currency_id": [
+          121,
+          "NGN"
+        ],
+        "invoice_origin": "S00067"
+      }
+    ],
+    "openelis": {
+      "patient": {
+        "uuid": "795a8ad0-745a-4c5e-b55e-6943e78e3a7c",
+        "mrn": "ABC200033 - UATFIX LABA34966",
+        "given": "UATFIX",
+        "family": "LABA34966",
+        "body": {
+          "status": "ok",
+          "uuid": "795a8ad0-745a-4c5e-b55e-6943e78e3a7c",
+          "identifier": "ABC200033",
+          "display": "ABC200033 - UATFIX LABA34966",
+          "identifierSource": "ABC",
+          "matches": []
+        }
+      },
+      "order": "79253a61-3d74-4b79-b1b6-fb5ee0010f51",
+      "encounter": "faee3e47-1fbe-46b7-a219-cba06f999a5a",
+      "boardOrDetail": {
+        "status": "ok",
+        "orders": [
+          {
+            "uuid": "79253a61-3d74-4b79-b1b6-fb5ee0010f51",
+            "orderNumber": "ORD-44",
+            "testName": "Malarial smear",
+            "patientUuid": "795a8ad0-745a-4c5e-b55e-6943e78e3a7c",
+            "visitUuid": "22417027-5d80-4167-b82f-3a6e7b4bd110",
+            "patientName": "UATFIX LABA34966",
+            "mrn": "ABC200033",
+            "ordered": "2026-08-31T00:10:21.000+0000",
+            "urgency": "ROUTINE",
+            "accession": "",
+            "provider": "doctor.abikan - Clinical Doctor",
+            "comment": "",
+            "outsourced": false,
+            "stage": "unknown",
+            "laboratoryStatus": "Status unavailable",
+            "resultMapping": "none",
+            "statusMessage": "Laboratory status could not be loaded.",
+            "hasResult": false,
+            "paymentStatus": "UNPAID",
+            "hasCharge": true,
+            "feeAmount": {
+              "amount": 1500.0,
+              "formatted": "\u20a61,500.00",
+              "currencyCode": "NGN",
+              "currencySymbol": "\u20a6",
+              "decimalPlaces": 2
+            }
+          },
+          {
+            "uuid": "b9616c14-4de4-4595-9c34-6009ae87cf81",
+            "orderNumber": "ORD-37",
+            "testName": "Malarial smear",
+            "patientUuid": "95e8f010-d127-4a8d-b651-23bdb4293dc6",
+            "visitUuid": "dbafdde7-843f-48cd-90fe-a0bd3231e5ac",
+            "patientName": "RCAUDIT ALPHA74627",
+            "mrn": "ABC200028",
+            "ordered": "2026-08-30T07:24:37.000+0000",
+            "urgency": "ROUTINE",
+            "accession": "",
+            "provider": "doctor.abikan - Clinical Doctor",
+            "comment": "",
+            "outsourced": false,
+            "stage": "pending",
+            "laboratoryStatus": "Not started",
+            "resultMapping": "unique",
+            "statusMessage": "",
+            "hasResult": false,
+            "paymentStatus": "PAID",
+            "hasCharge": true,
+            "feeAmount": {
+              "amount": 1511.0,
+              "formatted": "\u20a61,511.00",
+              "currencyCode": "NGN",
+              "currencySymbol": "\u20a6",
+              "decimalPlaces": 2
+            }
+          },
+          {
+            "uuid": "a9866c73-653e-4572-ada9-239c57a15746",
+            "orderNumber": "ORD-35",
+            "testName": "Malarial smear",
+            "patientUuid": "3bf9dc63-6795-4ecd-8f8b-388cdcb2507d",
+            "visitUuid": "0e4ad90f-450f-4b38-ad92-4d41f62f4fad",
+            "patientName": "PRICE LIFECYCLEA",
+            "mrn": "ABC200025",
+            "ordered": "2026-08-30T00:48:21.000+0000",
+            "urgency": "ROUTINE",
+            "accession": "",
+            "provider": "doctor.abikan - Clinical Doctor",
+            "comment": "",
+            "outsourced": false,
+            "stage": "pending",
+            "laboratoryStatus": "Not started",
+            "resultMapping": "unique",
+            "statusMessage": "",
+            "hasResult": false,
+            "paymentStatus": "UNPAID",
+            "hasCharge": true,
+            "feeAmount": {
+              "amount": 1511.0,
+              "formatted": "\u20a61,511.00",
+              "currencyCode": "NGN",
+              "currencySymbol": "\u20a6",
+              "decimalPlaces": 2
+            }
+          },
+          {
+            "uuid": "d8d8b553-1f59-493f-bff2-f60fdd0b5138",
+            "orderNumber": "ORD-33",
+            "testName": "Malarial smear",
+            "patientUuid": "f4acea76-bcbe-435c-8e53-609a01d0c3ec",
+            "visitUuid": "85f37be1-72af-4e3c-935c-45d531c6a8a4",
+            "patientName": "ABIKAN UAT TEST PATIENT",
+            "mrn": "ABC200021",
+            "ordered": "2026-08-27T01:29:14.000+0000",
+            "urgency": "ROUTINE",
+            "accession": "",
+            "provider": "doctor.abikan - Clinical Doctor",
+            "comment": "ABIKAN UAT DEVELOPMENT",
+            "outsourced": false,
+            "stage": "pending",
+            "laboratoryStatus": "Not started",
+            "resultMapping": "unique",
+            "statusMessage": "",
+            "hasResult": false,
+            "paymentStatus": "UNPAID",
+            "hasCharge": true,
+            "feeAmount": {
+              "amount": 1500.0,
+              "formatted": "\u20a61,500.00",
+              "currencyCode": "NGN",
+              "currencySymbol": "\u20a6",
+              "decimalPlaces": 2
+            }
+          },
+          {
+            "uuid": "07cf32a8-c31b-4d61-906f-30a83785ce96",
+            "orderNumber": "ORD-10",
+            "testName": "Malarial smear",
+            "patientUuid": "f242364e-b70f-4fec-b29e-8ad4fbe147b5",
+            "visitUuid": "6478a94e-1657-4abe-9271-7cf92b821576",
+            "patientName": "ABIKAN E2E TEST PATIENT",
+            "mrn": "ABC200016",
+            "ordered": "2026-08-19T23:19:32.000+0000",
+            "urgency": "ROUTINE",
+            "accession": "9a88a85d-a2db-4656-94bd-fb55c1b01688",
+            "provider": "doctor.abikan - Clinical Doctor",
+            "comment": "",
+            "outsourced": false,
+            "stage": "completed",
+            "laboratoryStatus": "Results final",
+            "resultMapping": "ambiguous",
+            "statusMessage": "OpenELIS has a finalized result, but duplicate same-test orders prevent a safe order match.",
+            "hasResult": false,
+            "paymentStatus": "UNPAID",
+            "hasCharge": true,
+            "feeAmount": {
+              "amount": 1500.0,
+              "formatted": "\u20a61,500.00",
+              "currencyCode": "NGN",
+              "currencySymbol": "\u20a6",
+              "decimalPlaces": 2
+            }
+          },
+          {
+            "uuid": "a915d836-e429-4443-afc1-5401f16f037c",
+            "orderNumber": "ORD-9",
+            "testName": "Malarial smear",
+            "patientUuid": "f242364e-b70f-4fec-b29e-8ad4fbe147b5",
+            "visitUuid": "6478a94e-1657-4abe-9271-7cf92b821576",
+            "patientName": "ABIKAN E2E TEST PATIENT",
+            "mrn": "ABC200016",
+            "ordered": "2026-08-19T23:18:26.000+0000",
+            "urgency": "ROUTINE",
+            "accession": "9a88a85d-a2db-4656-94bd-fb55c1b01688",
+            "provider": "doctor.abikan - Clinical Doctor",
+            "comment": "",
+            "outsourced": false,
+            "stage": "completed",
+            "laboratoryStatus": "Results final",
+            "resultMapping": "ambiguous",
+            "statusMessage": "OpenELIS has a finalized result, but duplicate same-test orders prevent a safe order match.",
+            "hasResult": false,
+            "paymentStatus": "UNPAID",
+            "hasCharge": false,
+            "feeAmount": {
+              "amount": 1500.0,
+              "formatted": "\u20a61,500.00",
+              "currencyCode": "NGN",
+              "currencySymbol": "\u20a6",
+              "decimalPlaces": 2
+            }
+          },
+          {
+            "uuid": "c2421f0b-fa94-4ae8-a493-4f657ab7793d",
+            "orderNumber": "ORD-8",
+            "testName": "Urine Toxicology/Drug Test",
+            "patientUuid": "f242364e-b70f-4fec-b29e-8ad4fbe147b5",
+            "visitUuid": "6478a94e-1657-4abe-9271-7cf92b821576",
+            "patientName": "ABIKAN E2E TEST PATIENT",
+            "mrn": "ABC200016",
+            "ordered": "2026-08-19T22:50:03.000+0000",
+            "urgency": "ROUTINE",
+            "accession": "9a88a85d-a2db-4656-94bd-fb55c1b01688",
+            "provider": "doctor.abikan - Clinical Doctor",
+            "comment": "Outsourced \u2014 send to the external laboratory.",
+            "outsourced": true,
+            "stage": "pending",
+            "laboratoryStatus": "Not started",
+            "resultMapping": "unique",
+            "statusMessage": "",
+            "hasResult": false,
+            "paymentStatus": "PAID",
+            "hasCharge": true,
+            "feeAmount": {
+              "amount": 15000.0,
+              "formatted": "\u20a615,000.00",
+              "currencyCode": "NGN",
+              "currencySymbol": "\u20a6",
+              "decimalPlaces": 2
+            }
+          },
+          {
+            "uuid": "887d629b-c085-4340-89a7-b58ad02254bc",
+            "orderNumber": "ORD-5",
+            "testName": "Malarial smear",
+            "patientUuid": "a9d97d4c-3ddf-4d28-8cfb-3008ffdfdd78",
+            "visitUuid": "9446e9e1-abc8-4c4e-aa10-f7b77e011859",
+            "patientName": "Fatima Abdullahi",
+            "mrn": "ABC200005",
+            "ordered": "2026-08-17T14:54:51.000+0000",
+            "urgency": "ROUTINE",
+            "accession": "",
+            "provider": "abikan.admin - Hospital EMR Development Admin",
+            "comment": "TEST laboratory billing",
+            "outsourced": false,
+            "stage": "pending",
+            "laboratoryStatus": "Not started",
+            "resultMapping": "unique",
+            "statusMessage": "",
+            "hasResult": false,
+            "paymentStatus": "PAID",
+            "hasCharge": true,
+            "feeAmount": {
+              "amount": 40.0,
+              "formatted": "\u20a640.00",
+              "currencyCode": "NGN",
+              "currencySymbol": "\u20a6",
+              "decimalPlaces": 2
+            }
+          }
+        ],
+        "pending": [
+          {
+            "uuid": "b9616c14-4de4-4595-9c34-6009ae87cf81",
+            "orderNumber": "ORD-37",
+            "testName": "Malarial smear",
+            "patientUuid": "95e8f010-d127-4a8d-b651-23bdb4293dc6",
+            "visitUuid": "dbafdde7-843f-48cd-90fe-a0bd3231e5ac",
+            "patientName": "RCAUDIT ALPHA74627",
+            "mrn": "ABC200028",
+            "ordered": "2026-08-30T07:24:37.000+0000",
+            "urgency": "ROUTINE",
+            "accession": "",
+            "provider": "doctor.abikan - Clinical Doctor",
+            "comment": "",
+            "outsourced": false,
+            "stage": "pending",
+            "laboratoryStatus": "Not started",
+            "resultMapping": "unique",
+            "statusMessage": "",
+            "hasResult": false,
+            "paymentStatus": "PAID",
+            "hasCharge": true,
+            "feeAmount": {
+              "amount": 1511.0,
+              "formatted": "\u20a61,511.00",
+              "currencyCode": "NGN",
+              "currencySymbol": "\u20a6",
+              "decimalPlaces": 2
+            }
+          },
+          {
+            "uuid": "a9866c73-653e-4572-ada9-239c57a15746",
+            "orderNumber": "ORD-35",
+            "testName": "Malarial smear",
+            "patientUuid": "3bf9dc63-6795-4ecd-8f8b-388cdcb2507d",
+            "visitUuid": "0e4ad90f-450f-4b38-ad92-4d41f62f4fad",
+            "patientName": "PRICE LIFECYCLEA",
+            "mrn": "ABC200025",
+            "ordered": "2026-08-30T00:48:21.000+0000",
+            "urgency": "ROUTINE",
+            "accession": "",
+            "provider": "doctor.abikan - Clinical Doctor",
+            "comment": "",
+            "outsourced": false,
+            "stage": "pending",
+            "laboratoryStatus": "Not started",
+            "resultMapping": "unique",
+            "statusMessage": "",
+            "hasResult": false,
+            "paymentStatus": "UNPAID",
+            "hasCharge": true,
+            "feeAmount": {
+              "amount": 1511.0,
+              "formatted": "\u20a61,511.00",
+              "currencyCode": "NGN",
+              "currencySymbol": "\u20a6",
+              "decimalPlaces": 2
+            }
+          },
+          {
+            "uuid": "d8d8b553-1f59-493f-bff2-f60fdd0b5138",
+            "orderNumber": "ORD-33",
+            "testName": "Malarial smear",
+            "patientUuid": "f4acea76-bcbe-435c-8e53-609a01d0c3ec",
+            "visitUuid": "85f37be1-72af-4e3c-935c-45d531c6a8a4",
+            "patientName": "ABIKAN UAT TEST PATIENT",
+            "mrn": "ABC200021",
+            "ordered": "2026-08-27T01:29:14.000+0000",
+            "urgency": "ROUTINE",
+            "accession": "",
+            "provider": "doctor.abikan - Clinical Doctor",
+            "comment": "ABIKAN UAT DEVELOPMENT",
+            "outsourced": false,
+            "stage": "pending",
+            "laboratoryStatus": "Not started",
+            "resultMapping": "unique",
+            "statusMessage": "",
+            "hasResult": false,
+            "paymentStatus": "UNPAID",
+            "hasCharge": true,
+            "feeAmount": {
+              "amount": 1500.0,
+              "formatted": "\u20a61,500.00",
+              "currencyCode": "NGN",
+              "currencySymbol": "\u20a6",
+              "decimalPlaces": 2
+            }
+          },
+          {
+            "uuid": "c2421f0b-fa94-4ae8-a493-4f657ab7793d",
+            "orderNumber": "ORD-8",
+            "testName": "Urine Toxicology/Drug Test",
+            "patientUuid": "f242364e-b70f-4fec-b29e-8ad4fbe147b5",
+            "visitUuid": "6478a94e-1657-4abe-9271-7cf92b821576",
+            "patientName": "ABIKAN E2E TEST PATIENT",
+            "mrn": "ABC200016",
+            "ordered": "2026-08-19T22:50:03.000+0000",
+            "urgency": "ROUTINE",
+            "accession": "9a88a85d-a2db-4656-94bd-fb55c1b01688",
+            "provider": "doctor.abikan - Clinical Doctor",
+            "comment": "Outsourced \u2014 send to the external laboratory.",
+            "outsourced": true,
+            "stage": "pending",
+            "laboratoryStatus": "Not started",
+            "resultMapping": "unique",
+            "statusMessage": "",
+            "hasResult": false,
+            "paymentStatus": "PAID",
+            "hasCharge": true,
+            "feeAmount": {
+              "amount": 15000.0,
+              "formatted": "\u20a615,000.00",
+              "currencyCode": "NGN",
+              "currencySymbol": "\u20a6",
+              "decimalPlaces": 2
+            }
+          },
+          {
+            "uuid": "887d629b-c085-4340-89a7-b58ad02254bc",
+            "orderNumber": "ORD-5",
+            "testName": "Malarial smear",
+            "patientUuid": "a9d97d4c-3ddf-4d28-8cfb-3008ffdfdd78",
+            "visitUuid": "9446e9e1-abc8-4c4e-aa10-f7b77e011859",
+            "patientName": "Fatima Abdullahi",
+            "mrn": "ABC200005",
+            "ordered": "2026-08-17T14:54:51.000+0000",
+            "urgency": "ROUTINE",
+            "accession": "",
+            "provider": "abikan.admin - Hospital EMR Development Admin",
+            "comment": "TEST laboratory billing",
+            "outsourced": false,
+            "stage": "pending",
+            "laboratoryStatus": "Not started",
+            "resultMapping": "unique",
+            "statusMessage": "",
+            "hasResult": false,
+            "paymentStatus": "PAID",
+            "hasCharge": true,
+            "feeAmount": {
+              "amount": 40.0,
+              "formatted": "\u20a640.00",
+              "currencyCode": "NGN",
+              "currencySymbol": "\u20a6",
+              "decimalPlaces": 2
+            }
+          }
+        ],
+        "processing": [],
+        "completed": [
+          {
+            "uuid": "07cf32a8-c31b-4d61-906f-30a83785ce96",
+            "orderNumber": "ORD-10",
+            "testName": "Malarial smear",
+            "patientUuid": "f242364e-b70f-4fec-b29e-8ad4fbe147b5",
+            "visitUuid": "6478a94e-1657-4abe-9271-7cf92b821576",
+            "patientName": "ABIKAN E2E TEST PATIENT",
+            "mrn": "ABC200016",
+            "ordered": "2026-08-19T23:19:32.000+0000",
+            "urgency": "ROUTINE",
+            "accession": "9a88a85d-a2db-4656-94bd-fb55c1b01688",
+            "provider": "doctor.abikan - Clinical Doctor",
+            "comment": "",
+            "outsourced": false,
+            "stage": "completed",
+            "laboratoryStatus": "Results final",
+            "resultMapping": "ambiguous",
+            "statusMessage": "OpenELIS has a finalized result, but duplicate same-test orders prevent a safe order match.",
+            "hasResult": false,
+            "paymentStatus": "UNPAID",
+            "hasCharge": true,
+            "feeAmount": {
+              "amount": 1500.0,
+              "formatted": "\u20a61,500.00",
+              "currencyCode": "NGN",
+              "currencySymbol": "\u20a6",
+              "decimalPlaces": 2
+            }
+          },
+          {
+            "uuid": "a915d836-e429-4443-afc1-5401f16f037c",
+            "orderNumber": "ORD-9",
+            "testName": "Malarial smear",
+            "patientUuid": "f242364e-b70f-4fec-b29e-8ad4fbe147b5",
+            "visitUuid": "6478a94e-1657-4abe-9271-7cf92b821576",
+            "patientName": "ABIKAN E2E TEST PATIENT",
+            "mrn": "ABC200016",
+            "ordered": "2026-08-19T23:18:26.000+0000",
+            "urgency": "ROUTINE",
+            "accession": "9a88a85d-a2db-4656-94bd-fb55c1b01688",
+            "provider": "doctor.abikan - Clinical Doctor",
+            "comment": "",
+            "outsourced": false,
+            "stage": "completed",
+            "laboratoryStatus": "Results final",
+            "resultMapping": "ambiguous",
+            "statusMessage": "OpenELIS has a finalized result, but duplicate same-test orders prevent a safe order match.",
+            "hasResult": false,
+            "paymentStatus": "UNPAID",
+            "hasCharge": false,
+            "feeAmount": {
+              "amount": 1500.0,
+              "formatted": "\u20a61,500.00",
+              "currencyCode": "NGN",
+              "currencySymbol": "\u20a6",
+              "decimalPlaces": 2
+            }
+          }
+        ],
+        "unknown": [
+          {
+            "uuid": "79253a61-3d74-4b79-b1b6-fb5ee0010f51",
+            "orderNumber": "ORD-44",
+            "testName": "Malarial smear",
+            "patientUuid": "795a8ad0-745a-4c5e-b55e-6943e78e3a7c",
+            "visitUuid": "22417027-5d80-4167-b82f-3a6e7b4bd110",
+            "patientName": "UATFIX LABA34966",
+            "mrn": "ABC200033",
+            "ordered": "2026-08-31T00:10:21.000+0000",
+            "urgency": "ROUTINE",
+            "accession": "",
+            "provider": "doctor.abikan - Clinical Doctor",
+            "comment": "",
+            "outsourced": false,
+            "stage": "unknown",
+            "laboratoryStatus": "Status unavailable",
+            "resultMapping": "none",
+            "statusMessage": "Laboratory status could not be loaded.",
+            "hasResult": false,
+            "paymentStatus": "UNPAID",
+            "hasCharge": true,
+            "feeAmount": {
+              "amount": 1500.0,
+              "formatted": "\u20a61,500.00",
+              "currencyCode": "NGN",
+              "currencySymbol": "\u20a6",
+              "decimalPlaces": 2
+            }
+          }
+        ],
+        "openelisUrl": "/openelis",
+        "processingNote": "Sample collection and result entry are done in the laboratory processing system."
+      }
+    },
+    "labResultsBeforeOpenelis": {
+      "a": {
+        "results": [
+          {
+            "orderUuid": "79253a61-3d74-4b79-b1b6-fb5ee0010f51",
+            "action": "NEW",
+            "accessionUuid": "faee3e47-1fbe-46b7-a219-cba06f999a5a",
+            "accessionDateTime": 1788135017000,
+            "visitStartTime": 1788134975000,
+            "accessionNotes": null,
+            "testName": "Malarial smear",
+            "testUnitOfMeasurement": null,
+            "testUuid": null,
+            "panelUuid": null,
+            "panelName": null,
+            "minNormal": null,
+            "maxNormal": null,
+            "resultUuid": null,
+            "result": null,
+            "notes": null,
+            "abnormal": null,
+            "provider": null,
+            "referredOut": false,
+            "resultDateTime": null,
+            "uploadedFileName": null,
+            "preferredTestName": "Malarial smear",
+            "preferredPanelName": null
+          }
+        ],
+        "tabularResult": {
+          "dates": [
+            {
+              "index": 0,
+              "date": "31-Aug-2026"
+            }
+          ],
+          "orders": [
+            {
+              "index": 0,
+              "testName": "Malarial smear",
+              "minNormal": null,
+              "maxNormal": null,
+              "testUnitOfMeasurement": null,
+              "panelName": null
+            }
+          ],
+          "values": []
+        }
+      },
+      "b": {
+        "results": [],
+        "tabularResult": {
+          "dates": [],
+          "orders": [],
+          "values": []
+        }
+      }
+    }
+  },
+  "restored": {
+    "laboratory:32AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA": {
+      "status": 200,
+      "price": 1500.0,
+      "body": "ok"
+    },
+    "pharmacy:2ee7a8c8-e9f0-4637-898f-4fcea987bea2": {
+      "status": 200,
+      "price": 2500.0,
+      "body": "ok"
+    },
+    "hawawu": 55000,
+    "reception_individual": 1.0
+  },
+  "checks": [
+    {
+      "name": "login_reception.abikan",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "login_doctor.abikan",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "login_nurse.abikan",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "login_lab.abikan",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "login_pharmacy.abikan",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "login_accountant.abikan",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "login_admin.abikan",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "registration_metadata",
+      "ok": true,
+      "detail": {
+        "status": 200
+      }
+    },
+    {
+      "name": "opd_location",
+      "ok": true,
+      "detail": {
+        "opd": "54f43754-c6ce-4472-890e-0f28acaeaea6",
+        "location": "5e232c47-8ff5-4c5c-8057-7e39a64fefa5"
+      }
+    },
+    {
+      "name": "register_LABA34966",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "uuid": "795a8ad0-745a-4c5e-b55e-6943e78e3a7c",
+        "mrn": "ABC200033 - UATFIX LABA34966"
+      }
+    },
+    {
+      "name": "register_LABB34966",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "uuid": "f4bc965b-5b56-483a-8a4a-fcd5c3a54c43",
+        "mrn": "ABC200034 - UATFIX LABB34966"
+      }
+    },
+    {
+      "name": "register_PHARM34966",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "uuid": "4451a85c-759a-440c-8489-cf922cd9a1d1",
+        "mrn": "ABC200035 - UATFIX PHARM34966"
+      }
+    },
+    {
+      "name": "register_ACC34966",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "uuid": "bb238d0b-eed8-4e5d-a3ef-77c69a01588a",
+        "mrn": "ABC200036 - UATFIX ACC34966"
+      }
+    },
+    {
+      "name": "start_visit",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "uuid": "22417027-5d80-4167-b82f-3a6e7b4bd110"
+      }
+    },
+    {
+      "name": "start_visit",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "uuid": "403a66a2-dc98-47a3-8013-ca9009d0e91b"
+      }
+    },
+    {
+      "name": "start_visit",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "uuid": "16a2c775-f68b-4d83-a296-590085004bf8"
+      }
+    },
+    {
+      "name": "doctor_provider",
+      "ok": true,
+      "detail": {
+        "provider": "17dec510-ef20-4282-9d9e-4d33d4693675"
+      }
+    },
+    {
+      "name": "drug_order_config",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "tablet": "Tablet"
+      }
+    },
+    {
+      "name": "consult_lab_a",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "encounter": "faee3e47-1fbe-46b7-a219-cba06f999a5a"
+      }
+    },
+    {
+      "name": "lab_catalogue_price",
+      "ok": true,
+      "detail": {
+        "id": "32AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "price": 1500.0,
+        "currency": "NGN"
+      }
+    },
+    {
+      "name": "lab_order_created",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "fee": 1500.0,
+        "order": "79253a61-3d74-4b79-b1b6-fb5ee0010f51",
+        "invoice": null,
+        "message": "Laboratory order saved."
+      }
+    },
+    {
+      "name": "lab_charge_matches_catalogue",
+      "ok": true,
+      "detail": {
+        "fee": 1500.0,
+        "catalogue": 1500.0
+      }
+    },
+    {
+      "name": "openmrs_lab_order",
+      "ok": true,
+      "detail": {
+        "status": 200
+      }
+    },
+    {
+      "name": "lab_board_has_order",
+      "ok": true,
+      "detail": {
+        "status": 200
+      }
+    },
+    {
+      "name": "lab_old_charge_unchanged",
+      "ok": true,
+      "detail": {
+        "after": 1500.0,
+        "captured": 1500.0,
+        "bumped": 1611.0
+      }
+    },
+    {
+      "name": "lab_cross_patient_rejected",
+      "ok": true,
+      "detail": {
+        "status": 409,
+        "code": "wrong_patient"
+      }
+    },
+    {
+      "name": "pharmacy_receive_test_stock",
+      "ok": false,
+      "detail": {
+        "status": 404,
+        "body": {
+          "status": "error",
+          "code": "not_found",
+          "message": "This medicine is not in the hospital catalogue."
+        }
+      }
+    },
+    {
+      "name": "consult_pharmacy",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "encounter": "af6fb0e8-c4cc-4e2a-9bf3-c67085880f8b"
+      }
+    },
+    {
+      "name": "pharmacy_prescription_visible",
+      "ok": true,
+      "detail": {
+        "rx": {
+          "orderUuid": "867ff7c1-bfbf-4abf-88a5-9850a9864376",
+          "paymentStatus": "UNPAID",
+          "dispensingStatus": "UNPAID",
+          "drugName": "Amoxicillin 500 mg \u2014 TEST",
+          "quantity": 2.0
+        }
+      }
+    },
+    {
+      "name": "pharmacy_unpaid_visible",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "payment": "UNPAID",
+        "dispense": "UNPAID",
+        "can": false
+      }
+    },
+    {
+      "name": "pharmacy_unpaid_blocked",
+      "ok": true,
+      "detail": {
+        "status": 409,
+        "code": "unpaid"
+      }
+    },
+    {
+      "name": "pharmacy_price_correct",
+      "ok": true,
+      "detail": {
+        "price": null,
+        "catalogue": 2500.0
+      }
+    },
+    {
+      "name": "pharmacy_sale_from_order",
+      "ok": true,
+      "detail": {
+        "lines": [
+          {
+            "id": 71,
+            "price_unit": 2500.0,
+            "product_uom_qty": 2.0,
+            "order_id": [
+              66,
+              "S00066"
+            ],
+            "name": "Amoxicillin 500 mg \u2014 TEST - 2.0 Tablet"
+          }
+        ]
+      }
+    },
+    {
+      "name": "pharmacy_sale_old_price",
+      "ok": true,
+      "detail": {
+        "unit": 2500.0,
+        "catalogue": 2500.0
+      }
+    },
+    {
+      "name": "pharmacy_payment_recorded",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "amount": 2000.0,
+        "invoices": [
+          79
+        ],
+        "body": {
+          "id": 24,
+          "reference": "PCSH1/2026/00016",
+          "date": "2026-08-31",
+          "amount": {
+            "amount": 2000.0,
+            "formatted": "2,000.00 \u20a6",
+            "currencyCode": "NGN",
+            "currencySymbol": "\u20a6",
+            "decimalPlaces": 2
+          },
+          "journal": "Cash",
+          "journalId": 6,
+          "method": "Manual",
+          "state": "posted",
+          "patientName": "UATFIX PHARM34966",
+          "mrn": "ABC200035",
+          "patientUuid": "4451a85c-759a-440c-8489-cf922cd9a1d1",
+          "relatedInvoices": [
+            {
+              "id": 79,
+              "number": "INV/2026/00055"
+            }
+          ],
+          "createUid": "Administrator",
+          "createDate": "2026-08-31 00:11:16"
+        }
+      }
+    },
+    {
+      "name": "pharmacy_account_paid_state",
+      "ok": true,
+      "detail": {
+        "billed": [
+          {
+            "amount": 2000.0,
+            "formatted": "2,000.00 \u20a6",
+            "currencyCode": "NGN",
+            "currencySymbol": "\u20a6",
+            "decimalPlaces": 2
+          }
+        ],
+        "collected": [
+          {
+            "amount": 2000.0,
+            "formatted": "2,000.00 \u20a6",
+            "currencyCode": "NGN",
+            "currencySymbol": "\u20a6",
+            "decimalPlaces": 2
+          }
+        ],
+        "outstanding": []
+      }
+    },
+    {
+      "name": "pharmacy_queue_paid_ready",
+      "ok": false,
+      "detail": {
+        "status": 200,
+        "payment": "UNPAID",
+        "dispense": "UNPAID",
+        "can": false,
+        "reason": "Payment required before dispensing. Please proceed to the cashier."
+      }
+    },
+    {
+      "name": "pharmacy_dispense",
+      "ok": false,
+      "detail": {
+        "status": 409,
+        "body": {
+          "status": "error",
+          "code": "unpaid",
+          "message": "Payment required before dispensing. Please proceed to the cashier."
+        }
+      }
+    },
+    {
+      "name": "pharmacy_dispensed_not_ready",
+      "ok": false,
+      "detail": {
+        "status": "UNPAID",
+        "can": false,
+        "qty": 2.0,
+        "drug": "Amoxicillin 500 mg \u2014 TEST"
+      }
+    },
+    {
+      "name": "pharmacy_dispense_association",
+      "ok": true,
+      "detail": {
+        "patient": "4451a85c-759a-440c-8489-cf922cd9a1d1",
+        "drug": "Amoxicillin 500 mg \u2014 TEST",
+        "qty": 2.0
+      }
+    },
+    {
+      "name": "pharmacy_stock_decreased",
+      "ok": false,
+      "detail": {
+        "before": 0.0,
+        "after": 0.0
+      }
+    },
+    {
+      "name": "pharmacy_picking_done",
+      "ok": true,
+      "detail": {
+        "pickings": []
+      }
+    },
+    {
+      "name": "pharmacy_duplicate_blocked",
+      "ok": true,
+      "detail": {
+        "status": 409,
+        "code": "unpaid",
+        "already": null
+      }
+    },
+    {
+      "name": "pharmacy_old_bill_unchanged_after_catalogue",
+      "ok": true,
+      "detail": {
+        "still": 2500.0,
+        "original": 2500.0,
+        "newCatalogue": 2577.0
+      }
+    },
+    {
+      "name": "doctor_cannot_dispense",
+      "ok": true,
+      "detail": {
+        "status": 403
+      }
+    },
+    {
+      "name": "nurse_cannot_dispense",
+      "ok": true,
+      "detail": {
+        "status": 403
+      }
+    },
+    {
+      "name": "company_currency_untouched_usd",
+      "ok": true,
+      "detail": {
+        "company": [
+          {
+            "id": 1,
+            "name": "Bahmni",
+            "currency_id": [
+              2,
+              "USD"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "accommodation_shop_ngn",
+      "ok": true,
+      "detail": {
+        "shop": [
+          {
+            "id": 6,
+            "name": "Accommodation",
+            "pricelist_id": [
+              7,
+              "Hospital Accommodation (NGN)"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "hawawu_tariff_55000",
+      "ok": true,
+      "detail": {
+        "product": [
+          {
+            "id": 2393,
+            "name": "Accommodation \u2014 Hawawu Maternity Ward",
+            "list_price": 55000.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "historical_invoice_still_usd",
+      "ok": true,
+      "detail": {
+        "invoice": [
+          {
+            "id": 77,
+            "name": "INV/2026/00053",
+            "amount_total": 55000.0,
+            "currency_id": [
+              2,
+              "USD"
+            ],
+            "payment_state": "not_paid"
+          }
+        ]
+      }
+    },
+    {
+      "name": "tariff_api_ngn",
+      "ok": true,
+      "detail": {
+        "currency": {
+          "code": "NGN",
+          "symbol": "\u20a6",
+          "decimalPlaces": 2
+        },
+        "hawawu": {
+          "areaUuid": "f0f005dd-c95d-47f1-894a-b263783dd5e6",
+          "areaName": "Hawawu Maternity Ward",
+          "beds": 4,
+          "priceKind": "bed",
+          "priceKindLabel": "Price per occupied bed",
+          "listPrice": {
+            "amount": 55000.0,
+            "formatted": "\u20a655,000.00",
+            "currencyCode": "NGN",
+            "currencySymbol": "\u20a6",
+            "decimalPlaces": 2
+          },
+          "configured": true
+        }
+      }
+    },
+    {
+      "name": "hawawu_free_bed",
+      "ok": true,
+      "detail": {
+        "bed": {
+          "bedNumber": "Bed 03",
+          "bedUuid": "5daaed3b-6249-47e1-a184-259fd4484dd8",
+          "bedId": 3
+        }
+      }
+    },
+    {
+      "name": "accommodation_admit",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "bed": "Bed 03",
+        "billing": {
+          "status": "ok",
+          "message": null,
+          "paymentLabel": "OUTSTANDING",
+          "chargeCount": 1,
+          "outstanding": {
+            "amount": 55000.0,
+            "formatted": "\u20a655,000.00",
+            "currencyCode": "NGN",
+            "currencySymbol": "\u20a6",
+            "decimalPlaces": 2
+          },
+          "paid": {
+            "amount": 0.0,
+            "formatted": "\u20a60.00",
+            "currencyCode": "NGN",
+            "currencySymbol": "\u20a6",
+            "decimalPlaces": 2
+          },
+          "total": {
+            "amount": 55000.0,
+            "formatted": "\u20a655,000.00",
+            "currencyCode": "NGN",
+            "currencySymbol": "\u20a6",
+            "decimalPlaces": 2
+          },
+          "created": true
+        }
+      }
+    },
+    {
+      "name": "accommodation_new_charge_ngn",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "billing": {
+          "status": "ok",
+          "message": null,
+          "paymentLabel": "OUTSTANDING",
+          "chargeCount": 1,
+          "outstanding": {
+            "amount": 55000.0,
+            "formatted": "\u20a655,000.00",
+            "currencyCode": "NGN",
+            "currencySymbol": "\u20a6",
+            "decimalPlaces": 2
+          },
+          "paid": {
+            "amount": 0.0,
+            "formatted": "\u20a60.00",
+            "currencyCode": "NGN",
+            "currencySymbol": "\u20a6",
+            "decimalPlaces": 2
+          },
+          "total": {
+            "amount": 55000.0,
+            "formatted": "\u20a655,000.00",
+            "currencyCode": "NGN",
+            "currencySymbol": "\u20a6",
+            "decimalPlaces": 2
+          }
+        }
+      }
+    },
+    {
+      "name": "accommodation_invoice_ngn",
+      "ok": true,
+      "detail": {
+        "invoices": [
+          {
+            "id": 82,
+            "number": "INV/2026/00057",
+            "date": "2026-08-31",
+            "department": "Accommodation",
+            "departmentIdentified": true,
+            "state": "posted",
+            "paymentState": "not_paid",
+            "paymentStateLabel": "UNPAID",
+            "origin": "S00067",
+            "description": "Hawawu Maternity Ward \u00b7 Bed 03 \u00b7 31 Aug",
+            "untaxed": {
+              "amount": 55000.0,
+              "formatted": "55,000.00 \u20a6",
+              "currencyCode": "NGN",
+              "currencySymbol": "\u20a6",
+              "decimalPlaces": 2
+            },
+            "tax": {
+              "amount": 0.0,
+              "formatted": "0.00 \u20a6",
+              "currencyCode": "NGN",
+              "currencySymbol": "\u20a6",
+              "decimalPlaces": 2
+            },
+            "hasTax": false,
+            "total": {
+              "amount": 55000.0,
+              "formatted": "55,000.00 \u20a6",
+              "currencyCode": "NGN",
+              "currencySymbol": "\u20a6",
+              "decimalPlaces": 2
+            },
+            "paid": {
+              "amount": 0.0,
+              "formatted": "0.00 \u20a6",
+              "currencyCode": "NGN",
+              "currencySymbol": "\u20a6",
+              "decimalPlaces": 2
+            },
+            "outstanding": {
+              "amount": 55000.0,
+              "formatted": "55,000.00 \u20a6",
+              "currencyCode": "NGN",
+              "currencySymbol": "\u20a6",
+              "decimalPlaces": 2
+            },
+            "lines": [
+              {
+                "description": "Hawawu Maternity Ward \u00b7 Bed 03 \u00b7 31 Aug",
+                "quantity": 1.0,
+                "unitPrice": {
+                  "amount": 55000.0,
+                  "formatted": "55,000.00 \u20a6",
+                  "currencyCode": "NGN",
+                  "currencySymbol": "\u20a6",
+                  "decimalPlaces": 2
+                },
+                "subtotal": {
+                  "amount": 55000.0,
+                  "formatted": "55,000.00 \u20a6",
+                  "currencyCode": "NGN",
+                  "currencySymbol": "\u20a6",
+                  "decimalPlaces": 2
+                },
+                "total": {
+                  "amount": 55000.0,
+                  "formatted": "55,000.00 \u20a6",
+                  "currencyCode": "NGN",
+                  "currencySymbol": "\u20a6",
+                  "decimalPlaces": 2
+                },
+                "taxNames": []
+              }
+            ],
+            "pharmacyStatus": null
+          }
+        ]
+      }
+    },
+    {
+      "name": "odoo_new_accommodation_ngn",
+      "ok": true,
+      "detail": {
+        "moves": [
+          {
+            "id": 82,
+            "name": "INV/2026/00057",
+            "amount_total": 55000.0,
+            "currency_id": [
+              121,
+              "NGN"
+            ],
+            "invoice_origin": "S00067"
+          }
+        ]
+      }
+    },
+    {
+      "name": "historical_untouched",
+      "ok": true,
+      "detail": {
+        "invoice": [
+          {
+            "id": 77,
+            "name": "INV/2026/00053",
+            "amount_total": 55000.0,
+            "currency_id": [
+              2,
+              "USD"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "accommodation_old_invoice_unchanged_after_tariff",
+      "ok": true,
+      "detail": {
+        "after": [
+          {
+            "id": 82,
+            "name": "INV/2026/00057",
+            "amount_total": 55000.0,
+            "currency_id": [
+              121,
+              "NGN"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "company_currency_still_usd",
+      "ok": true,
+      "detail": {
+        "company": [
+          {
+            "id": 1,
+            "name": "Bahmni",
+            "currency_id": [
+              2,
+              "USD"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "analytics_overview",
+      "ok": true,
+      "detail": {
+        "status": 200
+      }
+    },
+    {
+      "name": "analytics_has_billed_collected_outstanding",
+      "ok": true,
+      "detail": {
+        "keys": [
+          "status",
+          "period",
+          "patientsRegistered",
+          "opdVisits",
+          "consultations",
+          "admissions",
+          "discharges",
+          "occupancy",
+          "labOrders",
+          "prescriptions",
+          "dispensed",
+          "billed",
+          "collected",
+          "outstanding"
+        ]
+      }
+    },
+    {
+      "name": "analytics_no_patient_uuid_leak",
+      "ok": true,
+      "detail": {}
+    },
+    {
+      "name": "lab_can_lab_price",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "allowed": [
+          200
+        ],
+        "code": null
+      }
+    },
+    {
+      "name": "lab_cannot_pharmacy_price",
+      "ok": true,
+      "detail": {
+        "status": 403,
+        "allowed": [
+          403
+        ],
+        "code": "forbidden"
+      }
+    },
+    {
+      "name": "lab_cannot_reception_price",
+      "ok": true,
+      "detail": {
+        "status": 403,
+        "allowed": [
+          403
+        ],
+        "code": "forbidden"
+      }
+    },
+    {
+      "name": "pharmacy_can_pharmacy_price",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "allowed": [
+          200
+        ],
+        "code": null
+      }
+    },
+    {
+      "name": "pharmacy_cannot_lab_price",
+      "ok": true,
+      "detail": {
+        "status": 403,
+        "allowed": [
+          403
+        ],
+        "code": "forbidden"
+      }
+    },
+    {
+      "name": "pharmacy_cannot_reception_price",
+      "ok": true,
+      "detail": {
+        "status": 403,
+        "allowed": [
+          403
+        ],
+        "code": "forbidden"
+      }
+    },
+    {
+      "name": "reception_can_reception_price",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "allowed": [
+          200
+        ],
+        "code": null
+      }
+    },
+    {
+      "name": "reception_cannot_lab_price",
+      "ok": true,
+      "detail": {
+        "status": 403,
+        "allowed": [
+          403
+        ],
+        "code": "forbidden"
+      }
+    },
+    {
+      "name": "reception_cannot_pharmacy_price",
+      "ok": true,
+      "detail": {
+        "status": 403,
+        "allowed": [
+          403
+        ],
+        "code": "forbidden"
+      }
+    },
+    {
+      "name": "doctor_cannot_lab_price_write",
+      "ok": true,
+      "detail": {
+        "status": 403,
+        "allowed": [
+          403,
+          404,
+          422
+        ],
+        "code": "forbidden"
+      }
+    },
+    {
+      "name": "doctor_cannot_pharmacy_price",
+      "ok": true,
+      "detail": {
+        "status": 403,
+        "allowed": [
+          403
+        ],
+        "code": "forbidden"
+      }
+    },
+    {
+      "name": "nurse_cannot_prices",
+      "ok": true,
+      "detail": {
+        "status": 403,
+        "allowed": [
+          403
+        ],
+        "code": "forbidden"
+      }
+    },
+    {
+      "name": "accountant_cannot_prices",
+      "ok": true,
+      "detail": {
+        "status": 403,
+        "allowed": [
+          403
+        ],
+        "code": "forbidden"
+      }
+    },
+    {
+      "name": "admin_price_write_blocked",
+      "ok": false,
+      "detail": {
+        "status": 200,
+        "allowed": [
+          403
+        ],
+        "code": null
+      }
+    },
+    {
+      "name": "doctor_cannot_mar_on_opd",
+      "ok": true,
+      "detail": {
+        "status": 403,
+        "allowed": [
+          409,
+          403,
+          404,
+          422
+        ],
+        "code": "forbidden"
+      }
+    },
+    {
+      "name": "openelis_reachable",
+      "ok": false,
+      "detail": {
+        "status": 0
+      }
+    },
+    {
+      "name": "openelis_order_visible_for_processing",
+      "ok": true,
+      "detail": {
+        "order": "79253a61-3d74-4b79-b1b6-fb5ee0010f51"
+      }
+    },
+    {
+      "name": "patient_b_has_no_lab_result_yet",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "body": {
+          "results": [],
+          "tabularResult": {
+            "dates": [],
+            "orders": [],
+            "values": []
+          }
+        }
+      }
+    }
+  ],
+  "failures": [
+    {
+      "name": "pharmacy_receive_test_stock",
+      "ok": false,
+      "detail": {
+        "status": 404,
+        "body": {
+          "status": "error",
+          "code": "not_found",
+          "message": "This medicine is not in the hospital catalogue."
+        }
+      }
+    },
+    {
+      "name": "pharmacy_queue_paid_ready",
+      "ok": false,
+      "detail": {
+        "status": 200,
+        "payment": "UNPAID",
+        "dispense": "UNPAID",
+        "can": false,
+        "reason": "Payment required before dispensing. Please proceed to the cashier."
+      }
+    },
+    {
+      "name": "pharmacy_dispense",
+      "ok": false,
+      "detail": {
+        "status": 409,
+        "body": {
+          "status": "error",
+          "code": "unpaid",
+          "message": "Payment required before dispensing. Please proceed to the cashier."
+        }
+      }
+    },
+    {
+      "name": "pharmacy_dispensed_not_ready",
+      "ok": false,
+      "detail": {
+        "status": "UNPAID",
+        "can": false,
+        "qty": 2.0,
+        "drug": "Amoxicillin 500 mg \u2014 TEST"
+      }
+    },
+    {
+      "name": "pharmacy_stock_decreased",
+      "ok": false,
+      "detail": {
+        "before": 0.0,
+        "after": 0.0
+      }
+    },
+    {
+      "name": "admin_price_write_blocked",
+      "ok": false,
+      "detail": {
+        "status": 200,
+        "allowed": [
+          403
+        ],
+        "code": null
+      }
+    },
+    {
+      "name": "openelis_reachable",
+      "ok": false,
+      "detail": {
+        "status": 0
+      }
+    }
+  ]
+}

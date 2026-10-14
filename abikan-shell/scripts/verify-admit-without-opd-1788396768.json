@@ -1,0 +1,667 @@
+{
+  "stamp": 1788396768,
+  "checks": [
+    {
+      "name": "metadata",
+      "ok": true,
+      "detail": {
+        "status": 200
+      }
+    },
+    {
+      "name": "register_ADMITNO96768",
+      "ok": true,
+      "detail": {
+        "uuid": "353a7acc-8cca-4763-b66a-04a7e454d917",
+        "mrn": "ABC200046"
+      }
+    },
+    {
+      "name": "register_ADMITOP96768",
+      "ok": true,
+      "detail": {
+        "uuid": "f4e53311-79af-4a68-ad68-527ad6daa12f",
+        "mrn": "ABC200047"
+      }
+    },
+    {
+      "name": "no_opd_patient_has_no_open_opd",
+      "ok": true,
+      "detail": {
+        "visits": 0
+      }
+    },
+    {
+      "name": "reception_cannot_admit",
+      "ok": true,
+      "detail": {
+        "status": 403,
+        "code": "forbidden"
+      }
+    },
+    {
+      "name": "admit_without_opd",
+      "ok": false,
+      "detail": {
+        "status": 403,
+        "body": {
+          "status": "error",
+          "code": "forbidden",
+          "message": "This action requires the ward workspace."
+        }
+      }
+    },
+    {
+      "name": "no_artificial_opd",
+      "ok": false,
+      "detail": {
+        "opd": 0,
+        "ipd": []
+      }
+    },
+    {
+      "name": "admission_encounter_on_ipd",
+      "ok": false,
+      "detail": {
+        "encounters": []
+      }
+    },
+    {
+      "name": "awaiting_bed_before_assignment",
+      "ok": false,
+      "detail": {
+        "status": "ok",
+        "patient": {
+          "uuid": "353a7acc-8cca-4763-b66a-04a7e454d917",
+          "name": "UATFIX ADMITNO96768",
+          "mrn": "ABC200046",
+          "sex": "Female",
+          "age": "34"
+        },
+        "assignment": null,
+        "awaiting": false,
+        "visitUuid": "",
+        "visitStartDatetime": "",
+        "admissionEncounterUuid": "",
+        "billing": {
+          "status": "needs_attention",
+          "message": "This patient has no financial account yet.",
+          "paymentLabel": null
+        }
+      }
+    },
+    {
+      "name": "nursing_sees_awaiting",
+      "ok": false,
+      "detail": {
+        "awaiting": [
+          "3db7f823-8e87-4264-8d04-693096e655d5",
+          "26b50a91-0e06-4153-b872-530a9c67a4c8"
+        ]
+      }
+    },
+    {
+      "name": "orders_blocked_while_awaiting_bed",
+      "ok": false,
+      "detail": {
+        "status": 422,
+        "body": {
+          "status": "error",
+          "code": "visit_required",
+          "message": "Start an open visit before ordering laboratory tests."
+        }
+      }
+    },
+    {
+      "name": "start_opd_for_second_patient",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "uuid": "eba280c3-a601-485d-ab82-3134404506e3"
+      }
+    },
+    {
+      "name": "opd_consultation_documented",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "encounter": "3ab2863c-c26a-4c1d-af7a-12f391630953"
+      }
+    },
+    {
+      "name": "admit_with_existing_opd",
+      "ok": false,
+      "detail": {
+        "status": 403,
+        "body": {
+          "status": "error",
+          "code": "forbidden",
+          "message": "This action requires the ward workspace."
+        }
+      }
+    },
+    {
+      "name": "opd_ended_one_ipd",
+      "ok": false,
+      "detail": {
+        "ipd": [],
+        "openOpd": 1,
+        "endedOpd": []
+      }
+    },
+    {
+      "name": "opd_documentation_kept",
+      "ok": true,
+      "detail": {
+        "endedOpd": []
+      }
+    },
+    {
+      "name": "assign_bed_reuses_admission",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "body": {
+          "status": "ok",
+          "patient": {
+            "uuid": "353a7acc-8cca-4763-b66a-04a7e454d917",
+            "name": "UATFIX ADMITNO96768",
+            "mrn": "ABC200046",
+            "sex": "Female",
+            "age": "34"
+          },
+          "assignment": {
+            "areaName": "Hawawu Maternity Ward",
+            "areaUuid": "f0f005dd-c95d-47f1-894a-b263783dd5e6",
+            "bedNumber": "Bed 04",
+            "bedUuid": "a7d8e5c0-8964-4b54-80c5-00f7f4269388",
+            "bedId": 4,
+            "status": "OCCUPIED",
+            "admitted": "2026-09-03T00:53:03.000+0000"
+          },
+          "awaiting": false,
+          "visitUuid": "bbf17ea9-32a2-4cda-98b6-e931932d85d7",
+          "visitStartDatetime": "2026-09-03T00:53:03.000+0000",
+          "admissionEncounterUuid": "961f0e5a-cb52-449d-9ceb-cdb6f781abc4",
+          "message": "Admitted to Hawawu Maternity Ward \u00b7 Bed 04.",
+          "billing": {
+            "status": "ok",
+            "message": null,
+            "paymentLabel": "OUTSTANDING",
+            "chargeCount": 1,
+            "outstanding": {
+              "amount": 55000.0,
+              "formatted": "\u20a655,000.00",
+              "currencyCode": "NGN",
+              "currencySymbol": "\u20a6",
+              "decimalPlaces": 2
+            },
+            "paid": {
+              "amount": 0.0,
+              "formatted": "\u20a60.00",
+              "currencyCode": "NGN",
+              "currencySymbol": "\u20a6",
+              "decimalPlaces": 2
+            },
+            "total": {
+              "amount": 55000.0,
+              "formatted": "\u20a655,000.00",
+              "currencyCode": "NGN",
+              "currencySymbol": "\u20a6",
+              "decimalPlaces": 2
+            },
+            "created": true
+          }
+        },
+        "bed": "Bed 04"
+      }
+    },
+    {
+      "name": "same_ipd_after_bed",
+      "ok": false,
+      "detail": {
+        "ipd": [
+          "bbf17ea9-32a2-4cda-98b6-e931932d85d7"
+        ]
+      }
+    },
+    {
+      "name": "occupied_stay",
+      "ok": true,
+      "detail": {
+        "status": "ok",
+        "patient": {
+          "uuid": "353a7acc-8cca-4763-b66a-04a7e454d917",
+          "name": "UATFIX ADMITNO96768",
+          "mrn": "ABC200046",
+          "sex": "Female",
+          "age": "34"
+        },
+        "assignment": {
+          "areaName": "Hawawu Maternity Ward",
+          "areaUuid": "f0f005dd-c95d-47f1-894a-b263783dd5e6",
+          "bedNumber": "Bed 04",
+          "bedUuid": "a7d8e5c0-8964-4b54-80c5-00f7f4269388",
+          "bedId": 4,
+          "status": "OCCUPIED",
+          "admitted": "2026-09-03T00:53:03.000+0000"
+        },
+        "awaiting": false,
+        "visitUuid": "bbf17ea9-32a2-4cda-98b6-e931932d85d7",
+        "visitStartDatetime": "2026-09-03T00:53:03.000+0000",
+        "admissionEncounterUuid": "961f0e5a-cb52-449d-9ceb-cdb6f781abc4",
+        "billing": {
+          "status": "ok",
+          "message": null,
+          "paymentLabel": "OUTSTANDING",
+          "chargeCount": 1,
+          "outstanding": {
+            "amount": 55000.0,
+            "formatted": "\u20a655,000.00",
+            "currencyCode": "NGN",
+            "currencySymbol": "\u20a6",
+            "decimalPlaces": 2
+          },
+          "paid": {
+            "amount": 0.0,
+            "formatted": "\u20a60.00",
+            "currencyCode": "NGN",
+            "currencySymbol": "\u20a6",
+            "decimalPlaces": 2
+          },
+          "total": {
+            "amount": 55000.0,
+            "formatted": "\u20a655,000.00",
+            "currencyCode": "NGN",
+            "currencySymbol": "\u20a6",
+            "decimalPlaces": 2
+          }
+        }
+      }
+    },
+    {
+      "name": "ipd_prescription",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "encounter": "6d85aeb6-9f6f-471e-a884-361206334bdb"
+      }
+    },
+    {
+      "name": "mar_schedule",
+      "ok": true,
+      "detail": {
+        "status": "ok",
+        "patientUuid": "353a7acc-8cca-4763-b66a-04a7e454d917",
+        "visitUuid": "bbf17ea9-32a2-4cda-98b6-e931932d85d7",
+        "admissionEncounterUuid": "961f0e5a-cb52-449d-9ceb-cdb6f781abc4",
+        "createdOrderUuids": [
+          "e20e7352-87d8-4b3c-ade3-9a31e2a79997"
+        ],
+        "alreadyScheduledOrderUuids": [],
+        "issues": []
+      }
+    },
+    {
+      "name": "prescription_did_not_create_opd",
+      "ok": true,
+      "detail": {
+        "ipd": [
+          "bbf17ea9-32a2-4cda-98b6-e931932d85d7"
+        ]
+      }
+    },
+    {
+      "name": "ipd_lab_order",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "body": {
+          "status": "ok",
+          "encounterUuid": "6d85aeb6-9f6f-471e-a884-361206334bdb",
+          "orders": [
+            {
+              "uuid": "3f221bc5-7ff6-46f6-8f17-0c01d61d96d9",
+              "orderNumber": "ORD-75",
+              "testName": "Malarial smear",
+              "conceptUuid": "32AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "patientUuid": "353a7acc-8cca-4763-b66a-04a7e454d917",
+              "visitUuid": "bbf17ea9-32a2-4cda-98b6-e931932d85d7",
+              "encounterUuid": "6d85aeb6-9f6f-471e-a884-361206334bdb",
+              "urgency": "ROUTINE",
+              "accession": "",
+              "ordered": "2026-09-03T00:53:15.000+0000",
+              "provider": "doctor.abikan - Clinical Doctor",
+              "comment": "",
+              "patientName": "UATFIX ADMITNO96768",
+              "mrn": "ABC200046"
+            }
+          ],
+          "message": "Laboratory order saved.",
+          "charge": {
+            "status": "ok",
+            "patient": {
+              "uuid": "353a7acc-8cca-4763-b66a-04a7e454d917",
+              "name": "UATFIX ADMITNO96768",
+              "mrn": "ABC200046"
+            },
+            "tests": [
+              {
+                "orderUuid": "3f221bc5-7ff6-46f6-8f17-0c01d61d96d9",
+                "orderNumber": "ORD-75",
+                "testName": "Malarial smear",
+                "visitUuid": "bbf17ea9-32a2-4cda-98b6-e931932d85d7",
+                "encounterUuid": "6d85aeb6-9f6f-471e-a884-361206334bdb",
+                "feeName": "Microscopy MP",
+                "feeAmount": {
+                  "amount": 1500.0,
+                  "formatted": "\u20a61,500.00",
+                  "currencyCode": "NGN",
+                  "currencySymbol": "\u20a6",
+                  "decimalPlaces": 2
+                },
+                "paymentStatus": "UNPAID",
+                "hasCharge": true,
+                "outstanding": {
+                  "amount": 1500.0,
+                  "formatted": "\u20a61,500.00",
+                  "currencyCode": "NGN",
+                  "currencySymbol": "\u20a6",
+                  "decimalPlaces": 2
+                },
+                "tax": {
+                  "amount": 0.0,
+                  "formatted": "\u20a60.00",
+                  "currencyCode": "NGN",
+                  "currencySymbol": "\u20a6",
+                  "decimalPlaces": 2
+                }
+              }
+            ],
+            "feeAmount": {
+              "amount": 1500.0,
+              "formatted": "\u20a61,500.00",
+              "currencyCode": "NGN",
+              "currencySymbol": "\u20a6",
+              "decimalPlaces": 2
+            },
+            "paymentStatus": "UNPAID",
+            "hasCharge": true,
+            "canCreateCharge": false,
+            "blockReason": "Please proceed to the cashier for payment.",
+            "partnerFound": true,
+            "outstanding": {
+              "amount": 1500.0,
+              "formatted": "\u20a61,500.00",
+              "currencyCode": "NGN",
+              "currencySymbol": "\u20a6",
+              "decimalPlaces": 2
+            },
+            "message": null,
+            "alreadyCreated": false,
+            "recordedBy": "doctor.abikan"
+          },
+          "chargeError": null
+        }
+      }
+    },
+    {
+      "name": "ipd_radiology_order",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "body": {
+          "status": "ok",
+          "encounterUuid": "6d85aeb6-9f6f-471e-a884-361206334bdb",
+          "visitUuid": "bbf17ea9-32a2-4cda-98b6-e931932d85d7",
+          "orders": [
+            {
+              "uuid": "fc0653ae-c45d-4448-b462-d17965918169",
+              "orderNumber": "ORD-76",
+              "testName": "Chest X-ray",
+              "conceptUuid": "165152AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "patientUuid": "353a7acc-8cca-4763-b66a-04a7e454d917",
+              "visitUuid": "bbf17ea9-32a2-4cda-98b6-e931932d85d7",
+              "encounterUuid": "6d85aeb6-9f6f-471e-a884-361206334bdb",
+              "urgency": "ROUTINE",
+              "accession": "",
+              "ordered": "2026-09-03T00:53:18.000+0000",
+              "provider": "doctor.abikan - Clinical Doctor"
+            }
+          ],
+          "message": "Radiology order created."
+        }
+      }
+    },
+    {
+      "name": "orders_did_not_create_opd",
+      "ok": true,
+      "detail": {
+        "openOpd": 0
+      }
+    },
+    {
+      "name": "cannot_use_other_patient_visit",
+      "ok": true,
+      "detail": {
+        "status": 409,
+        "body": {
+          "status": "error",
+          "code": "already_admitted",
+          "message": "This patient already has an active admission."
+        }
+      }
+    },
+    {
+      "name": "create_visit_no_card_after_admit",
+      "ok": false,
+      "detail": {
+        "status": 200,
+        "keys": [
+          "admissionActive",
+          "canStartVisit",
+          "code",
+          "message",
+          "patient",
+          "status",
+          "visit",
+          "visitTypes"
+        ],
+        "code": "visit_already_open"
+      }
+    },
+    {
+      "name": "create_visit_blocked_for_admitted",
+      "ok": true,
+      "detail": {
+        "status": 409,
+        "body": {
+          "status": "existing",
+          "created": false,
+          "code": "visit_already_open",
+          "message": "Patient already has an open visit. Continue with the existing visit.",
+          "uuid": "eba280c3-a601-485d-ab82-3134404506e3",
+          "visitType": "OPD",
+          "visitTypeLabel": "General Outpatient",
+          "location": "OPD-1",
+          "locationUuid": "",
+          "startDatetime": "2026-09-03T00:52:58.000+0000",
+          "dailyVisitNumber": "",
+          "open": true
+        }
+      }
+    },
+    {
+      "name": "register_ADMITRV96768",
+      "ok": true,
+      "detail": {
+        "uuid": "eb396dd8-1f15-4fb4-8280-330caea84b28",
+        "mrn": "ABC200048"
+      }
+    },
+    {
+      "name": "create_visit_existing_patient_no_card",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "keys": [
+          "admissionActive",
+          "canStartVisit",
+          "code",
+          "message",
+          "patient",
+          "status",
+          "visit",
+          "visitTypes"
+        ]
+      }
+    }
+  ],
+  "failures": [
+    {
+      "name": "admit_without_opd",
+      "ok": false,
+      "detail": {
+        "status": 403,
+        "body": {
+          "status": "error",
+          "code": "forbidden",
+          "message": "This action requires the ward workspace."
+        }
+      }
+    },
+    {
+      "name": "no_artificial_opd",
+      "ok": false,
+      "detail": {
+        "opd": 0,
+        "ipd": []
+      }
+    },
+    {
+      "name": "admission_encounter_on_ipd",
+      "ok": false,
+      "detail": {
+        "encounters": []
+      }
+    },
+    {
+      "name": "awaiting_bed_before_assignment",
+      "ok": false,
+      "detail": {
+        "status": "ok",
+        "patient": {
+          "uuid": "353a7acc-8cca-4763-b66a-04a7e454d917",
+          "name": "UATFIX ADMITNO96768",
+          "mrn": "ABC200046",
+          "sex": "Female",
+          "age": "34"
+        },
+        "assignment": null,
+        "awaiting": false,
+        "visitUuid": "",
+        "visitStartDatetime": "",
+        "admissionEncounterUuid": "",
+        "billing": {
+          "status": "needs_attention",
+          "message": "This patient has no financial account yet.",
+          "paymentLabel": null
+        }
+      }
+    },
+    {
+      "name": "nursing_sees_awaiting",
+      "ok": false,
+      "detail": {
+        "awaiting": [
+          "3db7f823-8e87-4264-8d04-693096e655d5",
+          "26b50a91-0e06-4153-b872-530a9c67a4c8"
+        ]
+      }
+    },
+    {
+      "name": "orders_blocked_while_awaiting_bed",
+      "ok": false,
+      "detail": {
+        "status": 422,
+        "body": {
+          "status": "error",
+          "code": "visit_required",
+          "message": "Start an open visit before ordering laboratory tests."
+        }
+      }
+    },
+    {
+      "name": "admit_with_existing_opd",
+      "ok": false,
+      "detail": {
+        "status": 403,
+        "body": {
+          "status": "error",
+          "code": "forbidden",
+          "message": "This action requires the ward workspace."
+        }
+      }
+    },
+    {
+      "name": "opd_ended_one_ipd",
+      "ok": false,
+      "detail": {
+        "ipd": [],
+        "openOpd": 1,
+        "endedOpd": []
+      }
+    },
+    {
+      "name": "same_ipd_after_bed",
+      "ok": false,
+      "detail": {
+        "ipd": [
+          "bbf17ea9-32a2-4cda-98b6-e931932d85d7"
+        ]
+      }
+    },
+    {
+      "name": "create_visit_no_card_after_admit",
+      "ok": false,
+      "detail": {
+        "status": 200,
+        "keys": [
+          "admissionActive",
+          "canStartVisit",
+          "code",
+          "message",
+          "patient",
+          "status",
+          "visit",
+          "visitTypes"
+        ],
+        "code": "visit_already_open"
+      }
+    }
+  ],
+  "patients": {
+    "noOpd": {
+      "uuid": "353a7acc-8cca-4763-b66a-04a7e454d917",
+      "mrn": "ABC200046"
+    },
+    "withOpd": {
+      "uuid": "f4e53311-79af-4a68-ad68-527ad6daa12f",
+      "mrn": "ABC200047"
+    }
+  },
+  "objects": {
+    "noOpd": {
+      "patientUuid": "353a7acc-8cca-4763-b66a-04a7e454d917",
+      "ipdVisitUuid": null,
+      "admissionEncounterUuid": null,
+      "encounterType": null,
+      "startDatetime": null
+    },
+    "withOpd": {
+      "patientUuid": "f4e53311-79af-4a68-ad68-527ad6daa12f",
+      "endedOpdVisitUuid": "eba280c3-a601-485d-ab82-3134404506e3",
+      "ipdVisitUuid": null
+    }
+  }
+}

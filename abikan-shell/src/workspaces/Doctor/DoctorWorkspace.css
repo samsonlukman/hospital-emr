@@ -1,0 +1,169 @@
+.doctor-desk {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.doctor-desk--today {
+  gap: 12px;
+  margin-top: -12px;
+}
+
+.doctor-desk__top {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px 24px;
+}
+
+.doctor-desk__greeting {
+  margin: 0;
+  color: var(--color-ink-muted);
+  font-size: 0.92rem;
+  line-height: 34px;
+}
+
+.doctor-desk__stats {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 10px 14px;
+}
+
+.doctor-desk__stat,
+.doctor-desk__range label {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin: 0;
+}
+
+.doctor-desk__stat span,
+.doctor-desk__range span {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-ink-subtle);
+}
+
+.doctor-desk__stat strong {
+  display: flex;
+  align-items: center;
+  min-height: 34px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--color-navy);
+}
+
+.doctor-desk__range {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.doctor-desk__range select,
+.doctor-desk__range input {
+  min-height: 34px;
+  padding: 0 8px;
+  border: 1px solid var(--color-line-strong);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  color: var(--color-ink);
+  font: inherit;
+  font-size: 0.88rem;
+}
+
+.doctor-desk__stats .abikan-button {
+  min-height: 34px;
+  padding: 0 12px;
+}
+
+.doctor-desk__queue.abikan-card {
+  padding: 8px 12px 4px;
+}
+
+@media (max-width: 900px) {
+  .doctor-desk__top {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .doctor-desk__stats {
+    justify-content: flex-start;
+  }
+}
+
+.doctor-desk .abikan-page-header {
+  align-items: center;
+}
+
+.doctor-desk .abikan-table .abikan-button {
+  min-height: 36px;
+  padding: 0 14px;
+}
+
+.doctor-desk__visit {
+  cursor: pointer;
+}
+
+.doctor-desk__visit:hover td {
+  background: #f4f7fb;
+}
+
+.doctor-desk__patient {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--color-link);
+  font: inherit;
+  font-weight: 650;
+  text-align: left;
+  cursor: pointer;
+}
+
+.doctor-desk__patient:hover {
+  text-decoration: underline;
+}
+
+.doctor-desk__row-actions {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.doctor-desk__call {
+  min-width: 4.5rem;
+}
+
+.doctor-desk__search {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-width: 22rem;
+  margin: 0 0 var(--space-4);
+}
+
+.doctor-desk__search span {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-ink-subtle);
+}
+
+.doctor-desk__search input {
+  min-height: 44px;
+  padding: 0 12px;
+  border: 1px solid var(--color-line-strong);
+  border-radius: var(--radius-sm);
+}
+
+.doctor-desk__meta {
+  color: var(--color-ink-muted);
+  font-weight: 500;
+}

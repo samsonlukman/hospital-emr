@@ -1,0 +1,17 @@
+.abikan-account-link {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--color-link);
+  text-decoration: none;
+}
+
+.abikan-account-link:hover {
+  text-decoration: underline;
+}
+
+.abikan-account-nav {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}

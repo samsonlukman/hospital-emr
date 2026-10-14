@@ -1,0 +1,663 @@
+{
+  "synthetic": {
+    "charlie": {
+      "patient": "22b87403-424c-4154-b8a0-4d8def310cd2",
+      "visit": "7fc407cf-91ad-4dca-91d5-85fe15a46bf2",
+      "schedule": {
+        "status": "ok",
+        "patientUuid": "22b87403-424c-4154-b8a0-4d8def310cd2",
+        "visitUuid": "7fc407cf-91ad-4dca-91d5-85fe15a46bf2",
+        "admissionEncounterUuid": "bf5b3716-eed5-4ad3-9348-7229197122d8",
+        "createdOrderUuids": [
+          "7c691753-1c99-490a-80f2-f3b4cefdeeaf"
+        ],
+        "alreadyScheduledOrderUuids": [],
+        "issues": []
+      },
+      "slots": [
+        {
+          "uuid": "0d6d203b-b53d-4f39-a614-e56b3d486db4",
+          "scheduleUuid": "80d45d78-482e-4e07-89ba-56a98870bb8e",
+          "status": "SCHEDULED",
+          "scheduledTime": 1788090158000,
+          "timing": {
+            "status": "eligible",
+            "canAdministerNormally": true,
+            "minutesFromScheduled": 0
+          },
+          "administration": null,
+          "orderUuid": "7c691753-1c99-490a-80f2-f3b4cefdeeaf",
+          "medication": "Cetirizine 10 mg"
+        }
+      ]
+    }
+  },
+  "checks": [
+    {
+      "name": "drug_order_config",
+      "ok": true,
+      "detail": {
+        "status": 200
+      }
+    },
+    {
+      "name": "schedule_existing_a",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "body": {
+          "status": "ok",
+          "patientUuid": "8c14a0dd-d509-4a0d-afcd-251b76fc1b5e",
+          "visitUuid": "52364c0a-807e-4d63-b52c-193c3141aa86",
+          "admissionEncounterUuid": "f2bf7d46-b034-4aae-a0fa-1f6d6589a605",
+          "createdOrderUuids": [],
+          "alreadyScheduledOrderUuids": [
+            "51fb91b8-b3c8-4c51-873f-54a7dcc0fa49"
+          ],
+          "issues": []
+        },
+        "ms": 637
+      }
+    },
+    {
+      "name": "retry_idempotent",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "body": {
+          "status": "ok",
+          "patientUuid": "8c14a0dd-d509-4a0d-afcd-251b76fc1b5e",
+          "visitUuid": "52364c0a-807e-4d63-b52c-193c3141aa86",
+          "admissionEncounterUuid": "f2bf7d46-b034-4aae-a0fa-1f6d6589a605",
+          "createdOrderUuids": [],
+          "alreadyScheduledOrderUuids": [
+            "51fb91b8-b3c8-4c51-873f-54a7dcc0fa49"
+          ],
+          "issues": []
+        }
+      }
+    },
+    {
+      "name": "mar_slots_a",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "count": 3,
+        "orders": [
+          {
+            "orderUuid": "51fb91b8-b3c8-4c51-873f-54a7dcc0fa49",
+            "orderNumber": "ORD-41",
+            "medication": "Cetirizine 10 mg",
+            "drugUuid": "7e0766e1-b679-4eb3-ab93-d63910ad6eb4",
+            "dose": 1.0,
+            "doseUnits": "Tablet",
+            "route": "Oral",
+            "frequency": "Once a day",
+            "asNeeded": false,
+            "slots": [
+              {
+                "uuid": "54267a36-0bfb-4e29-bbbf-ded01e1bd67d",
+                "scheduleUuid": "6e9d2e63-59b1-4901-9e5f-d8a4dc04315f",
+                "status": "SCHEDULED",
+                "scheduledTime": 1788089978000,
+                "timing": {
+                  "status": "eligible",
+                  "canAdministerNormally": true,
+                  "minutesFromScheduled": 2
+                },
+                "administration": null
+              },
+              {
+                "uuid": "2752ea74-a15e-454f-bac6-566c76ae3f93",
+                "scheduleUuid": "6e9d2e63-59b1-4901-9e5f-d8a4dc04315f",
+                "status": "SCHEDULED",
+                "scheduledTime": 1788176378000,
+                "timing": {
+                  "status": "early",
+                  "canAdministerNormally": false,
+                  "minutesFromScheduled": -1437
+                },
+                "administration": null
+              },
+              {
+                "uuid": "e3f08e59-ee03-45da-87fb-aacbbe2c97e7",
+                "scheduleUuid": "6e9d2e63-59b1-4901-9e5f-d8a4dc04315f",
+                "status": "SCHEDULED",
+                "scheduledTime": 1788262778000,
+                "timing": {
+                  "status": "early",
+                  "canAdministerNormally": false,
+                  "minutesFromScheduled": -2877
+                },
+                "administration": null
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "openmrs_order",
+      "ok": true,
+      "detail": {
+        "order": "ORD-41",
+        "uuid": "51fb91b8-b3c8-4c51-873f-54a7dcc0fa49"
+      }
+    },
+    {
+      "name": "eligible_or_duplicate",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "code": null,
+        "dup": false
+      }
+    },
+    {
+      "name": "scheduled_time_unchanged",
+      "ok": true,
+      "detail": {
+        "scheduled": 1788089978000,
+        "savedScheduled": 1788089978000,
+        "actual": 1788090150000
+      }
+    },
+    {
+      "name": "future_409",
+      "ok": true,
+      "detail": {
+        "status": 409,
+        "code": "outside_administration_window"
+      }
+    },
+    {
+      "name": "reason_required",
+      "ok": true,
+      "detail": {
+        "status": 422,
+        "code": "outside_window_reason_required"
+      }
+    },
+    {
+      "name": "server_fields_only",
+      "ok": true,
+      "detail": {
+        "status": 422,
+        "code": "server_fields_only"
+      }
+    },
+    {
+      "name": "register_CHARLIE90146",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "uuid": "22b87403-424c-4154-b8a0-4d8def310cd2"
+      }
+    },
+    {
+      "name": "start_opd",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "uuid": "3037661e-2277-4aec-a10a-e82d4faa9526"
+      }
+    },
+    {
+      "name": "admit",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "message": "Admission requested. Nursing will assign a bed."
+      }
+    },
+    {
+      "name": "assign_bed",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "bed": "Bed 03"
+      }
+    },
+    {
+      "name": "charlie_ipd",
+      "ok": true,
+      "detail": {
+        "visit": "7fc407cf-91ad-4dca-91d5-85fe15a46bf2",
+        "bed": {
+          "bedUuid": "fe8b6d82-e438-4125-8ad8-50e4a35b223c",
+          "bedId": 3,
+          "bedNumber": "Bed 03",
+          "status": "AVAILABLE",
+          "areaName": "Hawawu Maternity Ward",
+          "areaUuid": "f0f005dd-c95d-47f1-894a-b263783dd5e6",
+          "patientUuid": null,
+          "patientName": null,
+          "mrn": null,
+          "sex": null,
+          "age": null,
+          "admitted": null
+        }
+      }
+    },
+    {
+      "name": "charlie_order",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "ms": 596
+      }
+    },
+    {
+      "name": "charlie_new_order_creates_schedule",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "body": {
+          "status": "ok",
+          "patientUuid": "22b87403-424c-4154-b8a0-4d8def310cd2",
+          "visitUuid": "7fc407cf-91ad-4dca-91d5-85fe15a46bf2",
+          "admissionEncounterUuid": "bf5b3716-eed5-4ad3-9348-7229197122d8",
+          "createdOrderUuids": [
+            "7c691753-1c99-490a-80f2-f3b4cefdeeaf"
+          ],
+          "alreadyScheduledOrderUuids": [],
+          "issues": []
+        },
+        "ms": 725
+      }
+    },
+    {
+      "name": "charlie_mar_slot",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "slots": [
+          {
+            "uuid": "0d6d203b-b53d-4f39-a614-e56b3d486db4",
+            "scheduleUuid": "80d45d78-482e-4e07-89ba-56a98870bb8e",
+            "status": "SCHEDULED",
+            "scheduledTime": 1788090158000,
+            "timing": {
+              "status": "eligible",
+              "canAdministerNormally": true,
+              "minutesFromScheduled": 0
+            },
+            "administration": null,
+            "orderUuid": "7c691753-1c99-490a-80f2-f3b4cefdeeaf",
+            "medication": "Cetirizine 10 mg"
+          }
+        ]
+      }
+    },
+    {
+      "name": "patient_isolation",
+      "ok": true,
+      "detail": {
+        "status": 409,
+        "code": "slot_mismatch"
+      }
+    },
+    {
+      "name": "rbac_doctor",
+      "ok": true,
+      "detail": {
+        "status": 403,
+        "code": "forbidden"
+      }
+    },
+    {
+      "name": "rbac_lab",
+      "ok": true,
+      "detail": {
+        "status": 403,
+        "code": "forbidden"
+      }
+    },
+    {
+      "name": "rbac_pharmacy",
+      "ok": true,
+      "detail": {
+        "status": 403,
+        "code": "forbidden"
+      }
+    },
+    {
+      "name": "rbac_accountant",
+      "ok": true,
+      "detail": {
+        "status": 403,
+        "code": "forbidden"
+      }
+    },
+    {
+      "name": "rbac_admin",
+      "ok": false,
+      "detail": {
+        "status": 200,
+        "code": null
+      }
+    },
+    {
+      "name": "rbac_unauthenticated",
+      "ok": true,
+      "detail": {
+        "status": 401
+      }
+    },
+    {
+      "name": "nurse_read",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "doctor_read",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "restart_no_duplicate",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "body": {
+          "status": "ok",
+          "patientUuid": "8c14a0dd-d509-4a0d-afcd-251b76fc1b5e",
+          "visitUuid": "52364c0a-807e-4d63-b52c-193c3141aa86",
+          "admissionEncounterUuid": "f2bf7d46-b034-4aae-a0fa-1f6d6589a605",
+          "createdOrderUuids": [],
+          "alreadyScheduledOrderUuids": [
+            "51fb91b8-b3c8-4c51-873f-54a7dcc0fa49"
+          ],
+          "issues": []
+        },
+        "before": 3,
+        "after": 3
+      }
+    },
+    {
+      "name": "discharge_c",
+      "ok": true,
+      "detail": {
+        "status": 200
+      }
+    },
+    {
+      "name": "no_schedule_after_discharge",
+      "ok": true,
+      "detail": {
+        "status": 409,
+        "code": "not_admitted"
+      }
+    },
+    {
+      "name": "historical_read",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "orders": 1
+      }
+    },
+    {
+      "name": "e2e_mar",
+      "ok": true,
+      "detail": {
+        "orders": 3
+      }
+    },
+    {
+      "name": "notes_still_readable",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "count": 1
+      }
+    },
+    {
+      "name": "vitals_still_readable",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "count": 1
+      }
+    }
+  ],
+  "workflow": {
+    "order": {
+      "concept": {
+        "uuid": "73136AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "name": "Cetirizine",
+        "dataType": "N/A",
+        "shortName": "Cetirizine",
+        "units": null,
+        "conceptClass": "Drug",
+        "hiNormal": null,
+        "lowNormal": null,
+        "set": false,
+        "mappings": [
+          {
+            "code": "73136",
+            "name": null,
+            "source": "CIEL"
+          },
+          {
+            "code": "20610",
+            "name": null,
+            "source": "RxNORM"
+          },
+          {
+            "code": "779",
+            "name": null,
+            "source": "AMPATH"
+          },
+          {
+            "code": "108655000",
+            "name": null,
+            "source": "SNOMED-CT"
+          }
+        ]
+      },
+      "instructions": null,
+      "uuid": "51fb91b8-b3c8-4c51-873f-54a7dcc0fa49",
+      "orderType": "Drug Order",
+      "accessionNumber": null,
+      "orderGroup": null,
+      "dateCreated": null,
+      "dateChanged": null,
+      "dateStopped": null,
+      "orderNumber": "ORD-41",
+      "careSetting": "INPATIENT",
+      "action": "NEW",
+      "commentToFulfiller": null,
+      "autoExpireDate": 1788349177000,
+      "urgency": null,
+      "previousOrderUuid": null,
+      "drug": {
+        "name": "Cetirizine 10 mg",
+        "uuid": "7e0766e1-b679-4eb3-ab93-d63910ad6eb4",
+        "form": "Tablet",
+        "strength": "10 mg"
+      },
+      "drugNonCoded": null,
+      "dosingInstructionType": "org.openmrs.module.bahmniemrapi.drugorder.dosinginstructions.FlexibleDosingInstructions",
+      "dosingInstructions": {
+        "dose": 1.0,
+        "doseUnits": "Tablet",
+        "route": "Oral",
+        "frequency": "Once a day",
+        "asNeeded": false,
+        "administrationInstructions": null,
+        "quantity": 3.0,
+        "quantityUnits": "Tablet",
+        "numberOfRefills": null
+      },
+      "dateActivated": 1788089978000,
+      "scheduledDate": 1788089978000,
+      "effectiveStartDate": 1788089978000,
+      "effectiveStopDate": 1788349177000,
+      "orderReasonText": null,
+      "duration": 3,
+      "durationUnits": "Days",
+      "voided": false,
+      "voidReason": null,
+      "orderReasonConcept": null,
+      "sortWeight": null,
+      "conceptUuid": "73136AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "visit": {
+        "uuid": "52364c0a-807e-4d63-b52c-193c3141aa86",
+        "startDateTime": 1788089967000
+      },
+      "drugOrder": {
+        "concept": {
+          "uuid": "73136AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+          "name": "Cetirizine",
+          "dataType": "N/A",
+          "shortName": "Cetirizine",
+          "units": null,
+          "conceptClass": "Drug",
+          "hiNormal": null,
+          "lowNormal": null,
+          "set": false,
+          "mappings": [
+            {
+              "code": "73136",
+              "name": null,
+              "source": "CIEL"
+            },
+            {
+              "code": "20610",
+              "name": null,
+              "source": "RxNORM"
+            },
+            {
+              "code": "779",
+              "name": null,
+              "source": "AMPATH"
+            },
+            {
+              "code": "108655000",
+              "name": null,
+              "source": "SNOMED-CT"
+            }
+          ]
+        },
+        "instructions": null,
+        "uuid": "51fb91b8-b3c8-4c51-873f-54a7dcc0fa49",
+        "orderType": "Drug Order",
+        "accessionNumber": null,
+        "orderGroup": null,
+        "dateCreated": null,
+        "dateChanged": null,
+        "dateStopped": null,
+        "orderNumber": "ORD-41",
+        "careSetting": "INPATIENT",
+        "action": "NEW",
+        "commentToFulfiller": null,
+        "autoExpireDate": 1788349177000,
+        "urgency": null,
+        "previousOrderUuid": null,
+        "drug": {
+          "name": "Cetirizine 10 mg",
+          "uuid": "7e0766e1-b679-4eb3-ab93-d63910ad6eb4",
+          "form": "Tablet",
+          "strength": "10 mg"
+        },
+        "drugNonCoded": null,
+        "dosingInstructionType": "org.openmrs.module.bahmniemrapi.drugorder.dosinginstructions.FlexibleDosingInstructions",
+        "dosingInstructions": {
+          "dose": 1.0,
+          "doseUnits": "Tablet",
+          "route": "Oral",
+          "frequency": "Once a day",
+          "asNeeded": false,
+          "administrationInstructions": null,
+          "quantity": 3.0,
+          "quantityUnits": "Tablet",
+          "numberOfRefills": null
+        },
+        "dateActivated": 1788089978000,
+        "scheduledDate": 1788089978000,
+        "effectiveStartDate": 1788089978000,
+        "effectiveStopDate": 1788349177000,
+        "orderReasonText": null,
+        "duration": 3,
+        "durationUnits": "Days",
+        "voided": false,
+        "voidReason": null,
+        "orderReasonConcept": null,
+        "sortWeight": null,
+        "conceptUuid": "73136AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+      },
+      "provider": {
+        "uuid": "17dec510-ef20-4282-9d9e-4d33d4693675",
+        "name": "Clinical Doctor",
+        "encounterRoleUuid": null
+      },
+      "orderAttributes": null,
+      "retired": false,
+      "encounterUuid": "dcb24e97-efdb-4e7a-9530-4f389a0216c4",
+      "creatorName": "Clinical Doctor"
+    },
+    "schedule": {
+      "status": "ok",
+      "patientUuid": "8c14a0dd-d509-4a0d-afcd-251b76fc1b5e",
+      "visitUuid": "52364c0a-807e-4d63-b52c-193c3141aa86",
+      "admissionEncounterUuid": "f2bf7d46-b034-4aae-a0fa-1f6d6589a605",
+      "createdOrderUuids": [],
+      "alreadyScheduledOrderUuids": [
+        "51fb91b8-b3c8-4c51-873f-54a7dcc0fa49"
+      ],
+      "issues": []
+    },
+    "slots": [
+      {
+        "uuid": "54267a36-0bfb-4e29-bbbf-ded01e1bd67d",
+        "scheduleUuid": "6e9d2e63-59b1-4901-9e5f-d8a4dc04315f",
+        "status": "SCHEDULED",
+        "scheduledTime": 1788089978000,
+        "timing": {
+          "status": "eligible",
+          "canAdministerNormally": true,
+          "minutesFromScheduled": 2
+        },
+        "administration": null,
+        "orderUuid": "51fb91b8-b3c8-4c51-873f-54a7dcc0fa49",
+        "medication": "Cetirizine 10 mg"
+      },
+      {
+        "uuid": "2752ea74-a15e-454f-bac6-566c76ae3f93",
+        "scheduleUuid": "6e9d2e63-59b1-4901-9e5f-d8a4dc04315f",
+        "status": "SCHEDULED",
+        "scheduledTime": 1788176378000,
+        "timing": {
+          "status": "early",
+          "canAdministerNormally": false,
+          "minutesFromScheduled": -1437
+        },
+        "administration": null,
+        "orderUuid": "51fb91b8-b3c8-4c51-873f-54a7dcc0fa49",
+        "medication": "Cetirizine 10 mg"
+      },
+      {
+        "uuid": "e3f08e59-ee03-45da-87fb-aacbbe2c97e7",
+        "scheduleUuid": "6e9d2e63-59b1-4901-9e5f-d8a4dc04315f",
+        "status": "SCHEDULED",
+        "scheduledTime": 1788262778000,
+        "timing": {
+          "status": "early",
+          "canAdministerNormally": false,
+          "minutesFromScheduled": -2877
+        },
+        "administration": null,
+        "orderUuid": "51fb91b8-b3c8-4c51-873f-54a7dcc0fa49",
+        "medication": "Cetirizine 10 mg"
+      }
+    ]
+  },
+  "performance": {
+    "scheduleCreationMs": 637,
+    "slotAvailabilityMs": 637,
+    "asynchronous": false,
+    "newOrderToSlotMs": 726,
+    "newOrderCreationMs": 596
+  }
+}

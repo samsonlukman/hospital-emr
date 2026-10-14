@@ -1,0 +1,115 @@
+.abikan-identity {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-6);
+  padding: var(--space-4) var(--space-5);
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+}
+
+.abikan-identity__queue {
+  min-width: 64px;
+  margin: 0;
+  font-size: 1.7rem;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+  color: var(--color-registration);
+}
+
+.abikan-identity__who {
+  min-width: 0;
+}
+
+.abikan-identity h2 {
+  margin: 0;
+  font-size: 1.35rem;
+  line-height: 1.2;
+  color: var(--color-navy);
+}
+
+.abikan-identity__mrn {
+  margin: 4px 0 0;
+  font-size: 0.92rem;
+  font-weight: 650;
+  color: var(--color-ink);
+}
+
+.abikan-identity__meta {
+  margin-top: 2px;
+  color: var(--color-ink-muted);
+  font-size: 0.9rem;
+}
+
+.abikan-identity dl {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-5) var(--space-8);
+  margin: 0 0 0 auto;
+}
+
+.abikan-identity dt {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-ink-subtle);
+}
+
+.abikan-identity dd {
+  margin: 4px 0 0;
+  font-weight: 650;
+  color: var(--color-navy);
+}
+
+.abikan-identity--compact {
+  align-items: center;
+  gap: 10px 14px;
+  padding: 8px 12px;
+}
+
+.abikan-identity--compact .abikan-identity__queue {
+  min-width: 0;
+  font-size: 1.05rem;
+}
+
+.abikan-identity--compact .abikan-identity__who {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 2px 8px;
+}
+
+.abikan-identity--compact h2 {
+  font-size: 1.02rem;
+}
+
+.abikan-identity--compact .abikan-identity__mrn,
+.abikan-identity--compact .abikan-identity__meta {
+  margin: 0;
+  font-size: 0.82rem;
+}
+
+.abikan-identity--compact dl {
+  gap: 0 16px;
+}
+
+.abikan-identity--compact dd {
+  margin-top: 1px;
+  font-size: 0.84rem;
+}
+
+@media (max-width: 900px) {
+  .abikan-identity,
+  .abikan-identity dl {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-4);
+  }
+
+  .abikan-identity dl {
+    margin: 0;
+  }
+}

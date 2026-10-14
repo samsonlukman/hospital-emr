@@ -1,0 +1,525 @@
+.consult {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 0;
+}
+
+.consult__top {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(280px, 0.9fr);
+  gap: 12px;
+  align-items: stretch;
+}
+
+.consult__top:has(> :only-child) {
+  grid-template-columns: 1fr;
+}
+
+.consult .abikan-identity {
+  align-items: center;
+  gap: 10px 14px;
+  height: 100%;
+  padding: 8px 12px;
+}
+
+.consult .abikan-identity__queue {
+  min-width: 0;
+  font-size: 1.05rem;
+}
+
+.consult .abikan-identity__who {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 2px 8px;
+}
+
+.consult .abikan-identity h2 {
+  font-size: 1.02rem;
+}
+
+.consult .abikan-identity__mrn,
+.consult .abikan-identity__meta {
+  margin: 0;
+  font-size: 0.82rem;
+}
+
+.consult .abikan-identity dl {
+  gap: 0 16px;
+}
+
+.consult .abikan-identity dd {
+  margin-top: 1px;
+  font-size: 0.84rem;
+}
+
+.consult .consult-fee.abikan-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  height: 100%;
+  padding: 8px 12px;
+}
+
+.consult .consult-fee__compose {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.consult .consult-fee__compose label,
+.consult .consult-fee__compose > span {
+  color: var(--color-navy);
+  font-size: 0.84rem;
+  font-weight: 700;
+}
+
+.consult .consult-fee__input {
+  flex: 1 1 120px;
+  min-height: 36px;
+}
+
+.consult .consult-fee__input input {
+  min-height: 34px;
+}
+
+.consult .consult-fee__currency {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+.consult .consult-fee__actions {
+  margin: 0;
+}
+
+.consult .consult-fee .abikan-button {
+  min-height: 36px;
+  padding: 0 12px;
+}
+
+.consult #allergies,
+.consult #anc,
+.consult #document,
+.consult #vitals,
+.consult #visits,
+.consult #diagnose,
+.consult #laboratory,
+.consult #radiology,
+.consult #prescribe,
+.consult #disposition {
+  scroll-margin-top: 72px;
+}
+
+.consult-sticky {
+  position: sticky;
+  top: 0;
+  z-index: 8;
+  height: 0;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.consult-sticky__inner {
+  display: none;
+}
+
+.consult-sticky.is-on .consult-sticky__inner {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-3) var(--space-5);
+  min-height: 44px;
+  padding: 8px 14px;
+  pointer-events: auto;
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-card);
+  font-size: 0.86rem;
+  color: var(--color-ink-muted);
+}
+
+.consult-sticky__inner strong {
+  color: var(--color-navy);
+  font-size: 0.95rem;
+}
+
+.consult-sticky__allergy.is-recorded {
+  color: var(--color-warning);
+  font-weight: 650;
+}
+
+.consult__nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+.consult__nav a {
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.consult__sheet {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 188px;
+  gap: var(--space-5);
+  align-items: start;
+}
+
+.consult__main {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.consult__index {
+  position: sticky;
+  top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 8px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-sm);
+}
+
+.consult__index button {
+  border: 0;
+  background: transparent;
+  color: var(--color-ink-muted);
+  font: inherit;
+  font-size: 0.84rem;
+  font-weight: 650;
+  text-align: left;
+  padding: 8px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.consult__index button:hover,
+.consult__index button.is-active {
+  background: var(--color-registration-soft);
+  color: var(--color-registration);
+}
+
+.consult__history {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.2fr);
+  gap: var(--space-6);
+}
+
+.consult__timeline {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.consult__timeline li {
+  position: relative;
+  padding: 0 0 var(--space-5) var(--space-5);
+  border-left: 2px solid var(--color-line);
+}
+
+.consult__timeline li:last-child {
+  padding-bottom: 0;
+}
+
+.consult__timeline li::before {
+  content: "";
+  position: absolute;
+  left: -5px;
+  top: 6px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-registration);
+}
+
+.consult__timeline-date {
+  margin: 0;
+  font-weight: 700;
+  color: var(--color-navy);
+}
+
+.consult__timeline-title {
+  margin: 2px 0 0;
+  font-weight: 600;
+}
+
+.consult__visit-pick {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.consult__visit-pick:hover .consult__timeline-title {
+  color: var(--color-link);
+}
+
+.consult__timeline li.is-current::before {
+  background: var(--color-navy);
+}
+
+.consult__timeline li.is-current .consult__visit-pick {
+  cursor: default;
+}
+
+.consult__history-side {
+  min-width: 0;
+}
+
+.consult__history-side h4,
+.consult__orders h4 {
+  margin: 0 0 var(--space-2);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-ink-subtle);
+}
+
+.consult__history-side ul,
+.consult__records {
+  margin: 0;
+  padding-left: 1.1rem;
+}
+
+.consult__encounters {
+  list-style: none;
+  padding-left: 0;
+}
+
+.consult__encounters button {
+  display: block;
+  width: 100%;
+  margin: 0 0 var(--space-2);
+  padding: 8px 10px;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  color: var(--color-navy);
+  font: inherit;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+}
+
+.consult__encounters button:hover,
+.consult__encounters button.is-selected {
+  border-color: var(--color-teal);
+  color: var(--color-teal);
+}
+
+.consult__encounter-detail {
+  display: grid;
+  gap: var(--space-3);
+  margin-top: var(--space-3);
+  padding: var(--space-3);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-sm);
+  background: #f8fafb;
+}
+
+.consult__encounter-detail h5 {
+  margin: 0 0 4px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-ink-subtle);
+}
+
+.consult__encounter-detail p,
+.consult__encounter-detail ul {
+  margin: 0;
+}
+
+.consult__encounter-detail ul {
+  padding-left: 1.1rem;
+}
+
+.consult__assess {
+  display: grid;
+  gap: 0;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.consult__assess-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  min-height: 40px;
+  padding: 0 var(--space-4);
+  border-bottom: 1px solid var(--color-line);
+  background: #f8fafb;
+  font-size: 0.9rem;
+  font-weight: 650;
+  color: var(--color-navy);
+}
+
+.consult__assess-row:last-child {
+  border-bottom: 0;
+}
+
+.consult__orders {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-5);
+  min-width: 0;
+}
+
+.consult__orders > div {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.consult__disposition {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: var(--space-3);
+}
+
+.consult__disposition button,
+.consult__soon-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 36px;
+  padding: 0 var(--space-4);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-sm);
+  background: #fff;
+  color: var(--color-navy);
+  font-weight: 600;
+}
+
+.consult__disposition button:disabled {
+  background: #f4f6f8;
+  color: var(--color-ink-muted);
+  cursor: not-allowed;
+}
+
+.consult__link {
+  border: 0;
+  background: none;
+  color: var(--color-link);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.consult__link:hover {
+  text-decoration: underline;
+}
+
+.consult__muted,
+.consult__hint {
+  margin: 0;
+  color: var(--color-ink-muted);
+}
+
+.consult__hint {
+  margin-top: var(--space-3);
+  font-size: 0.82rem;
+}
+
+.consult__visit-action {
+  margin-top: var(--space-3);
+}
+
+.consult__savebar {
+  position: sticky;
+  bottom: 0;
+  z-index: 6;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: var(--space-4) var(--space-5);
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-left: 3px solid var(--color-teal);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+}
+
+.consult__savebar-title {
+  margin: 0;
+  font-weight: 700;
+  color: var(--color-navy);
+}
+
+.consult__savebar-copy {
+  margin: 4px 0 0;
+  color: var(--color-ink-muted);
+  font-size: 0.84rem;
+}
+
+@media (max-width: 1200px) {
+  .consult__history {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 980px) {
+  .consult__top,
+  .consult__sheet {
+    grid-template-columns: 1fr;
+  }
+
+  .consult__index {
+    position: static;
+    flex-direction: row;
+    flex-wrap: wrap;
+    order: -1;
+  }
+}
+
+@media (max-width: 800px) {
+  .consult__history,
+  .consult__orders {
+    grid-template-columns: 1fr;
+  }
+
+  .consult__savebar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+@media (max-width: 420px) {
+  .consult {
+    overflow-x: hidden;
+    min-width: 0;
+  }
+
+  .consult__index button {
+    font-size: 0.82rem;
+  }
+}

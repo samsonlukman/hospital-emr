@@ -1,0 +1,334 @@
+.nursing-patient {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.nursing-patient #alerts,
+.nursing-patient #condition,
+.nursing-patient #vitals,
+.nursing-patient #mar,
+.nursing-patient #tasks,
+.nursing-patient #notes,
+.nursing-patient #doctor,
+.nursing-patient #admission,
+.nursing-patient #discharge {
+  scroll-margin-top: 56px;
+}
+
+.nursing-patient-sticky {
+  position: sticky;
+  top: 0;
+  z-index: 8;
+  height: 0;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.nursing-patient-sticky__inner {
+  display: none;
+}
+
+.nursing-patient-sticky.is-on .nursing-patient-sticky__inner {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-3) var(--space-5);
+  min-height: 44px;
+  padding: 8px 14px;
+  pointer-events: auto;
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-card);
+  font-size: 0.86rem;
+  color: var(--color-ink-muted);
+}
+
+.nursing-patient-sticky__inner strong {
+  color: var(--color-navy);
+  font-size: 0.95rem;
+}
+
+.nursing-patient-sticky__allergy.is-recorded {
+  color: var(--color-warning);
+  font-weight: 650;
+}
+
+.nursing-patient__nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.nursing-patient__nav a {
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.nursing-patient__flow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 4px;
+  padding: 4px 0;
+}
+
+.nursing-patient__flow a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 44px;
+  padding: 0 12px;
+  border-radius: var(--radius-pill);
+  color: var(--color-ink-muted);
+  font-size: 0.82rem;
+  font-weight: 650;
+  text-decoration: none;
+}
+
+.nursing-patient__flow a:hover {
+  background: var(--color-teal-soft);
+  color: var(--color-teal);
+}
+
+.nursing-patient__flow span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #eef1f4;
+  color: var(--color-ink-subtle);
+  font-size: 0.68rem;
+}
+
+.nursing-patient__muted {
+  margin: 0;
+  color: var(--color-ink-muted);
+  font-size: 0.92rem;
+}
+
+.nursing-patient__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+}
+
+.nursing-dialog__field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 0 0 var(--space-4);
+}
+
+.nursing-dialog__field span {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-ink-subtle);
+}
+
+.nursing-dialog__field select {
+  min-height: 40px;
+  padding: 0 12px;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-sm);
+  background: #fff;
+}
+
+.nursing-dialog__error {
+  margin: 0 0 var(--space-4);
+  color: var(--color-danger, #b42318);
+  font-weight: 600;
+}
+
+.abikan-dialog {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  display: grid;
+  place-items: center;
+  background: rgba(21, 35, 59, 0.45);
+  padding: var(--space-4);
+}
+
+.abikan-dialog__panel {
+  width: min(560px, 100%);
+  max-height: calc(100vh - 48px);
+  overflow: auto;
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  padding: var(--space-6);
+}
+
+.nursing-dialog__hint {
+  margin: 0 0 var(--space-3);
+  font-weight: 650;
+  color: var(--color-navy);
+}
+
+.nursing-bed-picker__beds {
+  margin: 0 0 var(--space-4);
+  padding: 0;
+  border: 0;
+}
+
+.nursing-bed-picker__beds legend {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-ink-subtle);
+  margin-bottom: var(--space-2);
+}
+
+.nursing-bed-picker__option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 40px;
+  margin: 0 0 6px;
+  cursor: pointer;
+}
+
+.cashier-confirm dl {
+  display: grid;
+  gap: var(--space-3);
+  margin: 0 0 var(--space-5);
+}
+
+.cashier-confirm dt {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-ink-subtle);
+}
+
+.cashier-confirm dd {
+  margin: 4px 0 0;
+  color: var(--color-navy);
+  font-weight: 650;
+}
+
+.cashier-confirm__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.nursing-condition {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-5);
+}
+
+.nursing-condition__label {
+  margin: 0 0 4px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-ink-subtle);
+}
+
+.nursing-condition p {
+  margin: 0;
+  color: var(--color-navy);
+  font-weight: 600;
+}
+
+.nursing-io,
+.nursing-facts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-4);
+  margin: 0 0 var(--space-4);
+}
+
+.nursing-io dt,
+.nursing-facts dt {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-ink-subtle);
+}
+
+.nursing-io dd,
+.nursing-facts dd {
+  margin: 4px 0 0;
+  font-weight: 650;
+  color: var(--color-navy);
+}
+
+.nursing-doctor-list {
+  margin: 0 0 var(--space-4);
+  padding: 0;
+  list-style: none;
+}
+
+.nursing-doctor-list li {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: var(--space-3) 0;
+  border-bottom: 1px solid var(--color-line);
+}
+
+.nursing-doctor-list li:last-child {
+  border-bottom: 0;
+}
+
+.nursing-doctor-list strong {
+  color: var(--color-navy);
+}
+
+.nursing-doctor-list span {
+  font-size: 0.82rem;
+  color: var(--color-ink-muted);
+}
+
+.nursing-flow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-bottom: var(--space-4);
+}
+
+.nursing-flow span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  padding: 0 12px;
+  border: 1px dashed var(--color-line-strong);
+  border-radius: var(--radius-pill);
+  color: var(--color-ink-subtle);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+@media (max-width: 1100px) {
+  .nursing-condition,
+  .nursing-io,
+  .nursing-facts {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .nursing-condition,
+  .nursing-io,
+  .nursing-facts {
+    grid-template-columns: 1fr;
+  }
+
+  .nursing-patient__nav {
+    flex-wrap: wrap;
+  }
+}

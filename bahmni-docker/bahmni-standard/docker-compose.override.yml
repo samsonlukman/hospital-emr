@@ -1,0 +1,59 @@
+services:
+  bahmni-config:
+    command: ["sleep", "infinity"]
+
+  bahmni-web:
+    volumes:
+      - ../../abikan-config:/usr/local/apache2/htdocs/bahmni_config:ro
+
+  # Serves Hospital EMR at / and /abikan/. Bahmni stays at /bahmni/.
+  # inject-abikan-api.sh copies Hospital EMR index.html over DocumentRoot.
+  # Rollback: remove this proxy.volumes/command block, then:
+  #   docker compose --env-file .env up -d proxy
+  proxy:
+    volumes:
+      - ../../abikan-shell/dist:/usr/local/apache2/htdocs/abikan:ro
+      - ./proxy/inject-abikan-api.sh:/usr/local/bin/inject-abikan-api.sh:ro
+    command: ["/bin/sh", "/usr/local/bin/inject-abikan-api.sh"]
+
+  # Read-only Patient Account API. Odoo credentials stay in this service.
+  abikan-api:
+    image: python:3.12-alpine
+    working_dir: /app
+    env_file:
+      - .env.abikan
+    volumes:
+      - ../../abikan-shell/server/patient-account:/app:ro
+      - abikan-admin-audit:/var/lib/abikan
+    command: ["python", "-c", "import server; server.main()"]
+    ports:
+      - "8787:8787"
+    environment:
+      TZ: ${TZ}
+      ABIKAN_OPENMRS_URL: http://openmrs:8080
+      ABIKAN_OPENMRS_DB_HOST: openmrsdb
+      ABIKAN_OPENMRS_DB_NAME: ${OPENMRS_DB_NAME}
+      ABIKAN_OPENMRS_DB_USER: ${OPENMRS_DB_USERNAME}
+      ABIKAN_OPENMRS_DB_PASSWORD: ${OPENMRS_DB_PASSWORD}
+      ABIKAN_OPENELIS_URL: http://openelis:8052/openelis
+      ABIKAN_OPENELIS_USER: ${ABIKAN_OPENELIS_USER:?}
+      ABIKAN_OPENELIS_PASSWORD: ${ABIKAN_OPENELIS_PASSWORD:?}
+      ABIKAN_ADMIN_AUDIT_DB: /var/lib/abikan/admin-audit.sqlite3
+      ABIKAN_NOTIFICATIONS_DB: /var/lib/abikan/notifications.sqlite3
+      ABIKAN_MESSAGING_DB: /var/lib/abikan/messaging.sqlite3
+      ABIKAN_LAB_WORKFLOW_DB: /var/lib/abikan/laboratory-workflow.json
+      ABIKAN_HMO_DB: /var/lib/abikan/hmo.sqlite3
+      ABIKAN_ATTENDANCE_DB: /var/lib/abikan/attendance.sqlite3
+      ABIKAN_HOSPITAL_TIMEZONE: ${ABIKAN_HOSPITAL_TIMEZONE:-Africa/Lagos}
+      ABIKAN_ATTENDANCE_TERMINAL_NAME: ${ABIKAN_ATTENDANCE_TERMINAL_NAME:-Staff Log Terminal}
+      ABIKAN_ODOO_URL: http://odoo:8069
+      ABIKAN_ODOO_DB: ${ODOO_DB_NAME}
+    depends_on:
+      - odoo
+      - openmrs
+      - openmrsdb
+      - openelis
+    restart: ${RESTART_POLICY}
+
+volumes:
+  abikan-admin-audit:

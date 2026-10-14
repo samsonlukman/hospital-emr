@@ -1,0 +1,37 @@
+---
+description: Hospital EMR hospital UI must stay simple, task-first, and free of system jargon
+alwaysApply: true
+---
+
+# Hospital EMR product principle: Simplicity first
+
+Hospital EMR is for hospital staff, not developers. Every screen must be easy, fast, and hard to misuse.
+
+## Language
+
+Never show staff these words: OpenMRS, Bahmni, Odoo, Atomfeed, API, UUID, database, XML-RPC, ledger, residual, sale order, partner, stock_quant, or similar integration terms.
+
+Staff should see the task (collect payment, review the chart, dispense) not the architecture.
+
+Docs, comments, and server logs may name source systems. The UI must not.
+
+## Before adding or changing a screen
+
+Ask:
+
+1. What is the staff member trying to do?
+2. What is the minimum information required?
+3. What is the fewest number of clicks?
+4. What mistake would be dangerous or expensive?
+5. Can the interface prevent that mistake?
+6. Can advanced detail stay hidden until needed?
+
+## UI rules
+
+- Prefer one clear primary action over several competing ones.
+- Do not add UI only because the backend returns a field.
+- Do not fill dashboards with KPI cards staff do not need, especially fake "—" counters.
+- Use plain hospital language, strong hierarchy, and honest empty states.
+- Keep Hospital EMR looking like one hospital system even when several engines sit behind it.
+- "Open full chart" not "Open in Bahmni Clinical".
+- Error copy: what happened and what to do next. No stack traces, model names, or endpoints.

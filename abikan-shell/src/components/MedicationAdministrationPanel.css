@@ -1,0 +1,165 @@
+.mar__orders,
+.mar__slots {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.mar__order {
+  min-width: 0;
+  padding: var(--space-4);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+}
+
+.mar__order-header,
+.mar__slot-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.mar__order-header h4 {
+  margin: 0;
+  color: var(--color-navy);
+}
+
+.mar__order-header p,
+.mar__instructions,
+.mar__muted,
+.mar__administration p {
+  margin: 4px 0 0;
+  color: var(--color-ink-muted);
+  line-height: 1.45;
+}
+
+.mar__slots {
+  margin: var(--space-4) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.mar__slots > li {
+  min-width: 0;
+  padding: var(--space-3);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface-subtle, #f7f9fb);
+}
+
+.mar__slot-heading > div {
+  display: grid;
+  gap: 6px;
+}
+
+.mar__slot-heading time {
+  color: var(--color-ink);
+  font-weight: 700;
+}
+
+.mar__actions {
+  display: flex;
+  align-items: stretch;
+  gap: var(--space-2);
+}
+
+.mar__administration {
+  margin-top: var(--space-3);
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--color-line);
+}
+
+.mar__administration dl,
+.mar__confirm {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-3);
+  margin: var(--space-3) 0 0;
+}
+
+.mar__confirm {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-bottom: var(--space-4);
+}
+
+.mar__administration dl div,
+.mar__confirm div {
+  min-width: 0;
+}
+
+.mar__administration dt,
+.mar__confirm dt {
+  color: var(--color-ink-subtle);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.mar__administration dd,
+.mar__confirm dd {
+  margin: 3px 0 0;
+  overflow-wrap: anywhere;
+  color: var(--color-ink);
+}
+
+.mar__field {
+  display: grid;
+  gap: 6px;
+  margin-bottom: var(--space-4);
+}
+
+.mar__field span {
+  color: var(--color-ink);
+  font-weight: 700;
+}
+
+.mar__field select,
+.mar__field input,
+.mar__field textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--color-line-strong);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  color: var(--color-ink);
+  font: inherit;
+}
+
+.mar__field textarea {
+  min-height: 104px;
+  resize: vertical;
+}
+
+.mar__field select:focus,
+.mar__field input:focus,
+.mar__field textarea:focus {
+  border-color: var(--color-teal);
+  outline: 2px solid var(--color-teal-soft);
+  outline-offset: 1px;
+}
+
+@media (max-width: 480px) {
+  .mar__order {
+    padding: var(--space-3);
+  }
+
+  .mar__order-header,
+  .mar__slot-heading {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .mar__slot-heading button {
+    width: 100%;
+  }
+
+  .mar__actions {
+    flex-direction: column;
+  }
+
+  .mar__administration dl,
+  .mar__confirm {
+    grid-template-columns: 1fr;
+  }
+}

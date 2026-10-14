@@ -1,0 +1,280 @@
+.patient-directory__filters {
+  display: grid;
+  grid-template-columns: minmax(18rem, 1.6fr) minmax(12rem, 14rem) auto;
+  gap: var(--space-4) var(--space-5);
+  align-items: end;
+  margin: 0 0 var(--space-4);
+}
+
+.patient-directory__filters label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-width: 0;
+  color: var(--color-ink);
+  font-size: 0.84rem;
+  font-weight: 600;
+}
+
+.patient-directory__filters input,
+.patient-directory__filters select {
+  min-height: 42px;
+  width: 100%;
+  padding: 0 0.85rem;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+}
+
+.patient-directory--admin .patient-directory__filters {
+  grid-template-columns: minmax(14rem, 1fr) minmax(10rem, 13rem) minmax(9rem, 11rem) auto;
+}
+
+.patient-directory__find {
+  display: flex;
+  align-items: end;
+}
+
+.patient-directory__table .abikan-table th,
+.patient-directory__table .abikan-table td {
+  padding: 16px 18px;
+  border-bottom: 1px solid var(--color-line);
+  border-right: 1px solid #edf0f4;
+}
+
+.patient-directory__table .abikan-table th:last-child,
+.patient-directory__table .abikan-table td:last-child {
+  border-right: 0;
+}
+
+.patient-directory__table .abikan-table th {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--color-ink-muted);
+  background: #f3f6f8;
+  border-bottom-color: #d8dee6;
+}
+
+.patient-directory__table .abikan-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.patient-directory__table .abikan-table tbody tr:hover {
+  background: #f5f8fa;
+}
+
+.patient-directory__table .abikan-table th:nth-child(1),
+.patient-directory__table .abikan-table td:nth-child(1) {
+  min-width: 12.5rem;
+}
+
+.patient-directory__table .abikan-table th:nth-child(2),
+.patient-directory__table .abikan-table td:nth-child(2),
+.patient-directory__table .abikan-table th:nth-child(5),
+.patient-directory__table .abikan-table td:nth-child(5),
+.patient-directory__table .abikan-table th:nth-child(7),
+.patient-directory__table .abikan-table td:nth-child(7) {
+  white-space: nowrap;
+}
+
+.patient-directory__table .abikan-table th:nth-child(3),
+.patient-directory__table .abikan-table td:nth-child(3),
+.patient-directory__table .abikan-table th:nth-child(4),
+.patient-directory__table .abikan-table td:nth-child(4),
+.patient-directory__table .abikan-table th:nth-child(6),
+.patient-directory__table .abikan-table td:nth-child(6) {
+  width: 4.75rem;
+  white-space: nowrap;
+}
+
+.patient-directory__name {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--color-link);
+  font: inherit;
+  font-weight: 700;
+  text-align: left;
+  cursor: pointer;
+}
+
+.patient-directory__table .patient-directory__name {
+  font-size: 1rem;
+  line-height: 1.35;
+}
+
+.patient-directory__name:hover {
+  text-decoration: underline;
+}
+
+.patient-directory__nhis {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  white-space: nowrap;
+}
+
+.patient-directory__action {
+  width: 1%;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.patient-directory__sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+.patient-directory__pager {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.patient-directory__pager p {
+  margin: 0;
+  color: var(--color-ink-muted);
+  font-weight: 600;
+}
+
+.patient-directory__pager-actions {
+  display: flex;
+  gap: var(--space-3);
+}
+
+.patient-directory__muted {
+  margin: 0;
+  color: var(--color-ink-muted);
+  font-weight: 600;
+}
+
+.patient-directory__life-status {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.patient-directory__life-form {
+  display: grid;
+  gap: var(--space-3);
+  max-width: 28rem;
+}
+
+.patient-directory__life-form fieldset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.patient-directory__life-form legend,
+.patient-directory__life-form label > span {
+  display: block;
+  margin-bottom: 0.4rem;
+  color: var(--color-ink);
+  font-size: 0.84rem;
+  font-weight: 600;
+}
+
+.patient-directory__life-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+.patient-directory__life-options label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.patient-directory__life-form input[type="date"] {
+  min-height: 42px;
+  width: 100%;
+  max-width: 16rem;
+  padding: 0 0.75rem;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  color: var(--color-ink);
+  font: inherit;
+}
+
+.patient-directory__life-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+@media (max-width: 720px) {
+  .patient-directory__filters,
+  .patient-directory--admin .patient-directory__filters {
+    grid-template-columns: 1fr;
+  }
+
+  .patient-directory__table .abikan-table th,
+  .patient-directory__table .abikan-table td {
+    padding: 14px 12px;
+  }
+
+  .patient-directory__table .patient-directory__name {
+    font-size: 0.98rem;
+  }
+}
+
+.patient-directory__tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0 0 var(--space-4);
+}
+
+.patient-directory__tabs button {
+  appearance: none;
+  border: 1px solid var(--color-line-strong);
+  background: var(--color-surface);
+  color: var(--color-ink-muted);
+  border-radius: var(--radius-sm);
+  min-height: 40px;
+  padding: 0 14px;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.patient-directory__tabs button.is-active {
+  border-color: var(--color-teal);
+  background: var(--color-teal-soft);
+  color: var(--color-teal);
+}
+
+.patient-directory__services {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--space-4);
+}
+
+.patient-directory__services li {
+  display: grid;
+  gap: var(--space-2);
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid var(--color-line);
+}
+
+.patient-directory__services li:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.patient-directory__services span {
+  color: var(--color-ink-muted);
+  font-size: 0.95rem;
+}

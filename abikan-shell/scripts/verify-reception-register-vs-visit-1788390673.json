@@ -1,0 +1,155 @@
+{
+  "stamp": 1788390673,
+  "checks": [
+    {
+      "name": "metadata",
+      "ok": true,
+      "detail": {
+        "status": 200
+      }
+    },
+    {
+      "name": "a_register_new_patient",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "uuid": "474a75e0-b5a4-4f76-8a40-58d919ec0ccc",
+        "mrn": "ABC200042"
+      }
+    },
+    {
+      "name": "a_first_visit",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "visit": "c3a8f0b9-6c36-43d9-9815-36a379aa4299"
+      }
+    },
+    {
+      "name": "a_card_charge",
+      "ok": false,
+      "detail": {
+        "status": 409,
+        "fee": null,
+        "amount": null,
+        "hasCharge": null
+      }
+    },
+    {
+      "name": "visit_context_has_no_card_fields",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "keys": [
+          "admissionActive",
+          "canStartVisit",
+          "code",
+          "message",
+          "patient",
+          "status",
+          "visit",
+          "visitTypes"
+        ]
+      }
+    },
+    {
+      "name": "c_existing_open_visit",
+      "ok": true,
+      "detail": {
+        "status": 409,
+        "code": "visit_already_open",
+        "uuid": "c3a8f0b9-6c36-43d9-9815-36a379aa4299"
+      }
+    },
+    {
+      "name": "d_new_visit_after_close",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "new": "df0158ca-3f3e-4eb1-8946-22ca5dd164a7"
+      }
+    },
+    {
+      "name": "e_existing_patient_without_card_can_start_visit",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "visit": "407d5ea4-d685-40f0-8a99-099ce9243a5d",
+        "created": true
+      }
+    },
+    {
+      "name": "f_inpatient_no_new_opd",
+      "ok": true,
+      "detail": {
+        "status": 409,
+        "code": "visit_already_open",
+        "visit": "2db4f84e-d5e6-4916-ba9e-c327f6f74b70",
+        "before": 3,
+        "after": 3
+      }
+    },
+    {
+      "name": "rbac_doctor_cannot_read_visit_context",
+      "ok": true,
+      "detail": {
+        "status": 403
+      }
+    },
+    {
+      "name": "rbac_doctor_cannot_start_reception_visit",
+      "ok": true,
+      "detail": {
+        "status": 403
+      }
+    },
+    {
+      "name": "attendance_visit_is_not_consultation",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "visit": "e6fcd225-c2dc-4ab3-912d-d337e1f769dd",
+        "encounter": null
+      }
+    },
+    {
+      "name": "attendance_consultation_type_exists",
+      "ok": true,
+      "detail": {
+        "uuid": "d34fe3ab-5e07-11ef-8f7c-0242ac120002",
+        "name": "Consultation"
+      }
+    }
+  ],
+  "failures": [
+    {
+      "name": "a_card_charge",
+      "ok": false,
+      "detail": {
+        "status": 409,
+        "fee": null,
+        "amount": null,
+        "hasCharge": null
+      }
+    }
+  ],
+  "patients": {
+    "new": {
+      "uuid": "474a75e0-b5a4-4f76-8a40-58d919ec0ccc",
+      "mrn": "ABC200042"
+    },
+    "noCard": {
+      "uuid": "b2f5cf0b-77c0-486c-8884-f450b946e025",
+      "visit": "407d5ea4-d685-40f0-8a99-099ce9243a5d"
+    }
+  },
+  "attendance": {
+    "visitUuid": "e6fcd225-c2dc-4ab3-912d-d337e1f769dd",
+    "consultationEncounterBeforeSave": null,
+    "consultationEncounterType": {
+      "uuid": "d34fe3ab-5e07-11ef-8f7c-0242ac120002",
+      "name": "Consultation"
+    },
+    "note": "A visit is arrival only. Attendance is a Consultation encounter with encounter_provider."
+  }
+}

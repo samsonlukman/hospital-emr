@@ -1,0 +1,108 @@
+import type { NavGroup } from "../types";
+
+export const LABORATORY_NAV: NavGroup[] = [
+  {
+    id: "laboratory",
+    label: "Laboratory",
+    items: [
+      {
+        id: "laboratory-dashboard",
+        label: "Dashboard",
+        kind: "route",
+        href: "#/laboratory",
+        icon: "dashboard",
+      },
+      {
+        id: "new-order",
+        label: "New Lab Order",
+        kind: "route",
+        href: "#/laboratory/new-order",
+        icon: "clipboardPlus",
+      },
+      {
+        id: "history",
+        label: "Lab History",
+        kind: "route",
+        href: "#/laboratory/history",
+        icon: "receipt",
+      },
+      {
+        id: "deleted-orders",
+        label: "Deleted orders",
+        kind: "route",
+        href: "#/laboratory/deleted",
+        icon: "clipboardList",
+      },
+      {
+        id: "pending",
+        label: "Pending Orders",
+        kind: "route",
+        href: "#/laboratory/pending",
+        icon: "clipboardList",
+      },
+      {
+        id: "processing",
+        label: "Processing",
+        kind: "route",
+        href: "#/laboratory/processing",
+        icon: "activity",
+      },
+      {
+        id: "completed",
+        label: "Completed Results",
+        kind: "route",
+        href: "#/laboratory/completed",
+        icon: "fileText",
+      },
+      {
+        id: "patients",
+        label: "Search Patient",
+        kind: "route",
+        href: "#/laboratory/patients",
+        icon: "users",
+      },
+      {
+        id: "blood-bank",
+        label: "Blood Bank",
+        kind: "route",
+        href: "#/laboratory/blood-bank",
+        icon: "flask",
+      },
+      {
+        id: "inventory",
+        label: "Inventory",
+        kind: "route",
+        href: "#/laboratory/inventory",
+        icon: "clipboardList",
+      },
+      {
+        id: "hospital-tests",
+        label: "Hospital Tests",
+        kind: "route",
+        href: "#/laboratory/hospital-tests",
+        icon: "clipboardList",
+      },
+      {
+        id: "create-test",
+        label: "Create Test",
+        kind: "route",
+        href: "#/laboratory/create-test",
+        icon: "clipboardPlus",
+      },
+      {
+        id: "reference-ranges",
+        label: "Reference ranges",
+        kind: "route",
+        href: "#/laboratory/reference-ranges",
+        icon: "clipboardList",
+      },
+      {
+        id: "pricing",
+        label: "Tests & Prices",
+        kind: "route",
+        href: "#/laboratory/pricing",
+        icon: "naira",
+      },
+    ],
+  },
+];

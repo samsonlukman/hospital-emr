@@ -1,0 +1,229 @@
+.abikan-rx {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.abikan-rx__composer,
+.abikan-rx__review {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.abikan-rx h4 {
+  margin: 0;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-ink-subtle);
+}
+
+.abikan-rx__search {
+  position: relative;
+}
+
+.abikan-rx label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-ink-subtle);
+}
+
+.abikan-rx input,
+.abikan-rx select,
+.abikan-rx textarea {
+  width: 100%;
+  min-height: 36px;
+  padding: 0 12px;
+  border: 1px solid var(--color-line-strong);
+  border-radius: var(--radius-sm);
+  background: #fff;
+  color: var(--color-navy);
+  font-size: 1rem;
+  font-weight: 500;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.abikan-rx input:focus,
+.abikan-rx select:focus,
+.abikan-rx textarea:focus {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 1px;
+}
+
+.abikan-rx__instructions {
+  flex: 1;
+  min-width: 160px;
+}
+
+.abikan-rx__split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 8px;
+}
+
+.abikan-rx__grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+  align-items: end;
+}
+
+@media (max-width: 800px) {
+  .abikan-rx__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.abikan-rx__status {
+  margin: 6px 0 0;
+  font-size: 0.82rem;
+  color: var(--color-ink-muted);
+  text-transform: none;
+  letter-spacing: 0;
+  font-weight: 500;
+}
+
+.abikan-rx__status.is-error,
+.abikan-rx__errors {
+  color: var(--color-danger);
+}
+
+.abikan-rx__errors {
+  margin: 0;
+  padding-left: 1.1rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.abikan-rx__hits {
+  position: absolute;
+  z-index: 7;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  max-height: 260px;
+  overflow: auto;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-sm);
+  background: #fff;
+  box-shadow: var(--shadow-card);
+}
+
+.abikan-rx__hits button,
+.abikan-rx__empty {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  min-height: 44px;
+  padding: 8px 12px;
+  border: 0;
+  border-bottom: 1px solid var(--color-line);
+  background: #fff;
+  color: var(--color-navy);
+  text-align: left;
+  cursor: pointer;
+}
+
+.abikan-rx__hits li:last-child button,
+.abikan-rx__empty {
+  border-bottom: 0;
+}
+
+.abikan-rx__hits button:hover {
+  background: var(--color-registration-soft);
+}
+
+.abikan-rx__typed {
+  background: var(--color-teal-soft);
+}
+
+.abikan-rx__typed:hover {
+  background: #d7ecec;
+}
+
+.abikan-rx__hits span {
+  color: var(--color-ink-muted);
+  font-size: 0.8rem;
+}
+
+.abikan-rx__hits em {
+  margin-top: 2px;
+  color: var(--color-registration);
+  font-size: 0.82rem;
+  font-style: normal;
+  font-weight: 700;
+}
+
+.abikan-rx__price {
+  margin: 0;
+  color: var(--color-registration);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.abikan-rx__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.abikan-rx__actions .abikan-button {
+  min-height: 36px;
+}
+
+.abikan-rx__review ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.abikan-rx__review li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  min-height: 44px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--color-line);
+}
+
+.abikan-rx__review li:last-child {
+  border-bottom: 0;
+}
+
+.abikan-rx__review p {
+  margin: 4px 0 0;
+  color: var(--color-ink-muted);
+  font-size: 0.88rem;
+  font-weight: 500;
+}
+
+.abikan-rx__review button[type="button"] {
+  min-height: 36px;
+  padding: 0 10px;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-sm);
+  background: #fff;
+  color: var(--color-teal);
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.abikan-rx__review button[type="button"]:hover {
+  background: var(--color-teal-soft);
+}

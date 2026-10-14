@@ -1,0 +1,156 @@
+{
+  "stamp": 1788386103,
+  "checks": [
+    {
+      "name": "metadata",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "opd": "54f43754-c6ce-4472-890e-0f28acaeaea6"
+      }
+    },
+    {
+      "name": "register_existing_patient",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "uuid": "b2f5cf0b-77c0-486c-8884-f450b946e025",
+        "mrn": "ABC200040"
+      }
+    },
+    {
+      "name": "existing_patient_charge_does_not_block_page",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "canCreate": false,
+        "visit": null
+      }
+    },
+    {
+      "name": "test1_start_visit_without_card_fee",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "visit": "7846078c-ee44-4b52-abae-fce967c5beb7",
+        "created": true,
+        "openmrs": 1
+      }
+    },
+    {
+      "name": "test1_openmrs_one_open_visit",
+      "ok": true,
+      "detail": {
+        "open": [
+          "7846078c-ee44-4b52-abae-fce967c5beb7"
+        ]
+      }
+    },
+    {
+      "name": "test1_visit_exists_even_if_card_not_created",
+      "ok": true,
+      "detail": {
+        "canCreate": false,
+        "cardAlready": false
+      }
+    },
+    {
+      "name": "test2_duplicate_open_visit_rejected",
+      "ok": true,
+      "detail": {
+        "status": 409,
+        "code": "visit_already_open",
+        "message": "Patient already has an open visit. Continue with the existing visit.",
+        "uuid": "7846078c-ee44-4b52-abae-fce967c5beb7",
+        "openmrsOpen": [
+          "7846078c-ee44-4b52-abae-fce967c5beb7"
+        ]
+      }
+    },
+    {
+      "name": "test2_no_second_openmrs_visit",
+      "ok": true,
+      "detail": {
+        "before": 1,
+        "after": 1
+      }
+    },
+    {
+      "name": "test3_visit_closed",
+      "ok": true,
+      "detail": {
+        "open": []
+      }
+    },
+    {
+      "name": "test3_new_visit_after_close",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "new": "2ffc369c-6f76-483d-9536-8098017dc8f8",
+        "openmrsOpen": [
+          "2ffc369c-6f76-483d-9536-8098017dc8f8"
+        ]
+      }
+    },
+    {
+      "name": "rbac_doctor_cannot_use_reception_charge",
+      "ok": true,
+      "detail": {
+        "status": 403
+      }
+    },
+    {
+      "name": "rbac_doctor_cannot_start_reception_visit",
+      "ok": true,
+      "detail": {
+        "status": 403
+      }
+    },
+    {
+      "name": "test4_found_occupied_patient",
+      "ok": true,
+      "detail": {
+        "uuid": "a1fb4a69-30de-4e64-a813-0406377648f7",
+        "bed": "Bed 01",
+        "area": "Hawawu Maternity Ward"
+      }
+    },
+    {
+      "name": "test4_no_unnecessary_opd",
+      "ok": true,
+      "detail": {
+        "status": 409,
+        "code": "visit_already_open",
+        "message": "Patient already has an open visit. Continue with the existing visit.",
+        "visit": "2db4f84e-d5e6-4916-ba9e-c327f6f74b70",
+        "before": 3,
+        "after": 3,
+        "open": [
+          {
+            "uuid": "2db4f84e-d5e6-4916-ba9e-c327f6f74b70",
+            "type": "IPD",
+            "stop": null
+          },
+          {
+            "uuid": "8a6a02ea-ed0f-4fef-9693-bea7b4044364",
+            "type": "OPD",
+            "stop": "2026-08-30T07:54:40.000+0000"
+          },
+          {
+            "uuid": "a0ecf4ff-3bc6-4c4f-932e-2874de096357",
+            "type": "OPD",
+            "stop": "2026-08-30T07:54:40.000+0000"
+          }
+        ]
+      }
+    }
+  ],
+  "failures": [],
+  "patients": {
+    "returning": {
+      "uuid": "b2f5cf0b-77c0-486c-8884-f450b946e025",
+      "mrn": "ABC200040"
+    }
+  }
+}

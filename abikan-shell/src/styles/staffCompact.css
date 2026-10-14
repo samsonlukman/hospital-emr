@@ -1,0 +1,74 @@
+/* Shorter headers and summary cards on working screens. Administration is unchanged. */
+.nursing-desk,
+.lab-desk,
+.pharm-desk,
+.rad-desk,
+.reg-desk,
+.cashier,
+.acct,
+.nursing-patient,
+.lab-patient,
+.pharm-patient,
+.rad-patient,
+.reg-patient,
+.doctor-desk:not(.doctor-desk--today) {
+  gap: 12px;
+}
+
+.nursing-desk .abikan-page-header h1,
+.lab-desk .abikan-page-header h1,
+.pharm-desk .abikan-page-header h1,
+.rad-desk .abikan-page-header h1,
+.reg-desk .abikan-page-header h1,
+.cashier .abikan-page-header h1,
+.acct .abikan-page-header h1,
+.doctor-desk:not(.doctor-desk--today) .abikan-page-header h1 {
+  font-size: 1.15rem;
+}
+
+.nursing-desk .abikan-page-header p,
+.lab-desk .abikan-page-header p,
+.pharm-desk .abikan-page-header p,
+.rad-desk .abikan-page-header p,
+.reg-desk .abikan-page-header p,
+.cashier .abikan-page-header p,
+.acct .abikan-page-header p,
+.doctor-desk:not(.doctor-desk--today) .abikan-page-header p {
+  margin-top: 2px;
+  font-size: 0.84rem;
+}
+
+.nursing-desk .abikan-kpi,
+.lab-desk .abikan-kpi,
+.pharm-desk .abikan-kpi,
+.rad-desk .abikan-kpi,
+.reg-desk .abikan-kpi,
+.cashier .abikan-kpi,
+.acct .abikan-kpi {
+  min-height: 0;
+  padding: 10px 12px;
+}
+
+.nursing-desk .abikan-kpi__value,
+.lab-desk .abikan-kpi__value,
+.pharm-desk .abikan-kpi__value,
+.rad-desk .abikan-kpi__value,
+.reg-desk .abikan-kpi__value,
+.cashier .abikan-kpi__value,
+.acct .abikan-kpi__value {
+  margin-top: 6px;
+  font-size: 1.2rem;
+}
+
+.nursing-desk .abikan-kpi__action,
+.lab-desk .abikan-kpi__action,
+.pharm-desk .abikan-kpi__action,
+.rad-desk .abikan-kpi__action,
+.reg-desk .abikan-kpi__action {
+  padding-top: 8px;
+}
+
+.reg-desk__hero-card {
+  min-height: 0;
+  padding: 12px 14px;
+}

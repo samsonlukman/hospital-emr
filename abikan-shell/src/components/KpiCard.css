@@ -1,0 +1,102 @@
+.abikan-kpi {
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-top-width: 3px;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  padding: var(--space-5);
+  min-height: 168px;
+  display: flex;
+  flex-direction: column;
+}
+
+.abikan-kpi--registration {
+  border-top-color: var(--color-registration);
+}
+
+.abikan-kpi--appointments {
+  border-top-color: var(--color-appointments);
+}
+
+.abikan-kpi--visits {
+  border-top-color: var(--color-visits);
+}
+
+.abikan-kpi--collection {
+  border-top-color: var(--color-collection);
+}
+
+.abikan-kpi--teal {
+  border-top-color: var(--color-teal);
+}
+
+.abikan-kpi--neutral {
+  border-top-color: var(--color-line-strong);
+}
+
+.abikan-kpi__top {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.abikan-kpi__label {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--color-navy-soft);
+}
+
+.abikan-kpi__value {
+  margin-top: var(--space-4);
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  color: var(--color-navy);
+}
+
+.abikan-kpi__hint {
+  margin-top: var(--space-2);
+  font-size: 0.85rem;
+  color: var(--color-ink-subtle);
+}
+
+.abikan-kpi__action {
+  margin-top: auto;
+  padding: var(--space-4) 0 0;
+  border: 0;
+  background: none;
+  font-weight: 600;
+  font-size: 0.88rem;
+  cursor: pointer;
+  text-align: left;
+}
+
+.abikan-kpi--registration .abikan-kpi__action {
+  color: var(--color-registration);
+}
+
+.abikan-kpi--appointments .abikan-kpi__action {
+  color: var(--color-appointments);
+}
+
+.abikan-kpi--visits .abikan-kpi__action {
+  color: var(--color-visits);
+}
+
+.abikan-kpi--collection .abikan-kpi__action {
+  color: var(--color-collection);
+}
+
+.abikan-kpi__action:hover {
+  text-decoration: underline;
+}
+
+.abikan-kpi.is-clickable {
+  cursor: pointer;
+}
+
+.abikan-kpi.is-clickable:focus-visible {
+  outline: 2px solid var(--color-navy);
+  outline-offset: 2px;
+}

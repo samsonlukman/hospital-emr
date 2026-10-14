@@ -1,0 +1,134 @@
+.abikan-login {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: minmax(280px, 0.42fr) minmax(0, 1fr);
+  background: var(--color-bg);
+}
+
+.abikan-login__brand {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: var(--space-10) var(--space-8);
+  background: var(--color-sidebar);
+  color: var(--color-sidebar-text);
+}
+
+.abikan-login__brand img {
+  width: min(100%, 280px);
+  height: auto;
+  background: #fff;
+  border-radius: 12px;
+  padding: 10px 12px;
+}
+
+.abikan-login__product {
+  margin-top: var(--space-5);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-nav-active-edge);
+}
+
+.abikan-login__brand h1 {
+  margin-top: var(--space-2);
+  font-size: 1.8rem;
+  letter-spacing: -0.03em;
+  color: #fff;
+}
+
+.abikan-login__copy {
+  max-width: 22rem;
+  margin-top: var(--space-4);
+  color: var(--color-sidebar-muted);
+  line-height: 1.5;
+}
+
+.abikan-login__panel {
+  display: grid;
+  place-items: center;
+  padding: var(--space-8);
+}
+
+.abikan-login__form {
+  width: min(420px, 100%);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.abikan-login__kicker {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-teal);
+}
+
+.abikan-login__form h2 {
+  font-size: 1.7rem;
+  letter-spacing: -0.03em;
+  color: var(--color-navy);
+}
+
+.abikan-login__lead {
+  color: var(--color-ink-muted);
+}
+
+.abikan-login__form .abikan-field span {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-ink);
+}
+
+.abikan-login__form .abikan-button {
+  width: 100%;
+}
+
+.abikan-login__locations {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.abikan-login__locations button {
+  width: 100%;
+  min-height: 52px;
+  padding: 0 var(--space-4);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  color: var(--color-navy);
+  font-weight: 650;
+  text-align: left;
+  cursor: pointer;
+}
+
+.abikan-login__locations button:hover:not(:disabled) {
+  border-color: var(--color-teal);
+  background: var(--color-teal-soft);
+}
+
+.abikan-login__locations button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+@media (max-width: 900px) {
+  .abikan-login {
+    grid-template-columns: 1fr;
+  }
+
+  .abikan-login__brand {
+    min-height: 180px;
+    padding: var(--space-6);
+  }
+
+  .abikan-login__brand img {
+    width: min(100%, 220px);
+  }
+}

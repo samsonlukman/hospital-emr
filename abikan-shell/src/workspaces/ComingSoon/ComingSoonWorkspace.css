@@ -1,0 +1,58 @@
+.coming-soon h1 {
+  font-size: 1.75rem;
+  color: var(--color-navy);
+  letter-spacing: -0.02em;
+}
+
+.coming-soon__eyebrow {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-teal);
+  margin-bottom: var(--space-2);
+}
+
+.coming-soon__lede {
+  margin: var(--space-2) 0 var(--space-6);
+  color: var(--color-ink-muted);
+  max-width: 40rem;
+}
+
+.coming-soon h2 {
+  font-size: 1.1rem;
+  margin-bottom: var(--space-2);
+}
+
+.coming-soon .abikan-card p {
+  color: var(--color-ink-muted);
+}
+
+.coming-soon__facts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-4);
+  margin: var(--space-6) 0 0;
+}
+
+.coming-soon__facts dt {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-ink-subtle);
+}
+
+.coming-soon__facts dd {
+  margin: var(--space-1) 0 0;
+  font-weight: 600;
+}
+
+.coming-soon__action {
+  margin-top: var(--space-6);
+}
+
+@media (max-width: 720px) {
+  .coming-soon__facts {
+    grid-template-columns: 1fr;
+  }
+}

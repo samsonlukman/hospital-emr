@@ -1,0 +1,57 @@
+.dept-revenue__filters {
+  display: grid;
+  grid-template-columns: minmax(12rem, 16rem) minmax(10rem, 13rem) minmax(10rem, 13rem) auto;
+  gap: var(--space-3);
+  align-items: end;
+}
+
+.dept-revenue__filters label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  color: var(--color-ink);
+  font-size: 0.84rem;
+  font-weight: 600;
+}
+
+.dept-revenue__filters select,
+.dept-revenue__filters input {
+  min-height: 42px;
+  width: 100%;
+  padding: 0 0.75rem;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  color: var(--color-ink);
+  font: inherit;
+}
+
+.dept-revenue__range,
+.dept-revenue__empty,
+.dept-revenue__breakdown p {
+  margin: 0;
+  color: var(--color-ink-muted);
+  font-size: 0.9rem;
+}
+
+.dept-revenue__range {
+  grid-column: 1 / -1;
+}
+
+.dept-revenue__breakdown {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.dept-revenue__breakdown h2 {
+  margin: 0;
+  color: var(--color-navy);
+  font-size: 1.05rem;
+}
+
+@media (max-width: 720px) {
+  .dept-revenue__filters {
+    grid-template-columns: 1fr;
+  }
+}

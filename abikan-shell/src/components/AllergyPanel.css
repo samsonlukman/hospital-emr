@@ -1,0 +1,123 @@
+.allergy-panel .abikan-dialog {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  display: grid;
+  place-items: center;
+  background: rgba(21, 35, 59, 0.45);
+  padding: var(--space-4);
+}
+
+.allergy-panel .abikan-dialog__panel,
+.abikan-dialog .allergy-panel__form {
+  width: min(560px, 100%);
+}
+
+.allergy-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.allergy-panel__intro {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.allergy-panel__intro p {
+  margin: 0;
+  color: var(--color-ink-muted);
+  font-size: 0.9rem;
+}
+
+.allergy-panel__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.allergy-panel__list li {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 14px;
+  border: 1px solid var(--color-line);
+  border-radius: 10px;
+  background: var(--color-surface);
+}
+
+.allergy-panel__list strong {
+  display: block;
+}
+
+.allergy-panel__list span,
+.allergy-panel__list em {
+  display: block;
+  margin-top: 2px;
+  color: var(--color-ink-muted);
+  font-size: 0.85rem;
+  font-style: normal;
+}
+
+.allergy-panel__row-actions {
+  display: flex;
+  gap: 4px;
+  align-items: flex-start;
+}
+
+.allergy-panel__form {
+  display: grid;
+  gap: 10px;
+}
+
+.allergy-panel__form label {
+  display: grid;
+  gap: 4px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.allergy-panel__form input,
+.allergy-panel__form select,
+.allergy-panel__form textarea {
+  font: inherit;
+  font-weight: 400;
+  padding: 8px 10px;
+}
+
+.allergy-panel__hits {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border: 1px solid var(--color-line);
+  border-radius: 8px;
+  max-height: 160px;
+  overflow: auto;
+}
+
+.allergy-panel__hits button {
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: 0;
+  padding: 8px 10px;
+}
+
+.allergy-panel__hint {
+  margin: 0;
+  color: var(--color-ink-muted);
+  font-size: 0.85rem;
+}
+
+.allergy-panel .cashier-confirm__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 16px;
+}

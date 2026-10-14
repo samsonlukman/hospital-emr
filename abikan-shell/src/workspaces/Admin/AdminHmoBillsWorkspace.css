@@ -1,0 +1,181 @@
+.hmo-bills__filters,
+.hmo-bills__send {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem 1rem;
+  align-items: end;
+}
+
+.hmo-bills__filters label,
+.hmo-bills__send label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  min-width: 11rem;
+  color: var(--color-ink);
+  font-size: 0.84rem;
+  font-weight: 600;
+}
+
+.hmo-bills__filters select,
+.hmo-bills__filters input,
+.hmo-bills__send input {
+  min-height: 42px;
+  min-width: 12rem;
+  padding: 0 0.75rem;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  color: var(--color-ink);
+  font: inherit;
+  font-weight: 500;
+}
+
+.hmo-bills__filters label:first-child {
+  flex: 1 1 18rem;
+}
+
+.hmo-statement {
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  color: var(--color-ink);
+}
+
+.hmo-statement__bar {
+  height: 8px;
+  background: var(--color-teal);
+}
+
+.hmo-statement__head,
+.hmo-statement__intro,
+.hmo-statement__patient,
+.hmo-statement__totals {
+  padding-left: 2.25rem;
+  padding-right: 2.25rem;
+}
+
+.hmo-statement__head {
+  padding-top: 1.75rem;
+  padding-bottom: 1.1rem;
+  border-bottom: 1px solid var(--color-line);
+}
+
+.hmo-statement__head p,
+.hmo-statement__intro p,
+.hmo-statement__patient > p {
+  margin: 0;
+}
+
+.hmo-statement__head p:first-child {
+  margin: 0;
+  color: var(--color-ink-muted);
+  font-size: 0.72rem;
+  font-weight: 650;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.hmo-statement__head h2,
+.hmo-statement__intro h3,
+.hmo-statement__patient h3 {
+  margin: 0.35rem 0 0;
+  color: var(--color-navy);
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 500;
+}
+
+.hmo-statement__head h2 {
+  font-size: 1.45rem;
+}
+
+.hmo-statement__contact,
+.hmo-statement__intro p,
+.hmo-statement__patient > p,
+.hmo-statement__empty {
+  margin-top: 0.45rem;
+  color: var(--color-ink-muted);
+  font-size: 0.86rem;
+}
+
+.hmo-statement__intro {
+  padding-top: 1.35rem;
+}
+
+.hmo-statement__intro h3 {
+  font-size: 1.2rem;
+}
+
+.hmo-statement__patient h3 {
+  margin-top: 1.35rem;
+  font-size: 1.05rem;
+}
+
+.hmo-statement table {
+  width: 100%;
+  margin-top: 0.65rem;
+  border-collapse: collapse;
+  font-size: 0.86rem;
+}
+
+.hmo-statement th {
+  padding: 0.4rem 0.6rem 0.4rem 0;
+  border-bottom: 1px solid var(--color-navy);
+  color: var(--color-ink-muted);
+  font-size: 0.7rem;
+  font-weight: 650;
+  letter-spacing: 0.04em;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.hmo-statement td {
+  padding: 0.55rem 0.6rem 0.55rem 0;
+  border-bottom: 1px solid var(--color-line);
+  vertical-align: top;
+}
+
+.hmo-statement th:nth-child(4),
+.hmo-statement td:nth-child(4),
+.hmo-statement__patient-total,
+.hmo-statement__totals span:last-child {
+  text-align: right;
+}
+
+.hmo-statement__patient-total {
+  margin: 0.55rem 0 0;
+  font-size: 0.86rem;
+}
+
+.hmo-statement__totals {
+  margin-top: 1.25rem;
+  padding-top: 0.8rem;
+  padding-bottom: 1.6rem;
+  border-top: 2px solid var(--color-teal);
+}
+
+.hmo-statement__totals div {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.2rem 0;
+  font-size: 0.92rem;
+}
+
+.hmo-statement__totals div:first-child {
+  color: var(--color-navy);
+  font-weight: 650;
+}
+
+@media (max-width: 720px) {
+  .hmo-statement__head,
+  .hmo-statement__intro,
+  .hmo-statement__patient,
+  .hmo-statement__totals {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .hmo-statement {
+    overflow-x: auto;
+  }
+}

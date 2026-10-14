@@ -1,0 +1,229 @@
+.nursing-treatment-visit {
+  gap: 18px;
+}
+
+.nursing-treatment-visit__back {
+  width: fit-content;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: var(--color-registration);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.nursing-treatment-visit__content {
+  display: grid;
+  gap: 18px;
+  max-width: 1100px;
+}
+
+.nursing-treatment-visit__hero,
+.nursing-treatment-visit__panel {
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-card);
+}
+
+.nursing-treatment-visit__hero {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 24px;
+}
+
+.nursing-treatment-visit__eyebrow {
+  margin: 0 0 7px;
+  color: var(--color-registration);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+}
+
+.nursing-treatment-visit__hero h1 {
+  margin: 0;
+  color: var(--color-navy);
+  font-size: clamp(1.5rem, 3vw, 2.1rem);
+}
+
+.nursing-treatment-visit__hero p:not(.nursing-treatment-visit__eyebrow) {
+  max-width: 680px;
+  margin: 7px 0 0;
+  color: var(--color-ink-muted);
+}
+
+.nursing-treatment-visit__status {
+  flex: 0 0 auto;
+  padding: 7px 10px;
+  border-radius: 999px;
+  background: var(--color-registration-soft);
+  color: var(--color-registration);
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.nursing-treatment-visit__status.is-completed {
+  background: var(--color-success-soft);
+  color: var(--color-success);
+}
+
+.nursing-treatment-visit__status.is-waiting {
+  background: var(--color-warning-soft);
+  color: var(--color-warning);
+}
+
+.nursing-treatment-visit__panel {
+  padding: 20px;
+}
+
+.nursing-treatment-visit__panel-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.nursing-treatment-visit__panel h2 {
+  margin: 0;
+  color: var(--color-navy);
+  font-size: 1.05rem;
+}
+
+.nursing-treatment-visit__panel-heading p {
+  margin: 5px 0 0;
+  color: var(--color-ink-muted);
+  font-size: 0.88rem;
+}
+
+.nursing-treatment-visit__medicines {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 12px;
+}
+
+.nursing-treatment-visit__medicine {
+  padding: 16px;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-sm);
+  background: var(--color-registration-soft);
+}
+
+.nursing-treatment-visit__medicine-title {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.nursing-treatment-visit__medicine h3 {
+  margin: 0;
+  color: var(--color-navy);
+  font-size: 1rem;
+}
+
+.nursing-treatment-visit__medicine-title span {
+  color: var(--color-registration);
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-align: right;
+}
+
+.nursing-treatment-visit__medicine > p {
+  margin: 10px 0;
+  color: var(--color-ink);
+  line-height: 1.45;
+}
+
+.nursing-treatment-visit__medicine dl {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin: 0;
+}
+
+.nursing-treatment-visit__medicine dt {
+  color: var(--color-ink-muted);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+}
+
+.nursing-treatment-visit__medicine dd {
+  margin: 2px 0 0;
+  color: var(--color-navy);
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.nursing-treatment-visit__notes {
+  display: grid;
+  gap: 12px;
+  margin: 0 0 18px;
+  padding: 0;
+  list-style: none;
+}
+
+.nursing-treatment-visit__notes li {
+  padding: 12px 14px;
+  border-left: 3px solid var(--color-registration);
+  background: var(--color-registration-soft);
+}
+
+.nursing-treatment-visit__notes li div {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  color: var(--color-navy);
+}
+
+.nursing-treatment-visit__notes time {
+  color: var(--color-ink-muted);
+  font-size: 0.78rem;
+}
+
+.nursing-treatment-visit__notes p {
+  margin: 7px 0 0;
+  color: var(--color-ink);
+  white-space: pre-wrap;
+}
+
+.nursing-treatment-visit__note-field {
+  display: grid;
+  gap: 7px;
+  max-width: 760px;
+  margin-bottom: 10px;
+  color: var(--color-navy);
+  font-weight: 700;
+}
+
+.nursing-treatment-visit__note-field textarea {
+  min-height: 100px;
+  padding: 12px;
+  border: 1px solid var(--color-line-strong);
+  border-radius: var(--radius-sm);
+  resize: vertical;
+  font: inherit;
+}
+
+.nursing-treatment-visit__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.nursing-treatment-visit__muted,
+.nursing-treatment-visit__loading {
+  color: var(--color-ink-muted);
+}
+
+@media (max-width: 640px) {
+  .nursing-treatment-visit__hero {
+    display: grid;
+  }
+
+  .nursing-treatment-visit__medicine dl {
+    grid-template-columns: 1fr;
+  }
+}

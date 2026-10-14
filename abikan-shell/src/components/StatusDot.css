@@ -1,0 +1,26 @@
+.abikan-status-dot {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--color-ink);
+  font-weight: 500;
+}
+
+.abikan-status-dot__mark {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-ink-subtle);
+}
+
+.abikan-status-dot--success .abikan-status-dot__mark {
+  background: var(--color-success);
+}
+
+.abikan-status-dot--warning .abikan-status-dot__mark {
+  background: var(--color-warning);
+}
+
+.abikan-status-dot--danger .abikan-status-dot__mark {
+  background: var(--color-danger);
+}

@@ -1,0 +1,45 @@
+.rad-order-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-3);
+  width: 100%;
+  max-width: 40rem;
+}
+
+.rad-order-panel__fields {
+  width: 100%;
+}
+
+.rad-order-panel__fields label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-ink-subtle);
+}
+
+.rad-order-panel__fields select {
+  width: 100%;
+  min-height: 44px;
+  padding: 0 12px;
+  border: 1px solid var(--color-line-strong);
+  border-radius: var(--radius-sm);
+  background: #fff;
+  color: var(--color-navy);
+  font-size: 1rem;
+}
+
+.rad-order-panel__fields select:focus {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 1px;
+}
+
+.rad-order-panel__hint {
+  margin: 0;
+  max-width: 38rem;
+  color: var(--color-ink-muted);
+  font-size: 0.82rem;
+}

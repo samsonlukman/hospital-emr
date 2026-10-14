@@ -1,0 +1,70 @@
+.abikan-card-types {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.abikan-card-type {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: var(--space-3);
+  width: 100%;
+  min-height: 76px;
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  text-align: left;
+  cursor: pointer;
+  font: inherit;
+}
+
+.abikan-card-type strong {
+  display: block;
+  color: var(--color-navy);
+  font-weight: 650;
+}
+
+.abikan-card-type em {
+  display: block;
+  margin-top: 2px;
+  font-style: normal;
+  font-size: 0.82rem;
+  color: var(--color-ink-muted);
+}
+
+.abikan-card-type b {
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.abikan-card-type--registration {
+  border-color: #d7e4fb;
+}
+
+.abikan-card-type--registration b {
+  color: var(--color-registration);
+}
+
+.abikan-card-type--appointments {
+  border-color: #cfeedd;
+}
+
+.abikan-card-type--appointments b {
+  color: var(--color-appointments);
+}
+
+.abikan-card-type:hover {
+  background: #fafbfc;
+}
+
+.abikan-card-types__note {
+  margin: var(--space-1) 0 0;
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-sm);
+  background: var(--color-registration-soft);
+  color: var(--color-info);
+  font-size: 0.82rem;
+}

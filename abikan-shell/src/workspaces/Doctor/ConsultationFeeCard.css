@@ -1,0 +1,147 @@
+.consult-fee__nhis {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 0 0 var(--space-4);
+  color: var(--color-navy);
+  font-weight: 700;
+}
+
+.consult-fee__nhis input {
+  width: 1.1rem;
+  height: 1.1rem;
+  margin-top: 0.15rem;
+}
+
+.consult-fee__nhis small {
+  display: block;
+  margin-top: 2px;
+  color: var(--color-ink-muted);
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.consult-fee__amount {
+  margin: 0 0 var(--space-4);
+}
+
+.consult-fee__input {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 12px;
+  border: 1px solid var(--color-line-strong);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+}
+
+.consult-fee__input span {
+  color: var(--color-navy);
+  font-weight: 700;
+}
+
+.consult-fee__input input {
+  flex: 1;
+  min-width: 0;
+  min-height: 42px;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: var(--color-ink);
+  font-weight: 650;
+}
+
+.consult-fee__currency {
+  margin: 6px 0 0;
+  color: var(--color-ink-muted);
+  font-size: 0.85rem;
+}
+
+.consult-fee__facts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-4);
+  margin: 0 0 var(--space-4);
+}
+
+.consult-fee__facts dt {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-ink-subtle);
+}
+
+.consult-fee__facts dd {
+  margin: 6px 0 0;
+  color: var(--color-navy);
+  font-weight: 650;
+}
+
+.consult-fee__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  align-items: center;
+}
+
+.consult-fee__block {
+  margin: 0;
+  color: var(--color-ink-muted);
+  font-weight: 600;
+}
+
+.consult-fee .abikan-alert {
+  margin-bottom: var(--space-4);
+}
+
+.abikan-dialog {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  display: grid;
+  place-items: center;
+  background: rgba(21, 35, 59, 0.45);
+  padding: var(--space-4);
+}
+
+.abikan-dialog__panel {
+  width: min(520px, 100%);
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  padding: var(--space-6);
+}
+
+.cashier-confirm dl {
+  display: grid;
+  gap: var(--space-3);
+  margin: 0 0 var(--space-5);
+}
+
+.cashier-confirm dt {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-ink-subtle);
+}
+
+.cashier-confirm dd {
+  margin: 4px 0 0;
+  color: var(--color-navy);
+  font-weight: 650;
+}
+
+.cashier-confirm__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+@media (max-width: 768px) {
+  .consult-fee__facts {
+    grid-template-columns: 1fr;
+  }
+}

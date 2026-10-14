@@ -1,0 +1,70 @@
+# Nested upstream clone metadata kept locally (not part of this repository)
+.nested-git/
+
+# Machine / OS
+.DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
+Desktop.ini
+
+# Editors / IDEs
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+*.iml
+
+# Secrets and local environment — keep *.example templates
+.env
+.env.*
+!.env.example
+!.env.*.example
+!**/.env.example
+!**/.env.*.example
+# Vite routing only (not credentials)
+!abikan-shell/.env.development
+!abikan-shell/.env.production
+**/*.secrets.env
+**/.env.abikan
+**/.env.local
+
+# Local config snapshots and database artifacts
+backups/
+*.sqlite
+*.sqlite3
+*.sql.gz
+*.dump
+*.backup
+*.bak
+**/backup-artifacts/
+**/restore-artifacts/
+**/openelis-db-dump/
+**/odoo-db-dump/
+
+# Logs
+*.log
+logs/
+npm-debug.log*
+
+# Dependencies and virtualenvs
+node_modules/
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.Python
+.pytest_cache/
+.mypy_cache/
+
+# Generated frontend (rebuild with npm run build; Compose mounts dist)
+abikan-shell/dist/
+
+# Downloaded binaries
+*.jar
+bahmni-docker/snomed-resources/*.jar
+
+# Python packaging
+*.egg-info/
+.eggs/

@@ -1,0 +1,1437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Hospital EMR Staff Documentation — v1.0.0-uat</title>
+<style>
+@page { size: A4; margin: 18mm 16mm 20mm 16mm; }
+html { font-size: 11pt; }
+body {
+  font-family: "Source Sans 3", "Segoe UI", Helvetica, Arial, sans-serif;
+  color: #1a2330;
+  line-height: 1.45;
+}
+.cover { page-break-after: always; padding-top: 28mm; }
+.cover h1 { font-size: 28pt; margin: 0 0 8px; }
+.cover p { margin: 6px 0; color: #334155; }
+.chapter { page-break-before: always; }
+.chapter:first-of-type { page-break-before: auto; }
+h1 { font-size: 18pt; margin: 0 0 12px; color: #0f3d2e; }
+h2 { font-size: 14pt; margin: 18px 0 8px; color: #14532d; }
+h3 { font-size: 12pt; margin: 14px 0 6px; }
+p, li { orphans: 3; widows: 3; }
+a { color: inherit; text-decoration: none; }
+code, pre {
+  font-family: "SF Mono", Menlo, Consolas, monospace;
+  font-size: 9.5pt;
+}
+pre {
+  background: #f4f6f8;
+  border: 1px solid #d8dee6;
+  padding: 10px 12px;
+  white-space: pre-wrap;
+  page-break-inside: avoid;
+}
+table { border-collapse: collapse; width: 100%; margin: 10px 0 14px; font-size: 10pt; }
+th, td { border: 1px solid #c5cdd6; padding: 5px 7px; vertical-align: top; }
+th { background: #e8f0ea; text-align: left; }
+tr { page-break-inside: avoid; }
+hr { border: none; border-top: 1px solid #d0d7de; margin: 16px 0; }
+.footer-note { font-size: 9pt; color: #64748b; margin-top: 24px; }
+</style>
+</head>
+<body>
+<section class="cover">
+  <p>Hospital EMR Hospital &amp; Wellness Centre</p>
+  <h1>Hospital EMR</h1>
+  <p>Staff and operations documentation</p>
+  <p>Release <strong>v1.0.0-uat</strong></p>
+  <p>Commit <strong>2ea80c40c02cd42aa33fba47a0aa9dc1cc7d9ff6</strong></p>
+  <p>This PDF describes the EMR as it exists in this release. It is not a brochure and does not list planned features as if they were available.</p>
+  <p class="footer-note">Do not use development passwords on the hospital server. Do not share accounts.</p>
+</section>
+<section class="chapter">
+<h1>Hospital EMR — UAT quick reference</h1>
+<p>Print this page. Release <strong>v1.0.0-uat</strong>. Use <strong>synthetic</strong> patients only. Do not use development passwords on the hospital server.</p>
+<table><tr><th>Department</th><th>Primary responsibility</th><th>Main workflow</th></tr><tr><td><strong>Reception</strong></td><td>Registration and visits</td><td>Search → register if new → start visit → card fee → send to Clinical. Pay at Accountant</td></tr><tr><td><strong>Doctor</strong></td><td>Consultation, diagnosis, orders</td><td>Today&#x27;s Patients → consult → diagnose / order / prescribe → Admit Patient if needed</td></tr><tr><td><strong>Nursing</strong></td><td>Ward, vitals, notes, MAR</td><td>Ward Board → assign bed → notes / vitals / scheduled MAR → discharge</td></tr><tr><td><strong>Laboratory</strong></td><td>Orders and results visibility</td><td>See order → process in laboratory processing → result returns to Doctor</td></tr><tr><td><strong>Pharmacy</strong></td><td>Dispense after payment</td><td>Paid → Ready to dispense → Dispense. Do not administer MAR</td></tr><tr><td><strong>Accountant</strong></td><td>Collect payment</td><td>Search → collect → receipt. Billed / collected / outstanding are bill totals, not “revenue”</td></tr><tr><td><strong>Radiology</strong></td><td>Price and report</td><td>Worklist → set naira price → write report. Images not in Hospital EMR</td></tr><tr><td><strong>Hospital Admin</strong></td><td>Staff and counts</td><td>Staff accounts · overview · staff activity. Occupancy and outstanding are <strong>now</strong></td></tr><tr><td><strong>Inpatient</strong></td><td>Shared ward path</td><td>Doctor admits → Nurse beds and documents → Accountant collects accommodation</td></tr></table>
+<h2>Safety</h2>
+<ul>
+<li>Confirm name and hospital number every time.</li>
+<li>Do not share accounts.</li>
+<li>Do not change times (vitals and MAR are automatic).</li>
+<li>Do not dispense unpaid medication.</li>
+<li>Do not enter laboratory results in Hospital EMR.</li>
+<li>Pharmacy dispenses. Nursing administers scheduled inpatient doses. PRN is not on MAR.</li>
+</ul>
+<h2>Money</h2>
+<p>New bills: <strong>naira</strong>. Old accommodation bills in dollars stay in dollars. Changing a price does not change an old bill.</p>
+<h2>Known UAT limits</h2>
+<ul>
+<li>Prove a <strong>new</strong> laboratory result here.</li>
+<li>Laboratory board can be slow.</li>
+<li>Nursing Diagnoses may be unavailable; tasks / care plan / intake show Coming soon.</li>
+<li>SuperAdmin can change catalogue prices and accommodation tariffs.</li>
+<li>Unconfigured ward tariff may be <strong>0</strong>.</li>
+<li>System Settings, doctor discharge decision, refunds, and radiology images: <strong>not currently available in this release</strong>.</li>
+</ul>
+<p>Full manuals: start at ABIKAN_EMR_USER_MANUAL.md. Sign-off: HOSPITAL_UAT_CHECKLIST.md.</p>
+</section><section class="chapter">
+<h1>Hospital EMR — User Manual</h1>
+<p>This manual describes <strong>Hospital EMR as it exists in the frozen hospital UAT release</strong> (<code>v1.0.0-uat</code>). It is for hospital staff and trainers.</p>
+<p>It is not a product brochure. If something is not available in this release, this package says so.</p>
+<p><strong>Release:</strong> <code>v1.0.0-uat</code> · commit <code>2ea80c40c02cd42aa33fba47a0aa9dc1cc7d9ff6</code></p>
+<hr>
+<h2>What is Hospital EMR?</h2>
+<p>Hospital EMR is the hospital’s daily work system for Hospital EMR Hospital &amp; Wellness Centre.</p>
+<p>Staff sign in once and open <strong>their department</strong>. They register patients, see today’s visits, record consultations, order tests and medicines, nurse admitted patients, dispense paid prescriptions, collect payment, and review hospital activity.</p>
+<p>Hospital EMR is the <strong>staff-facing workflow layer</strong>. It does not replace the hospital’s clinical and financial records. Those remain in the systems already used for the chart, laboratory processing, billing, and imaging.</p>
+<table><tr><th>What staff use</th><th>What it is for</th></tr><tr><td><strong>Hospital EMR</strong></td><td>Department screens, hospital language, daily steps, department pricing, cashier, ward board, MAR, analytics</td></tr><tr><td><strong>Clinical chart engine</strong></td><td>Patient identity, visits, diagnoses, prescriptions, observations, admissions</td></tr><tr><td><strong>Laboratory processing</strong></td><td>Specimen collection, accession, testing, result entry, validation</td></tr><tr><td><strong>Billing and stock</strong></td><td>Invoices, payments, receipts, pharmacy stock movements</td></tr><tr><td><strong>Imaging archive</strong></td><td>Scan files, when a modality is connected. <strong>Images are not shown inside Hospital EMR in this release.</strong></td></tr></table>
+<p>Staff should think in hospital tasks: register, consult, collect specimen, dispense, collect payment. They should not need to know the names of the engines behind the screens.</p>
+<hr>
+<h2>Who uses it</h2>
+<table><tr><th>Department (staff name)</th><th>Typical work in Hospital EMR</th></tr><tr><td><strong>Reception</strong></td><td>Find or register a patient, start a visit, bill a registration card, set card prices</td></tr><tr><td><strong>Clinical (Doctor)</strong></td><td>Today’s patients, consultation, diagnosis, laboratory and imaging orders, prescriptions, admit decision</td></tr><tr><td><strong>Nursing</strong></td><td>Ward board, assign / transfer / discharge, nursing notes, inpatient vitals, medication administration</td></tr><tr><td><strong>Laboratory</strong></td><td>See ordered tests, payment state, open laboratory processing, set test prices</td></tr><tr><td><strong>Pharmacy</strong></td><td>See prescriptions, dispense after payment, catalogue and drug prices, inventory when permitted</td></tr><tr><td><strong>Accountant</strong></td><td>Find a patient, collect payment, print or open a receipt</td></tr><tr><td><strong>Radiology</strong></td><td>Worklist, set an examination price, write a report</td></tr><tr><td><strong>Hospital Admin</strong></td><td>Staff accounts, department access, hospital overview, staff activity</td></tr><tr><td><strong>SuperAdmin</strong></td><td>Technical hospital-wide access, including accommodation prices and every department</td></tr></table>
+<p>An account only opens the departments assigned to it. Signing in does not let a nurse collect payment or a doctor change laboratory prices.</p>
+<hr>
+<h2>How the hospital works in Hospital EMR</h2>
+<h3>Clinical workflow</h3>
+<ol>
+<li>Reception finds or registers the patient and starts a visit.</li>
+<li>The doctor opens that visit, records the consultation, and may diagnose, order tests or imaging, prescribe, or request admission.</li>
+<li>Laboratory, Pharmacy, and Radiology work from those orders.</li>
+<li>The doctor reviews results and reports on the same visit.</li>
+<li>If admitted, Nursing assigns a bed and records notes, vitals, and scheduled medicines.</li>
+<li>Nursing discharges the patient and frees the bed.</li>
+<li>The visit and records remain available for later care.</li>
+</ol>
+<p>Payment is <strong>not</strong> required before the doctor can save a consultation or place an order. Unpaid work is visible. Collection happens at <strong>Accountant</strong>.</p>
+<h3>Financial workflow</h3>
+<ol>
+<li>A department creates a <strong>charge</strong> (registration card, consultation fee, laboratory fee, imaging price, pharmacy prescription, accommodation).</li>
+<li>That charge becomes a bill the cashier can collect.</li>
+<li>Accountant records <strong>payment</strong>.</li>
+<li>The department screen then shows <strong>Paid</strong> (or pharmacy <strong>Ready to dispense</strong>).</li>
+<li>Completing the service is a separate step (dispense, process a specimen, write a report).</li>
+</ol>
+<p><strong>Paid does not mean the work is finished.</strong></p>
+<p>Changing today’s catalogue price does <strong>not</strong> change a bill already created.</p>
+<p>New departmental bills use <strong>naira (₦)</strong>. The financial company currency may still be US dollars. Older accommodation bills that were in dollars stay in dollars. See BILLING_AND_PAYMENTS.md.</p>
+<h3>Administrative workflow</h3>
+<p>Hospital Admin creates and disables staff accounts, assigns departments, and reviews hospital counts and staff-administration activity.</p>
+<p>Hospital Admin does <strong>not</strong> process specimens, write clinical notes, or collect payment (unless that person also has those department rights).</p>
+<p><strong>System Settings</strong> is not available in this release.</p>
+<hr>
+<h2>How information moves (staff view)</h2>
+<pre>Patient arrives
+    → Reception: find or register, start visit, card fee
+    → Clinical: consultation, orders, prescription, admit if needed
+        → Laboratory: see order → process in laboratory processing → result returns
+        → Pharmacy: wait for payment → dispense
+        → Radiology: price and report (images not in Hospital EMR)
+    → Doctor reviews results and reports
+    → Nursing: bed, notes, vitals, scheduled medicines
+    → Nursing: discharge
+    → Accountant: collect any unpaid bills
+    → Records remain on the patient</pre>
+<p>Only steps that this release supports are listed. Details are in CLINICAL_WORKFLOWS.md.</p>
+<hr>
+<h2>Signing in</h2>
+<ol>
+<li>Open the hospital Hospital EMR address on a supported browser.</li>
+<li>Enter <strong>your hospital username</strong> and <strong>your own password</strong>.</li>
+<li>Select <strong>Sign in</strong>.</li>
+<li>Hospital EMR opens <strong>your department</strong>. You do not pick a room or ward as a workplace.</li>
+</ol>
+<p>Wrong username or password: <strong>Could not sign in</strong> — *Incorrect username or password.*</p>
+<p>If the network cannot be reached: <strong>Unable to connect</strong> — try again. If that continues, tell Hospital Admin.</p>
+<p><strong>Do not share accounts. Do not use another person’s password. Do not use development passwords on the hospital system.</strong></p>
+<p>Sign out when you leave the desk.</p>
+<hr>
+<h2>Finding a patient</h2>
+<p>Most departments use the header search:</p>
+<p><strong>Search by name, hospital number, or phone</strong> (type at least two characters).</p>
+<p>Always confirm <strong>name and hospital number</strong> before you record, order, dispense, administer, or collect money.</p>
+<hr>
+<h2>Patient Account</h2>
+<p><strong>Patient Account</strong> is a read-only money view: billed so far, already received, still unpaid, and department bills.</p>
+<p>Reception, Clinical, Nursing, Laboratory, Pharmacy, Radiology, and Accountant can open it when they can already open that patient. <strong>Only Accountant collects payment.</strong></p>
+<hr>
+<h2>Open full chart</h2>
+<p>Some department patient screens offer <strong>Open full chart</strong>. That opens the full clinical chart for extra detail.</p>
+<p>Use it when you need the wider chart. Daily work stays in Hospital EMR. Do not treat extra chart screens as Hospital EMR department procedures.</p>
+<p><strong>Open full chart</strong> is not shown on the Doctor consultation screen in this release. It is available on Nursing, Laboratory, and Pharmacy patient screens.</p>
+<hr>
+<h2>What staff should never do</h2>
+<ul>
+<li>Share a username or password</li>
+<li>Register a new patient without searching first</li>
+<li>Record work on the wrong hospital number</li>
+<li>Change times on vitals or medication administration (time is recorded automatically)</li>
+<li>Bypass payment to dispense (the system blocks unpaid dispensing)</li>
+<li>Enter or invent laboratory results in Hospital EMR (results are entered in laboratory processing)</li>
+<li>Dispense a medicine from the ward MAR, or administer a dose from Pharmacy</li>
+<li>Delete or “fix” records in hidden systems</li>
+<li>Use development passwords on the hospital server</li>
+</ul>
+<hr>
+<h2>Known limitations (this release)</h2>
+<p>These are accepted UAT limits, not hidden defects.</p>
+<ul>
+<li>A <strong>new</strong> laboratory result should be processed during hospital UAT. Do not rely only on an older result from another environment.</li>
+<li>The laboratory board can take several seconds to load.</li>
+<li>New departmental bills use naira. The company currency may still be US dollars. Older accommodation invoices in dollars stay in dollars.</li>
+<li>Nursing <strong>Diagnoses</strong> may show as unavailable.</li>
+<li>Some Nursing sections show <strong>Coming soon</strong> (tasks, care plan, intake and output).</li>
+<li>SuperAdmin can still change department catalogue prices and accommodation tariffs.</li>
+<li>Wards without a configured accommodation tariff show <strong>0</strong> until a price is set.</li>
+<li>When-needed (PRN) medicines are <strong>not</strong> added to the scheduled medication sheet.</li>
+<li>Radiology <strong>images are not shown in Hospital EMR</strong>.</li>
+<li><strong>System Settings</strong> is not currently available in this release.</li>
+<li>Doctor <strong>Refer</strong>, <strong>Follow-up disposition</strong>, and <strong>doctor discharge decision</strong> are not currently available in this release. Nursing performs discharge from the ward.</li>
+<li>Examination, Review of Systems, Family History, and Social History are <strong>not currently available</strong> on the Doctor consultation screen.</li>
+<li>Cashier <strong>refunds</strong> are not currently available in this release.</li>
+<li>Four laboratory tests remain unordered from Hospital EMR (Inorganic Phosphate, Testosterone, Progesterone, Estradiol) because they have no safe hospital catalogue mapping.</li>
+</ul>
+<hr>
+<h2>Department manuals</h2>
+<table><tr><th>Manual</th><th>Audience</th></tr><tr><td>Reception</td><td>Front desk</td></tr><tr><td>Doctor</td><td>Clinical</td></tr><tr><td>Nursing</td><td>Ward</td></tr><tr><td>Inpatient / ward</td><td>Shared ward operations</td></tr><tr><td>Laboratory</td><td>Laboratory</td></tr><tr><td>Pharmacy</td><td>Pharmacy</td></tr><tr><td>Accountant</td><td>Cashier / accounts</td></tr><tr><td>Radiology</td><td>Imaging desk</td></tr><tr><td>Hospital Admin</td><td>Administration</td></tr></table>
+<h2>Other guides in this package</h2>
+<table><tr><th>Document</th><th>Use</th></tr><tr><td>UAT Quick Reference</td><td>One-page printout</td></tr><tr><td>Clinical workflows</td><td>Journey diagrams</td></tr><tr><td>Billing and payments</td><td>Charges, bills, payment</td></tr><tr><td>Roles and permissions</td><td>Who can do what</td></tr><tr><td>Troubleshooting</td><td>When something goes wrong</td></tr><tr><td>System architecture</td><td>How the stack fits together (technical)</td></tr></table>
+<h2>Hospital install and UAT (already published)</h2>
+<p>Do not treat these as staff desk manuals. They remain the install and sign-off set.</p>
+<ul>
+<li>Hospital UAT checklist</li>
+<li>Hospital deployment</li>
+<li>Hospital server installation</li>
+<li>Deployment secrets (variable names only)</li>
+<li>Department pricing</li>
+<li>Hospital overview analytics</li>
+<li>Inpatient implementation notes</li>
+</ul>
+</section><section class="chapter">
+<h1>Reception — Department guide</h1>
+<p>This guide describes Reception as it works in this release. Payment is collected at Accountant, not at Reception.</p>
+<p>Related: User manual · Billing · Department pricing</p>
+<hr>
+<h2>What Reception is for</h2>
+<p>Reception finds or registers the patient, starts the right kind of visit, bills the registration card, and sends the patient to Clinical, Emergency, or the ward as needed.</p>
+<p><strong>Screens:</strong> Dashboard · Search Patients · Register Patient · Today&#x27;s Visits · Pricing · Patient Accounts (search)</p>
+<hr>
+<h2>Logging in</h2>
+<p><strong>PURPOSE:</strong> Open the Reception desk.</p>
+<p><strong>WHO DOES IT:</strong> Staff with Reception or Registration access.</p>
+<p><strong>STEP-BY-STEP</strong></p>
+<ol>
+<li>Open Hospital EMR and enter your hospital username and password.</li>
+<li>Select <strong>Sign in</strong>.</li>
+<li>You open <strong>Reception</strong>. You do not pick a room.</li>
+</ol>
+<p><strong>WHAT HAPPENS AFTER SAVING:</strong> Your session stays in Reception until you sign out or switch departments (only if your account has more than one).</p>
+<p><strong>COMMON ERRORS:</strong> *Could not sign in* — incorrect username or password.</p>
+<p><strong>WHAT TO DO IF SOMETHING FAILS:</strong> Try again. If it still fails, contact Hospital Admin. Do not use someone else’s account.</p>
+<p><strong>SECURITY NOTES:</strong> Use only your own password. Sign out when you leave the desk.</p>
+<hr>
+<h2>Finding an existing patient</h2>
+<p><strong>PURPOSE:</strong> Open the correct person. Avoid a second registration.</p>
+<p><strong>WHO DOES IT:</strong> Reception.</p>
+<p><strong>STEP-BY-STEP</strong></p>
+<ol>
+<li>Use <strong>Search by name, hospital number, or phone</strong> (type at least two characters).</li>
+<li>Confirm <strong>name and hospital number</strong>.</li>
+<li>Open the patient.</li>
+</ol>
+<p><strong>Search Patients</strong> and <strong>Patient Accounts</strong> focus the same search.</p>
+<p><strong>WHAT HAPPENS AFTER SAVING:</strong> The patient record opens. No new hospital number is created.</p>
+<p><strong>COMMON ERRORS:</strong> Two people with similar names; phone not stored so phone search finds nothing.</p>
+<p><strong>WHAT TO DO IF SOMETHING FAILS:</strong> Search again by hospital number. If you still cannot find them, do not register until you have checked with a supervisor.</p>
+<p><strong>SECURITY NOTES:</strong> Never open a record that is not this patient.</p>
+<hr>
+<h2>Registering a new patient</h2>
+<p><strong>PURPOSE:</strong> Create a hospital record and assign a hospital number.</p>
+<p><strong>WHO DOES IT:</strong> Reception.</p>
+<p><strong>STEP-BY-STEP</strong></p>
+<ol>
+<li>Search first.</li>
+<li>Open <strong>Register Patient</strong>.</li>
+<li>Choose <strong>Individual Card</strong> or <strong>Family Card</strong>. The fee is billed after the visit starts. Reception does not collect payment.</li>
+<li>Enter first name, last name, sex, date of birth or age, and contact and address as required.</li>
+<li>Watch <strong>Existing patients</strong> after you type three or more characters of the first and last name. Open an existing record if it is the same person.</li>
+<li>Select <strong>Save</strong>.</li>
+</ol>
+<p>You do not type the hospital number. It is assigned when the patient is saved.</p>
+<p><strong>WHAT HAPPENS AFTER SAVING:</strong> A hospital number is assigned (for example an ABC number). You can start a visit and create the card fee.</p>
+<p><strong>COMMON ERRORS:</strong> *Similar patients found* — the system found possible matches.</p>
+<p><strong>WHAT TO DO IF SOMETHING FAILS:</strong> Open the existing record unless you are sure this is a new person. Use <strong>Register anyway</strong> only when a supervisor agrees it is a different person.</p>
+<p><strong>SECURITY NOTES:</strong> Do not invent a hospital number. Do not register a duplicate to “make a new visit.”</p>
+<hr>
+<h2>Starting a visit</h2>
+<p><strong>PURPOSE:</strong> Record why the patient is here today.</p>
+<p><strong>WHO DOES IT:</strong> Reception.</p>
+<p><strong>STEP-BY-STEP</strong></p>
+<ol>
+<li>Open the patient.</li>
+<li>Select <strong>Start visit</strong>.</li>
+<li>Choose one:</li>
+</ol>
+<table><tr><th>What you select</th><th>Meaning</th></tr><tr><td><strong>General Outpatient</strong></td><td>Regular outpatient consultation</td></tr><tr><td><strong>Follow-up</strong></td><td>Returning for previous treatment or condition</td></tr><tr><td><strong>Emergency</strong></td><td>Urgent care</td></tr><tr><td><strong>Admission</strong></td><td>Patient is being admitted — select the <strong>ward</strong> shown on the screen</td></tr></table>
+<ol>
+<li>Confirm.</li>
+</ol>
+<p><strong>WHAT HAPPENS AFTER SAVING:</strong> The visit is created. You may see <strong>Visit successfully created</strong> and a visit number. Today&#x27;s Visits lists visits that <strong>started today</strong>.</p>
+<p>Outpatient and follow-up visits started today appear on the doctor’s <strong>Today&#x27;s Patients</strong>. Emergency and admission visits do not appear on that outpatient list.</p>
+<p><strong>COMMON ERRORS:</strong> *This patient already has an open visit.* Start another only if they are arriving for a different kind of care.</p>
+<p><strong>WHAT TO DO IF SOMETHING FAILS:</strong> Check Today&#x27;s Visits and the patient screen. Do not create extra visits to “reset” the list.</p>
+<p><strong>SECURITY NOTES:</strong> Do not start a visit on the wrong patient.</p>
+<hr>
+<h2>Registration card fee</h2>
+<p><strong>PURPOSE:</strong> Send the Individual Card or Family Card bill to Accountant.</p>
+<p><strong>WHO DOES IT:</strong> Reception, after a visit exists.</p>
+<p><strong>STEP-BY-STEP</strong></p>
+<ol>
+<li>On the patient screen, open <strong>Registration card fee</strong>.</li>
+<li>Confirm Individual Card or Family Card.</li>
+<li>Select <strong>Create registration fee</strong> and confirm. Copy: *This sends the bill to Accountant. Reception does not collect payment.*</li>
+</ol>
+<p><strong>WHAT HAPPENS AFTER SAVING:</strong> Status shows <strong>Not billed yet</strong>, <strong>UNPAID</strong>, or <strong>PAID</strong>. When paid: *Payment received* — the receipt is on Patient Account.</p>
+<p>One fee per visit. Submitting again reuses the existing charge.</p>
+<p><strong>COMMON ERRORS:</strong> Trying to collect cash in Reception.</p>
+<p><strong>WHAT TO DO IF SOMETHING FAILS:</strong> Direct the patient to Accountant. Open <strong>Patient Account</strong> to see whether the bill exists.</p>
+<p><strong>SECURITY NOTES:</strong> Reception cannot collect payment. Do not record payment on paper as if Hospital EMR received it.</p>
+<hr>
+<h2>Card pricing</h2>
+<p><strong>PURPOSE:</strong> Set the selling price of Individual Card and Family Card for <strong>new</strong> fees.</p>
+<p><strong>WHO DOES IT:</strong> Reception (read and write). Accountant and Hospital Admin can view. SuperAdmin can also change these prices.</p>
+<p><strong>STEP-BY-STEP</strong></p>
+<ol>
+<li>Open <strong>Pricing</strong>.</li>
+<li>Change the naira amount if required.</li>
+<li>Save. Add a reason when asked.</li>
+</ol>
+<p><strong>WHAT HAPPENS AFTER SAVING:</strong> New card fees use the new price. Price history stores the old price, new price, who changed it, and when.</p>
+<p><strong>COMMON ERRORS:</strong> Expecting an old unpaid or paid bill to change.</p>
+<p><strong>WHAT TO DO IF SOMETHING FAILS:</strong> That is correct behaviour. Yesterday’s bill keeps yesterday’s amount. See Department pricing.</p>
+<p><strong>SECURITY NOTES:</strong> Do not change prices unless you are authorised. Changing a price does not rewrite existing bills.</p>
+<hr>
+<h2>Directing the patient and Patient Account</h2>
+<p>After the visit starts, send the patient to Clinical (or Emergency / the ward as started).</p>
+<p><strong>Patient Account</strong> is read-only: billed so far, already received, still unpaid. Tell the patient to pay at <strong>Accountant</strong>.</p>
+<hr>
+<h2>What Reception can and cannot do</h2>
+<table><tr><th>Can</th><th>Cannot</th></tr><tr><td>Search, register, edit name and contact</td><td>Collect payment</td></tr><tr><td>Start the four visit types above</td><td>Create a consultation fee</td></tr><tr><td>Create the registration card fee</td><td>Diagnose, prescribe, order tests, or dispense</td></tr><tr><td>Change Individual Card and Family Card prices</td><td>Change laboratory or pharmacy prices</td></tr><tr><td>Open Patient Account (read only)</td><td>Edit clinical notes, vitals, or nursing records</td></tr></table>
+<hr>
+<h2>Known Reception limits</h2>
+<ul>
+<li>There is no separate waiting-room queue. <strong>Today&#x27;s Visits</strong> are visits that started today.</li>
+<li>An unpaid card fee does <strong>not</strong> block the doctor from opening the chart.</li>
+<li>Phone search only works when a phone number is stored.</li>
+</ul>
+</section><section class="chapter">
+<h1>Doctor — Department guide</h1>
+<p>This guide describes Clinical (Doctor) as it works in this release.</p>
+<p>Related: User manual · Nursing · Laboratory · Pharmacy</p>
+<hr>
+<h2>What Clinical is for</h2>
+<p>The doctor sees today’s outpatients, records the consultation, diagnoses, orders laboratory and imaging tests, prescribes, and may request admission.</p>
+<p><strong>Screens:</strong> Dashboard · Today&#x27;s Patients · My Patients · Patients (search) · Consultation</p>
+<p>Dashboard and Today&#x27;s Patients show the same <strong>Today&#x27;s Patients</strong> list.</p>
+<hr>
+<h2>Logging in and finding patients</h2>
+<p><strong>PURPOSE:</strong> Open today’s work.</p>
+<p><strong>WHO DOES IT:</strong> Staff with Clinical access.</p>
+<p><strong>STEP-BY-STEP</strong></p>
+<ol>
+<li>Sign in with your hospital username. Clinical opens.</li>
+<li>Use <strong>Today&#x27;s Patients</strong> for outpatient and follow-up visits that <strong>started today</strong>.</li>
+<li>Use <strong>My Patients</strong> for people you have already attended (after a saved consultation).</li>
+<li>Use header search for any patient.</li>
+</ol>
+<p><strong>WHAT HAPPENS AFTER SAVING:</strong> Opening a name continues that visit’s consultation.</p>
+<p><strong>COMMON ERRORS:</strong> An emergency or admission visit does not appear on Today&#x27;s Patients. That is by design.</p>
+<p><strong>WHAT TO DO IF SOMETHING FAILS:</strong> Search by hospital number. Ask Reception whether the visit was started as General Outpatient or Follow-up.</p>
+<p><strong>SECURITY NOTES:</strong> Confirm name and hospital number before you write.</p>
+<hr>
+<h2>Consultation</h2>
+<p><strong>PURPOSE:</strong> Record this visit’s clinical work.</p>
+<p><strong>WHO DOES IT:</strong> Doctor.</p>
+<p>Consultation flow: <strong>Review → Vitals → Consultation → Previous visits → Diagnose → Order → Prescribe → Admission</strong></p>
+<h3>What is shown</h3>
+<table><tr><th>Section</th><th>What you do</th></tr><tr><td><strong>Review</strong></td><td>See allergies, known diagnoses, and medications (read-only alerts)</td></tr><tr><td><strong>Vitals</strong></td><td>Record <strong>outpatient</strong> vitals when an open OPD visit is selected</td></tr><tr><td><strong>Consultation</strong></td><td>Chief complaint, complaint in your own words, duration, history of present illness, clinical notes</td></tr><tr><td><strong>Previous visits</strong></td><td>Visit list and previous encounter type and date. Note text is not available in this view</td></tr><tr><td><strong>Diagnosis</strong></td><td>Search and record diagnosis</td></tr><tr><td><strong>Orders</strong></td><td>Laboratory orders and results; radiology orders and reports</td></tr><tr><td><strong>Prescribe</strong></td><td>Search medicines and prescribe</td></tr><tr><td><strong>Admission</strong></td><td><strong>Admit Patient</strong> — decision only. Nursing assigns the bed</td></tr></table>
+<p><strong>Not currently available in this release</strong> on this screen:</p>
+<ul>
+<li>Examination</li>
+<li>Review of Systems</li>
+<li>Past Medical History, Medication History, Family History, Social History</li>
+<li>Refer / Follow-up as a disposition</li>
+<li>Doctor discharge decision</li>
+<li><strong>Open full chart</strong> (available on Nursing, Laboratory, and Pharmacy patient screens)</li>
+</ul>
+<p><strong>STEP-BY-STEP</strong></p>
+<ol>
+<li>Confirm patient and visit.</li>
+<li>Record complaint, history, and notes.</li>
+<li>Record outpatient vitals if needed (open OPD visit required).</li>
+<li>Record diagnosis.</li>
+<li>Order laboratory or imaging tests if needed.</li>
+<li>Prescribe if needed.</li>
+<li>Select <strong>Save consultation</strong>.</li>
+</ol>
+<p><strong>WHAT HAPPENS AFTER SAVING:</strong> Notes, vitals (OPD), diagnoses, and prescriptions for this visit are stored. Payment is <strong>not</strong> required to save.</p>
+<p><strong>COMMON ERRORS:</strong> *Visit has not started* — Reception has not started a visit. *Medications unavailable* / search unavailable — try again; if it persists, contact Hospital Admin.</p>
+<p><strong>WHAT TO DO IF SOMETHING FAILS:</strong> Do not start a second visit yourself unless you have Reception access. Ask Reception to start the correct visit.</p>
+<p><strong>SECURITY NOTES:</strong> Do not save on the wrong visit. Previous-visit encounter lines do not show note text.</p>
+<hr>
+<h2>Outpatient vitals versus inpatient vitals</h2>
+<table><tr><th></th><th>Outpatient (this screen)</th><th>Inpatient (ward)</th></tr><tr><td>--</td><td>--------------------------</td><td>------------------</td></tr><tr><td>Who records</td><td>Doctor, on an open OPD visit</td><td>Nurse, during an active admission</td></tr><tr><td>Who reviews</td><td>Doctor</td><td>Doctor <strong>reads only</strong> on consultation when the patient is admitted</td></tr><tr><td>If you select an inpatient visit</td><td>The OPD vitals card is hidden</td><td>Inpatient vitals panel is read-only</td></tr></table>
+<p>Doctors do <strong>not</strong> have Nursing write permission. Do not ask a nurse to change a time. Time is recorded automatically.</p>
+<hr>
+<h2>Laboratory orders and results</h2>
+<p><strong>PURPOSE:</strong> Order hospital laboratory tests and later review results.</p>
+<p><strong>WHO DOES IT:</strong> Doctor orders. Laboratory processes. Accountant collects the fee.</p>
+<p><strong>STEP-BY-STEP</strong></p>
+<ol>
+<li>In <strong>Orders</strong>, search the hospital laboratory list.</li>
+<li>Add tests and submit. A laboratory fee is sent to Accounts.</li>
+<li>Tell the patient that fees are paid at Accounts.</li>
+<li>When Laboratory has released a result, it appears under <strong>Laboratory results</strong>.</li>
+</ol>
+<p><strong>WHAT HAPPENS AFTER SAVING:</strong> The order exists for Laboratory. Processing happens in laboratory processing, not on this screen. Results return here when released.</p>
+<p><strong>COMMON ERRORS:</strong> Result still empty — the specimen may not have been processed yet. *Laboratory orders unavailable* / *Laboratory results unavailable* — reload; if it continues, tell Hospital Admin.</p>
+<p><strong>WHAT TO DO IF SOMETHING FAILS:</strong> Check Laboratory. Do not invent a result. Do not enter results in Hospital EMR.</p>
+<p><strong>SECURITY NOTES:</strong> Payment is not required to place the order. <strong>Paid does not mean the result is ready.</strong></p>
+<hr>
+<h2>Radiology orders and reports</h2>
+<p><strong>PURPOSE:</strong> Request an approved hospital examination and later read the report.</p>
+<p><strong>WHO DOES IT:</strong> Doctor orders. Radiology sets price and writes the report.</p>
+<p><strong>STEP-BY-STEP</strong></p>
+<ol>
+<li>In <strong>Orders</strong>, choose the hospital ultrasound or radiography name.</li>
+<li>Submit. Imaging fees are paid at Accounts.</li>
+<li>Read <strong>Radiology reports</strong> when Radiology has saved a report.</li>
+</ol>
+<p><strong>WHAT HAPPENS AFTER SAVING:</strong> Radiology sees the examination. Images are <strong>not</strong> shown in Hospital EMR in this release.</p>
+<p><strong>COMMON ERRORS:</strong> *Radiology reports unavailable* or *No report recorded for this examination.*</p>
+<p><strong>WHAT TO DO IF SOMETHING FAILS:</strong> Ask Radiology. Do not treat a missing image viewer as a failed order.</p>
+<p><strong>SECURITY NOTES:</strong> You do not collect imaging payment.</p>
+<hr>
+<h2>Prescriptions</h2>
+<p><strong>PURPOSE:</strong> Prescribe medication for this visit.</p>
+<p><strong>Lifecycle in this release:</strong></p>
+<pre>Doctor prescribes
+    → prescription / drug order
+    → bill created for Accounts
+    → Accountant collects payment
+    → Pharmacy sees Ready to dispense
+    → Pharmacy dispenses
+    → patient receives the medicine</pre>
+<p>If the patient is later admitted, scheduled inpatient doses appear on Nursing <strong>MAR</strong>. That is <strong>administration</strong>, not dispensing. Pharmacy still dispenses the supply.</p>
+<p><strong>When-needed (PRN) medicines are not added to the scheduled medication sheet.</strong></p>
+<p><strong>COMMON ERRORS:</strong> Expecting Pharmacy to dispense before payment. The system blocks unpaid dispensing.</p>
+<hr>
+<h2>Admission</h2>
+<p><strong>PURPOSE:</strong> Ask Nursing to admit the patient.</p>
+<p><strong>WHO DOES IT:</strong> Doctor.</p>
+<p><strong>STEP-BY-STEP</strong></p>
+<ol>
+<li>Open <strong>Admission</strong>.</li>
+<li>Select <strong>Admit Patient</strong>. Copy: *The doctor decides to admit. Nursing assigns the bed. This does not collect payment.*</li>
+</ol>
+<p><strong>WHAT HAPPENS AFTER SAVING:</strong> *Admission requested. Nursing will assign a bed.* You do not choose the bed.</p>
+<p><strong>WHAT TO DO IF SOMETHING FAILS:</strong> Check Nursing Admissions. Do not invent a bed assignment.</p>
+<p>After admission, on consultation you can <strong>read</strong> nursing notes, inpatient vitals, and MAR. You cannot record them.</p>
+<hr>
+<h2>Consultation fee</h2>
+<p>On an active visit, the doctor can <strong>Create consultation fee</strong> in naira. Status <strong>UNPAID</strong> / <strong>PAID</strong>. Copy: *Please proceed to the cashier.*</p>
+<p>You cannot collect payment. An unpaid fee does <strong>not</strong> block saving the consultation.</p>
+<hr>
+<h2>Inpatient visibility</h2>
+<p>When the patient is admitted (or after discharge, for history):</p>
+<ul>
+<li>Inpatient vitals — <strong>read only</strong></li>
+<li>Nursing notes — <strong>read only</strong></li>
+<li>MAR — <strong>read only</strong></li>
+</ul>
+<p>Nursing notes after discharge remain readable to the doctor even when Nursing can no longer add a note.</p>
+<hr>
+<h2>What the doctor cannot do</h2>
+<ul>
+<li>Collect payment</li>
+<li>Assign, transfer, or discharge a bed (Nursing)</li>
+<li>Record inpatient vitals, nursing notes, or MAR</li>
+<li>Enter laboratory results</li>
+<li>Dispense medicines</li>
+<li>Change department catalogue prices</li>
+<li>Open Hospital Administration analytics</li>
+</ul>
+</section><section class="chapter">
+<h1>Nursing — Department guide</h1>
+<p>This guide describes Nursing as it works in this release. It is a safety-critical document. Do not bypass identification, times, or administration windows.</p>
+<p>Related: Inpatient / ward · Doctor · Pharmacy</p>
+<hr>
+<h2>What Nursing is for</h2>
+<p>Nursing runs the ward: who is on a bed, who is waiting for a bed, notes, vitals, and scheduled medication administration.</p>
+<p><strong>Screens:</strong> Dashboard · Ward Board · Patients · Admissions · Transfers · Discharges · inpatient chart</p>
+<p>Pharmacy <strong>dispenses</strong> medicine. Nursing <strong>administers</strong> scheduled inpatient doses. These are different jobs.</p>
+<hr>
+<h2>Logging in</h2>
+<p><strong>PURPOSE:</strong> Open the ward.</p>
+<p><strong>WHO DOES IT:</strong> Staff with Nursing access.</p>
+<p><strong>STEP-BY-STEP</strong></p>
+<ol>
+<li>Sign in with your hospital username.</li>
+<li><strong>Nursing</strong> opens. You do not pick a ward as a workplace.</li>
+</ol>
+<p><strong>SECURITY NOTES:</strong> Use only your account. Your name is recorded on notes, vitals, and administrations.</p>
+<hr>
+<h2>Ward Board, Patients, Admissions</h2>
+<p><strong>PURPOSE:</strong> See occupancy and open the right chart.</p>
+<p><strong>WHO DOES IT:</strong> Nursing.</p>
+<p><strong>Dashboard</strong> shows occupied beds, available beds, and patients waiting for a bed, plus ward overview counts.</p>
+<p><strong>Ward Board</strong> shows <strong>Ward → Room → Bed → Patient</strong>. Beds are <strong>Available</strong> or <strong>Occupied</strong>. Occupied beds open the chart and offer <strong>Transfer</strong> and <strong>Discharge</strong>. Available beds open <strong>Assign Bed</strong>.</p>
+<p><strong>Patients</strong> lists occupied patients and those with <strong>Admit requested</strong>.</p>
+<p><strong>Admissions</strong> lists patients the doctor has asked to admit. Nursing assigns the bed.</p>
+<p><strong>Transfers</strong> and <strong>Discharges</strong> are shortcuts for people <strong>currently on a bed</strong>. They are not a history list.</p>
+<p><strong>STEP-BY-STEP (open a chart)</strong></p>
+<ol>
+<li>Confirm name and hospital number.</li>
+<li>Open the patient from the board or Patients.</li>
+<li>Check <strong>Ward</strong>, <strong>Bed</strong>, and status (<strong>Occupied</strong>, <strong>Admit requested</strong>, or <strong>Not admitted</strong>).</li>
+</ol>
+<p><strong>SECURITY NOTES:</strong> Always match the person at the bedside to the hospital number on the screen.</p>
+<hr>
+<h2>Assign bed, transfer, discharge</h2>
+<p><strong>PURPOSE:</strong> Place the patient, move the patient, or free the bed.</p>
+<p><strong>WHO DOES IT:</strong> Nursing (bed assignment rights).</p>
+<h3>Assign bed</h3>
+<ol>
+<li>Open <strong>Admissions</strong>, an available bed, or the patient chart.</li>
+<li>Confirm <strong>Admit requested</strong> when the doctor has asked to admit.</li>
+<li>Choose the ward and bed shown.</li>
+<li>Select <strong>Assign Bed</strong>.</li>
+</ol>
+<p><strong>WHAT HAPPENS AFTER SAVING:</strong> The bed is occupied. You may see *Admitted to …* Accommodation billing may start. Nursing does not collect payment. Unpaid accommodation does <strong>not</strong> block assign.</p>
+<p>If the bed was just taken: *This bed has just been assigned to another patient. Please choose another bed.*</p>
+<p>You can assign from the chart in an emergency even if the doctor has not requested admit. Use that only when the hospital requires it.</p>
+<h3>Transfer</h3>
+<ol>
+<li>From the occupied bed or Transfers, select <strong>Transfer</strong>.</li>
+<li>Choose the new ward and bed.</li>
+<li>Select <strong>Transfer Patient</strong>.</li>
+</ol>
+<p>There is no separate transfer history screen.</p>
+<h3>Discharge</h3>
+<ol>
+<li>Confirm identity.</li>
+<li>Select <strong>Discharge</strong>. Confirm: *Discharge this patient and release their bed?*</li>
+</ol>
+<p><strong>WHAT HAPPENS AFTER SAVING:</strong> *Patient discharged. Bed released.* Historical notes, vitals, and MAR remain readable where the system allows. You cannot record new notes, vitals, or administrations after discharge.</p>
+<p>Unpaid accommodation does <strong>not</strong> block discharge. Send the family to Accountant for any unpaid bills.</p>
+<p><strong>WHAT NOT TO DO:</strong> Do not discharge the wrong patient. Do not try to “delete” the stay.</p>
+<hr>
+<h2>Inpatient chart</h2>
+<p>Header shows name, hospital number, age, ward, bed, and allergy line.</p>
+<p>Sections that <strong>work</strong> in this release: alerts, current condition, <strong>Vitals</strong>, <strong>Medication Administration (MAR)</strong>, <strong>Inpatient Nursing Notes</strong>, doctor instructions (read-only), admission and discharge actions.</p>
+<p><strong>Coming soon — not currently available in this release:</strong></p>
+<ul>
+<li>Nursing tasks</li>
+<li>Care plan</li>
+<li>Intake and output</li>
+</ul>
+<p><strong>Diagnoses</strong> may show <strong>Diagnoses unavailable</strong>. That is a known limit. Do not invent a diagnosis.</p>
+<p><strong>Open full chart</strong> opens the wider clinical chart. Daily ward work stays in Hospital EMR.</p>
+<p><strong>Patient Account</strong> is read-only.</p>
+<hr>
+<h2>Nursing Notes</h2>
+<p><strong>PURPOSE:</strong> Record an observation during this admission.</p>
+<p><strong>WHO DOES IT:</strong> Nursing, while the patient has an active bed and admission.</p>
+<p><strong>STEP-BY-STEP</strong></p>
+<ol>
+<li>Open the inpatient chart.</li>
+<li>Confirm identity.</li>
+<li>Select <strong>+ Nursing Note</strong>.</li>
+<li>Write the observation, care, and response.</li>
+<li>Select <strong>Save Nursing Note</strong>.</li>
+</ol>
+<p><strong>WHAT HAPPENS AFTER SAVING:</strong> The note is stored with <strong>your name</strong> and the <strong>current date and time</strong>, recorded automatically. You cannot edit or delete it. A later note does not replace an earlier one.</p>
+<p><strong>WHO CAN READ:</strong> Nursing during the active admission. The doctor can read current and historical notes.</p>
+<p>After discharge, Nursing may see <strong>Nursing notes unavailable</strong> on the chart. The doctor can still read historical notes.</p>
+<p><strong>COMMON ERRORS:</strong> Saving a note on the wrong patient. Trying to change an old note.</p>
+<p><strong>WHAT TO DO IF SOMETHING FAILS:</strong> Write a new note. Do not ask anyone to change the time.</p>
+<p><strong>SECURITY NOTES:</strong> Time and author cannot be typed by you. Do not share an account so that another nurse’s name is recorded as yours.</p>
+<hr>
+<h2>Vitals</h2>
+<p><strong>PURPOSE:</strong> Record inpatient observations.</p>
+<p><strong>WHO DOES IT:</strong> Nursing during an active admission. Doctor reviews only.</p>
+<p><strong>STEP-BY-STEP</strong></p>
+<ol>
+<li>Open the inpatient chart → <strong>Vitals</strong>.</li>
+<li>Confirm identity.</li>
+<li>Enter the measurements you took.</li>
+<li>Review warnings for unusual values. Unusual values can still be saved when they are true.</li>
+<li>Confirm. Copy: observations are <strong>added</strong> and do <strong>not</strong> replace earlier readings.</li>
+</ol>
+<h3>Measurements in this release</h3>
+<table><tr><th>Measurement</th><th>Unit</th></tr><tr><td>Temperature</td><td>°C</td></tr><tr><td>Pulse</td><td>bpm</td></tr><tr><td>Respiratory Rate</td><td>/min</td></tr><tr><td>Systolic blood pressure</td><td>mmHg</td></tr><tr><td>Diastolic blood pressure</td><td>mmHg</td></tr><tr><td>SpO₂</td><td>%</td></tr><tr><td>Weight</td><td>kg</td></tr><tr><td>Height</td><td>cm</td></tr></table>
+<p>BMI may display from weight and height. It is <strong>calculated on screen and is not saved</strong> as a stored observation.</p>
+<p>Both systolic and diastolic must be entered together. Systolic must be higher than diastolic. Values outside the allowed range are refused.</p>
+<p><strong>WHAT HAPPENS AFTER SAVING:</strong> Time is recorded automatically. Each recording is a <strong>new</strong> observation. History is kept. Later measurements do not overwrite earlier ones.</p>
+<p>After discharge you can read history. You cannot record new vitals (*Vitals can be recorded during an active admission*).</p>
+<p><strong>OPD versus ward:</strong> The doctor may record outpatient vitals on an OPD visit. Those are not the same as ward vitals. The condition summary may show a latest reading from a wider history; the <strong>Vitals</strong> section shows this admission’s recordings.</p>
+<p><strong>WHAT NOT TO DO:</strong> Do not change timestamps. Do not record another nurse’s work under your name.</p>
+<hr>
+<h2>Medication administration (MAR)</h2>
+<p><strong>PURPOSE:</strong> Give or document a <strong>scheduled inpatient</strong> dose.</p>
+<p><strong>WHO DOES IT:</strong> Nursing during an active admission.</p>
+<pre>Doctor prescribes (inpatient)
+    → medication schedule is created for eligible orders
+    → scheduled dose appears on MAR
+    → Nurse administers (or records not given)
+    → administration is stored</pre>
+<p><strong>When-needed (PRN) medicines are not added to the scheduled medication sheet.</strong> They cannot be administered from MAR in this release.</p>
+<p>Outpatient-only orders and incomplete prescriptions also do not become scheduled slots.</p>
+<h3>Window</h3>
+<p>Normal window: <strong>30 minutes before</strong> the scheduled time through <strong>60 minutes after</strong>.</p>
+<ul>
+<li>Inside the window: <strong>Administer</strong> for <strong>Given</strong> (note optional).</li>
+<li>Outside the window: use <strong>Administer outside scheduled window</strong>. A <strong>reason is required</strong>, including when the dose was given.</li>
+<li><strong>Not done</strong>, <strong>Refused</strong>, and <strong>Held</strong> always need a reason.</li>
+</ul>
+<p><strong>Actual time is recorded automatically.</strong> You cannot type or change it. Scheduled time and actual time are stored separately.</p>
+<h3>Outcomes</h3>
+<table><tr><th>You select</th><th>Meaning</th></tr><tr><td><strong>Given</strong></td><td>Dose administered</td></tr><tr><td><strong>Not done</strong></td><td>Dose not given</td></tr><tr><td><strong>Refused</strong></td><td>Patient refused</td></tr><tr><td><strong>Held</strong></td><td>Held</td></tr></table>
+<p>A finished slot cannot be administered again. After discharge the sheet is <strong>historical</strong> — readable, no new administrations.</p>
+<p><strong>Duplicate protection:</strong> Repeating the same save does not create a second administration.</p>
+<p><strong>Patient isolation:</strong> A slot for another patient is refused (*This scheduled dose is for another patient*).</p>
+<p><strong>COMMON ERRORS:</strong> *This dose is outside the normal administration window.* *Medication administration unavailable.* Empty MAR because the order is PRN or not inpatient.</p>
+<p><strong>WHAT TO DO IF SOMETHING FAILS:</strong> Confirm you are on the correct patient and admission. Use the outside-window action with a true clinical reason when the time is outside the window. Do not invent a scheduled time. Do not administer from Pharmacy.</p>
+<p><strong>SECURITY NOTES:</strong> Do not bypass the window. Do not administer after discharge. Do not record a dose you did not give.</p>
+<hr>
+<h2>What Nursing cannot do</h2>
+<ul>
+<li>Collect payment</li>
+<li>Change accommodation tariffs or department catalogue prices</li>
+<li>Dispense from Pharmacy</li>
+<li>Write diagnoses or prescriptions</li>
+<li>Request admission (doctor) or process laboratory specimens</li>
+<li>Edit or delete saved notes, vitals, or MAR rows</li>
+<li>Administer PRN as scheduled MAR</li>
+<li>Backdate times</li>
+</ul>
+<hr>
+<h2>Known Nursing limits</h2>
+<ul>
+<li>Diagnoses may show unavailable</li>
+<li>Tasks, care plan, and intake/output show <strong>Coming soon</strong></li>
+<li>No transfer or discharge history list</li>
+<li>Ward and room may show the same name in assign/transfer</li>
+<li>Wards without an accommodation tariff show <strong>0</strong> until a price is set</li>
+</ul>
+</section><section class="chapter">
+<h1>Inpatient and ward operations</h1>
+<p>This guide is the shared ward picture. Detailed Nursing steps are in Nursing. Doctor steps are in Doctor.</p>
+<hr>
+<h2>Who does what</h2>
+<table><tr><th>Role</th><th>What they do on an admission</th></tr><tr><td><strong>Doctor</strong></td><td>Clinical decisions, orders, prescriptions, <strong>Admit Patient</strong></td></tr><tr><td><strong>Nurse</strong></td><td>Assign / transfer / discharge bed, notes, vitals, MAR</td></tr><tr><td><strong>Reception</strong></td><td>Registration and starting an <strong>Admission</strong> visit when that is the front-desk path</td></tr><tr><td><strong>Accountant</strong></td><td>Collect accommodation and other bills</td></tr><tr><td><strong>Pharmacy</strong></td><td>Dispense paid medicines (not MAR)</td></tr><tr><td><strong>Laboratory</strong></td><td>Specimen and results in laboratory processing</td></tr><tr><td><strong>Radiology</strong></td><td>Price and report (images not in Hospital EMR)</td></tr><tr><td><strong>Hospital Admin</strong></td><td>Staff and counts — not bedside care</td></tr></table>
+<p>Do not assign a job the application does not support.</p>
+<hr>
+<h2>Admission</h2>
+<pre>Doctor: Admit Patient
+    → Admission requested
+    → Nursing: Assign Bed
+    → Occupied</pre>
+<p>Reception may also start an <strong>Admission</strong> visit and choose a ward. That does not replace Nursing bed assignment.</p>
+<p>The doctor does not choose the bed and does not collect payment.</p>
+<hr>
+<h2>Ward and bed</h2>
+<p>Nursing <strong>Ward Board</strong> shows ward, room, and bed as <strong>Available</strong> or <strong>Occupied</strong>.</p>
+<p><strong>Transfer</strong> moves an occupied patient to another bed. There is no transfer history list.</p>
+<p><strong>Discharge</strong> frees the bed. Nursing performs discharge. Doctor discharge decision is <strong>not currently available in this release</strong>.</p>
+<p>Unpaid accommodation does not block assign, transfer, or discharge.</p>
+<hr>
+<h2>Inpatient chart</h2>
+<p>Nursing opens the inpatient chart for notes, vitals, and MAR.</p>
+<p>The doctor opens the same patient in Clinical and <strong>reads</strong> notes, vitals, and MAR. The doctor does not write those.</p>
+<p>After discharge, history remains. Nursing cannot add new notes, vitals, or administrations.</p>
+<hr>
+<h2>Vitals and MAR</h2>
+<p>See Nursing.</p>
+<ul>
+<li>Time is automatic.</li>
+<li>Each vitals recording is new; history is kept.</li>
+<li>MAR is <strong>scheduled inpatient</strong> doses only. PRN is not on the sheet.</li>
+<li>Pharmacy dispense and MAR administer are different.</li>
+</ul>
+<hr>
+<h2>Laboratory, pharmacy, accommodation</h2>
+<p>Laboratory and imaging orders still come from the doctor. Processing and reporting stay in those departments.</p>
+<p>Pharmacy dispenses paid prescriptions. The ward does not dispense from MAR.</p>
+<p>Accommodation: SuperAdmin sets tariff. Charge may follow assignment. Old dollar bills stay in dollars. Tariff <strong>0</strong> means the ward is not configured yet.</p>
+<hr>
+<h2>Discharge</h2>
+<pre>Nursing: confirm identity
+    → Discharge
+    → Bed released
+    → Accountant: collect remaining bills
+    → Records remain</pre>
+<p>Do not discharge a patient from another environment’s important fixtures during training. On UAT, discharge only the synthetic admission created for the test.</p>
+</section><section class="chapter">
+<h1>Laboratory — Department guide</h1>
+<p>This guide describes Laboratory as it works in this release.</p>
+<p><strong>Hospital EMR does not perform laboratory processing.</strong> Specimen collection, accession, testing, result entry, and validation happen in <strong>laboratory processing</strong> (the hospital laboratory system). Hospital EMR shows orders, payment state, and released results.</p>
+<p>Related: Doctor · Billing · OpenELIS administration notes (technical)</p>
+<hr>
+<h2>What Laboratory is for in Hospital EMR</h2>
+<p><strong>Screens:</strong> Dashboard · Pending Orders · Processing · Completed Results · Search Patient · Test Pricing</p>
+<table><tr><th>In Hospital EMR</th><th>In laboratory processing</th></tr><tr><td>See which tests the doctor ordered</td><td>Collect the specimen</td></tr><tr><td>See unpaid / paid</td><td>Accession and process the sample</td></tr><tr><td>Open <strong>Open laboratory processing</strong></td><td>Enter and validate the result</td></tr><tr><td>See a result after it is released</td><td>Source of the result</td></tr><tr><td>Set hospital test selling prices</td><td>Catalogue of processing methods</td></tr></table>
+<p>Hospital EMR <strong>does not write</strong> processing records. Do not try to type a result in Hospital EMR.</p>
+<hr>
+<h2>Logging in</h2>
+<p>Sign in with your <strong>Hospital EMR</strong> laboratory username. That opens the Laboratory board.</p>
+<p>Laboratory processing uses a <strong>separate sign-in</strong>. Your Hospital EMR account does not log you into processing. Hospital-specific processing accounts and roles are set by the laboratory administrator. See hospital OpenELIS training — this manual does not invent those clicks.</p>
+<hr>
+<h2>How an order appears</h2>
+<pre>Doctor creates a laboratory order on the visit
+    → Laboratory sees the order on the board
+    → Patient pays at Accountant (when billed)
+    → Laboratory collects and processes in laboratory processing
+    → Validated result returns
+    → Doctor and Laboratory see the result in Hospital EMR</pre>
+<p>Payment is <strong>not</strong> required for the doctor to place the order. <strong>Paid does not mean the sample was collected. Paid does not mean the result is ready.</strong></p>
+<hr>
+<h2>Pending, Processing, Completed</h2>
+<p><strong>PURPOSE:</strong> Know which orders need work and which have results.</p>
+<p><strong>WHO DOES IT:</strong> Laboratory.</p>
+<p><strong>STEP-BY-STEP</strong></p>
+<ol>
+<li>Open <strong>Pending Orders</strong> for new work.</li>
+<li>Open <strong>Processing</strong> for work already in progress.</li>
+<li>Open <strong>Completed Results</strong> for released results.</li>
+<li>Open an order. Confirm <strong>patient, hospital number, visit, and test</strong>.</li>
+<li>Select <strong>Open laboratory processing</strong> to collect, accession, test, enter, and validate — using your processing account and hospital procedure.</li>
+</ol>
+<p>The board groups orders by processing status. Unrecognised states are shown honestly, not invented.</p>
+<p>The board can take <strong>several seconds</strong> to load. That is a known limit.</p>
+<p><strong>WHAT HAPPENS AFTER SAVING (in processing):</strong> After the result is validated and released, it appears in Hospital EMR for Laboratory and the doctor. Hospital EMR does not store a second result file.</p>
+<p><strong>COMMON ERRORS:</strong> Order not on the board — the doctor may not have submitted, or you opened a different patient. Result empty — processing not finished. *Orders unavailable* / *Results unavailable* — reload; if it continues, tell Hospital Admin.</p>
+<p><strong>WHAT TO DO IF SOMETHING FAILS:</strong> Confirm the hospital number with the doctor. Do not fabricate a result. Do not skip validation.</p>
+<p><strong>SECURITY NOTES:</strong> Never enter another patient’s result. Never use a shared processing login for clinical work.</p>
+<hr>
+<h2>Specimen collection, accession, testing, validation</h2>
+<p>These steps are <strong>not performed in Hospital EMR</strong>.</p>
+<p>Follow your hospital’s laboratory processing training for:</p>
+<ul>
+<li>Samples to collect</li>
+<li>Collect sample</li>
+<li>Accession</li>
+<li>Results entry</li>
+<li>Validation / completion</li>
+</ul>
+<p>This release does not document those screens as Hospital EMR procedures. If a new test was added to the hospital list, the laboratory administrator may still need to finish specimen and range setup in processing, or samples can sit untested.</p>
+<p><strong>Hospital UAT:</strong> process a <strong>new</strong> result on this hospital stack. Do not treat an old result from another environment as proof.</p>
+<hr>
+<h2>Test pricing</h2>
+<p><strong>PURPOSE:</strong> Set the selling price of hospital laboratory tests for <strong>new</strong> fees.</p>
+<p><strong>WHO DOES IT:</strong> Laboratory (read and write). Accountant and Hospital Admin can view. SuperAdmin can also change these prices.</p>
+<p><strong>STEP-BY-STEP</strong></p>
+<ol>
+<li>Open <strong>Test Pricing</strong>.</li>
+<li>Find the hospital test (this is the ordering list, not the full processing dictionary).</li>
+<li>Change the naira price and save.</li>
+</ol>
+<p><strong>WHAT HAPPENS AFTER SAVING:</strong> New charges use the new price. Bills already created do <strong>not</strong> change.</p>
+<p>Four tests are <strong>not currently available to order</strong> from Abikan: Inorganic Phosphate, Testosterone, Progesterone, Estradiol.</p>
+<p>Some tests are marked <strong>Outsourced</strong>. There is no separate outsourced workflow in Hospital EMR.</p>
+<hr>
+<h2>What Laboratory cannot do</h2>
+<ul>
+<li>Collect payment (*Please proceed to the cashier. Laboratory does not collect money.*)</li>
+<li>Enter or validate results in Hospital EMR</li>
+<li>Collect specimens in Hospital EMR</li>
+<li>Change Reception or Pharmacy prices</li>
+<li>Open Administration analytics</li>
+</ul>
+<hr>
+<h2>Known Laboratory limits</h2>
+<ul>
+<li>Fresh result should be proven during hospital UAT</li>
+<li>Board can be slow</li>
+<li>Hospital EMR does not write to laboratory processing</li>
+<li>Paid ≠ collected ≠ resulted</li>
+</ul>
+</section><section class="chapter">
+<h1>Pharmacy — Department guide</h1>
+<p>This guide describes Pharmacy as it works in this release.</p>
+<p>Pharmacy <strong>dispenses</strong> a paid prescription. Nursing <strong>administers</strong> a scheduled inpatient dose on MAR. Do not mix these jobs.</p>
+<p>Related: Doctor · Accountant · Nursing</p>
+<hr>
+<h2>What Pharmacy is for</h2>
+<p><strong>Screens:</strong> Dashboard · Prescriptions · Ready to Dispense · Dispensed · Drug Catalogue · Drug Pricing · Inventory</p>
+<pre>Doctor prescribes
+    → bill is created
+    → Accountant collects payment
+    → Ready to dispense
+    → Pharmacy dispenses
+    → stock is updated</pre>
+<hr>
+<h2>Logging in and finding work</h2>
+<p>Sign in with your Pharmacy username.</p>
+<p><strong>Dashboard</strong> puts <strong>Ready to dispense</strong> first.</p>
+<p><strong>Prescriptions</strong> lists prescription work. <strong>Ready to Dispense</strong> is paid and waiting. <strong>Dispensed</strong> is already given out.</p>
+<p>Confirm <strong>patient, hospital number, and medicine</strong> before you dispense.</p>
+<hr>
+<h2>Payment state</h2>
+<table><tr><th>What you see</th><th>Meaning</th></tr><tr><td>Unpaid / payment required</td><td>Do <strong>not</strong> dispense. Send the patient to Accountant</td></tr><tr><td>Partial payment</td><td><strong>Not</strong> ready to dispense in this release</td></tr><tr><td>Ready to dispense</td><td>Posted bill is fully paid; stock movement not yet completed</td></tr><tr><td>Dispensed</td><td>You have completed dispense; stock has moved</td></tr></table>
+<p>Pharmacy has <strong>no payment button</strong>.</p>
+<hr>
+<h2>Dispensing</h2>
+<p><strong>PURPOSE:</strong> Give the patient the prescribed medicine and update stock.</p>
+<p><strong>WHO DOES IT:</strong> Pharmacy.</p>
+<p><strong>STEP-BY-STEP</strong></p>
+<ol>
+<li>Open the prescription. Confirm identity and medicine.</li>
+<li>Check payment is <strong>Ready to dispense</strong>.</li>
+<li>Check available stock.</li>
+<li>Select <strong>Dispense</strong>. Confirm: *This will mark the prescription as dispensed and update pharmacy stock.*</li>
+</ol>
+<p>This release dispenses the <strong>full</strong> quantity. Partial dispense is not offered.</p>
+<p><strong>WHAT HAPPENS AFTER SAVING:</strong> Status becomes <strong>Dispensed</strong>. Repeating the action does not dispense twice (*This medication has already been dispensed*).</p>
+<p><strong>COMMON ERRORS</strong></p>
+<ul>
+<li>*Payment required before dispensing. Please proceed to the cashier.*</li>
+<li>*This medication has already been dispensed.*</li>
+<li>*Not enough stock to dispense this medication.*</li>
+</ul>
+<p><strong>WHAT TO DO IF SOMETHING FAILS:</strong> Do not override payment. Do not dispense unpaid medication. Do not invent stock. If stock is short, use Inventory (if you have that right) or tell Hospital Admin.</p>
+<p><strong>SECURITY NOTES:</strong> Do not share accounts. Do not dispense on the wrong hospital number.</p>
+<hr>
+<h2>Drug Catalogue and Drug Pricing</h2>
+<p><strong>Drug Catalogue</strong> adds and edits hospital medicines, including selling price.</p>
+<p><strong>Drug Pricing</strong> changes selling prices for <strong>new</strong> sales. Staff see <strong>₦</strong>.</p>
+<p>Changing today’s price does <strong>not</strong> change a bill already created.</p>
+<p>Pharmacy can write pharmacy prices. Reception and Laboratory cannot. Accountant and Hospital Admin can view. SuperAdmin can also change these prices.</p>
+<hr>
+<h2>Inventory</h2>
+<p><strong>Inventory</strong> shows stock. <strong>Receive stock</strong> and <strong>Adjust stock</strong> require the hospital inventory right. Adjustment reasons include incorrect opening stock, physical count, damaged, expired, lost/missing, and correction.</p>
+<p>Purchase orders and supplier payment are <strong>not currently available in this release</strong>.</p>
+<hr>
+<h2>Prescription versus MAR</h2>
+<table><tr><th>Pharmacy</th><th>Nursing MAR</th></tr><tr><td>Dispense the supply after <strong>payment</strong></td><td>Administer a <strong>scheduled inpatient</strong> dose</td></tr><tr><td>Updates stock</td><td>Records Given / Not done / Refused / Held</td></tr><tr><td>Counter</td><td>Ward</td></tr></table>
+<p>Do not present MAR rows as pharmacy dispensing.</p>
+<hr>
+<h2>What Pharmacy cannot do</h2>
+<ul>
+<li>Collect payment</li>
+<li>Administer MAR</li>
+<li>Enter laboratory results</li>
+<li>Change Reception or Laboratory prices</li>
+<li>Dispense unpaid or partially paid prescriptions</li>
+</ul>
+</section><section class="chapter">
+<h1>Accountant — Department guide</h1>
+<p>This guide describes the cashier as it works in this release.</p>
+<p>Related: Billing and payments · Reception · Pharmacy</p>
+<hr>
+<h2>What Accountant is for</h2>
+<p>Accountant collects money on posted bills and opens receipts.</p>
+<p><strong>Screens:</strong> Cashier · Patient Accounts (search) · one-patient collect screen · Patient Account (read-only money view)</p>
+<pre>Department creates a charge
+    → bill is posted
+    → Accountant collects payment
+    → receipt
+    → department shows Paid (Pharmacy shows Ready to dispense)</pre>
+<hr>
+<h2>Logging in</h2>
+<p>Sign in with an account that has Accountant access. <strong>Cashier</strong> opens: *Search a patient to collect payment.*</p>
+<hr>
+<h2>Finding the bill and collecting</h2>
+<p><strong>PURPOSE:</strong> Record what was collected.</p>
+<p><strong>WHO DOES IT:</strong> Accountant.</p>
+<p><strong>STEP-BY-STEP</strong></p>
+<ol>
+<li>Search by name, hospital number, or phone.</li>
+<li>Confirm identity.</li>
+<li>Review bills that are still unpaid.</li>
+<li>Collect the amount received.</li>
+<li>Confirm. Open or print the receipt when offered.</li>
+</ol>
+<p><strong>WHAT HAPPENS AFTER SAVING:</strong> The bill shows paid (or remaining unpaid if only part was collected, where partial payment is offered). Pharmacy can then dispense a <strong>fully</strong> paid prescription. Laboratory and Radiology still must finish their own work.</p>
+<p><strong>COMMON ERRORS:</strong> Patient not found — try hospital number. Nothing to collect — the department may not have created the charge, or the bill is already paid. Mixed currencies — *Select invoices in the same currency.*</p>
+<p><strong>WHAT TO DO IF SOMETHING FAILS:</strong> Ask the originating department whether they created the fee. Do not mark a bill paid on paper only. Do not ask Pharmacy to dispense unpaid medication.</p>
+<p><strong>SECURITY NOTES:</strong> Do not share the cashier account. Do not skip identity.</p>
+<hr>
+<h2>Billed, collected, outstanding</h2>
+<p>These words mean <strong>money on bills</strong>, not hospital “revenue.”</p>
+<table><tr><th>Word</th><th>Meaning in Hospital EMR</th></tr><tr><td><strong>Billed</strong> / Amount</td><td>Amount on bills created so far</td></tr><tr><td><strong>Collected</strong> / Paid</td><td>Amount already received</td></tr><tr><td><strong>Outstanding</strong> / Still unpaid</td><td>Amount still unpaid <strong>now</strong></td></tr></table>
+<p>On <strong>Patient Account</strong>:</p>
+<ul>
+<li><strong>Amount</strong> — *Billed so far*</li>
+<li><strong>Paid</strong> — *Already received*</li>
+<li><strong>Outstanding</strong> — *Still unpaid*</li>
+</ul>
+<p>On <strong>Cashier</strong>: <strong>Collected today</strong> and <strong>Still unpaid</strong>.</p>
+<p>Hospital Admin <strong>Outstanding</strong> is a <strong>current snapshot</strong>, not the balance as of a past date.</p>
+<hr>
+<h2>Which bills you collect</h2>
+<p>Posted bills from:</p>
+<ul>
+<li>Registration cards (Individual Card, Family Card)</li>
+<li>Consultation fees</li>
+<li>Laboratory fees</li>
+<li>Radiology examination prices</li>
+<li>Pharmacy prescriptions</li>
+<li>Accommodation (daily ward/room charges)</li>
+</ul>
+<p>Draft bills that are not posted are not collectable.</p>
+<p><strong>Refunds are not currently available in this release.</strong></p>
+<hr>
+<h2>Accommodation</h2>
+<p>Accommodation tariffs are set by <strong>SuperAdmin</strong> under Administration → <strong>Accommodation Prices</strong> (naira daily price per ward/room).</p>
+<p>A charge can be created when Nursing assigns a bed. Changing today’s tariff does <strong>not</strong> rewrite a bill already posted.</p>
+<p>New accommodation bills use the naira accommodation list. <strong>Older accommodation bills that were in dollars stay in dollars.</strong></p>
+<p>Wards without a configured tariff may show <strong>0</strong> until a price is set.</p>
+<p>Unpaid accommodation does <strong>not</strong> block Nursing assign, transfer, or discharge. Still collect what is owed.</p>
+<hr>
+<h2>Prices you cannot change</h2>
+<p>Accountant can <strong>view</strong> Reception, Laboratory, and Pharmacy prices. Accountant <strong>cannot</strong> change them.</p>
+<p>Changing a catalogue price never rewrites an old bill. If a patient disputes an old amount, look at the bill from the day it was created.</p>
+<hr>
+<h2>What Accountant cannot do</h2>
+<ul>
+<li>Dispense medicines</li>
+<li>Record clinical notes, vitals, or MAR</li>
+<li>Enter laboratory or radiology results</li>
+<li>Create registration, laboratory, or consultation charges from the cashier screen</li>
+<li>Change department catalogue prices</li>
+<li>Process refunds in this release</li>
+</ul>
+</section><section class="chapter">
+<h1>Radiology — Department guide</h1>
+<p>This guide describes Radiology as it works in this release.</p>
+<p><strong>Images are not shown in Hospital EMR.</strong> Do not invent PACS or viewer steps.</p>
+<p>Related: Doctor · Billing · Radiology workflow notes</p>
+<hr>
+<h2>What Radiology is for in Hospital EMR</h2>
+<p><strong>Screens:</strong> Radiology (dashboard) · Worklist · patient imaging · examination detail</p>
+<table><tr><th>You can</th><th>You cannot in this release</th></tr><tr><td>See pending examinations (order without a report)</td><td>View or upload scan images in Hospital EMR</td></tr><tr><td>Set a naira price for that examination</td><td>Collect payment</td></tr><tr><td>Write or edit a free-text report</td><td>Cancel or delete the order from Radiology</td></tr><tr><td>See Price pending / Unpaid / Paid</td><td>Treat Paid as “scan done”</td></tr></table>
+<p>The doctor orders from a hospital-approved ultrasound and radiography list (42 services). ECG, CT, MRI, and other names not on that list are <strong>not currently available</strong> on the Radiology menu.</p>
+<hr>
+<h2>Worklist and report</h2>
+<p><strong>PURPOSE:</strong> Price the examination and record the report.</p>
+<p><strong>WHO DOES IT:</strong> Radiology.</p>
+<p><strong>STEP-BY-STEP</strong></p>
+<ol>
+<li>Open <strong>Worklist</strong>. Empty state: *No pending Radiology examinations.*</li>
+<li>Open the examination. Confirm patient, hospital number, visit, and examination name.</li>
+<li><strong>Set Price</strong> / <strong>Save Price</strong> in naira. *Accounts collects payment. You can still write the report if unpaid.*</li>
+<li><strong>Write Report</strong> or <strong>Edit Report</strong>. Free text. Save.</li>
+</ol>
+<p><strong>WHAT HAPPENS AFTER SAVING:</strong> The doctor can read the report on that visit and examination. Payment status updates after Accountant collects.</p>
+<p><strong>COMMON ERRORS:</strong> *Order unavailable.* Report not visible to the doctor — confirm you saved on the correct examination.</p>
+<p><strong>WHAT TO DO IF SOMETHING FAILS:</strong> Do not attach the report to a different order. Do not tell staff to open a hidden imaging archive as if it were Hospital EMR.</p>
+<p><strong>SECURITY NOTES:</strong> You do not collect payment. Do not share accounts.</p>
+<hr>
+<h2>Imaging archive</h2>
+<p>The hospital may run a separate imaging archive. In this release Hospital EMR does <strong>not</strong> show studies, does not replace the archive screens, and does not require a scan to be paid before you can write a report.</p>
+<p><strong>PAID does not mean the scan was performed.</strong></p>
+<p>If a modality and archive are connected later, that is hospital imaging operations — <strong>not currently available in this release</strong> as a Hospital EMR workflow.</p>
+<hr>
+<h2>What Radiology cannot do</h2>
+<ul>
+<li>Collect payment</li>
+<li>Cancel the order from this desk</li>
+<li>Display images</li>
+<li>Change Reception, Laboratory, or Pharmacy catalogue prices</li>
+</ul>
+</section><section class="chapter">
+<h1>Hospital Admin — Department guide</h1>
+<p>This guide describes Hospital Administration as it works in this release.</p>
+<p>Related: Roles · Hospital overview · Deployment</p>
+<hr>
+<h2>What Hospital Admin is for</h2>
+<p><strong>Screens:</strong> Dashboard · Analytics (Hospital overview) · Audit log (Staff activity) · Staff accounts · Department access · Accommodation Prices (SuperAdmin write) · System Settings (<strong>Coming soon</strong>)</p>
+<p>Hospital Admin manages <strong>staff and hospital counts</strong>. It does not replace Reception, Clinical, Nursing, Laboratory, Pharmacy, Radiology, or Accountant.</p>
+<hr>
+<h2>Who can open Administration</h2>
+<table><tr><th>Account</th><th>Access</th></tr><tr><td><strong>Hospital Administrator</strong></td><td>Home, staff accounts, department access, hospital overview, staff activity</td></tr><tr><td><strong>SuperAdmin</strong></td><td>All of the above, every department, and <strong>Accommodation Prices</strong> write</td></tr><tr><td>Doctor, Nurse, Laboratory, Pharmacy, Accountant</td><td>Denied unless they also have admin rights</td></tr></table>
+<p>Frontend hiding is not enough. The server also requires the matching administration rights.</p>
+<hr>
+<h2>Staff accounts</h2>
+<p><strong>PURPOSE:</strong> Create and disable hospital users.</p>
+<p><strong>WHO DOES IT:</strong> Hospital Admin. Only SuperAdmin can create another Hospital Administrator.</p>
+<p><strong>STEP-BY-STEP</strong></p>
+<ol>
+<li>Open <strong>Staff accounts</strong>.</li>
+<li><strong>Add staff</strong>: full name, username, initial sign-in password (at least 8 characters), and account type.</li>
+<li>Assign departments with the checkboxes. Do not invent extra technical rights here.</li>
+<li>Save. The initial password is <strong>not shown again</strong> and is not stored on Staff activity.</li>
+</ol>
+<p><strong>Clinical profile:</strong> some departments need a clinical profile (<strong>Ready</strong>, <strong>Clinical profile needed</strong>, or <strong>Not required</strong>). The system links it when the department requires it.</p>
+<p>You can disable or enable an account. A disabled account cannot sign in.</p>
+<p><strong>SECURITY NOTES:</strong> Give each person their own account. Do not reuse development passwords. Do not write passwords into email or this manual. Tell the staff member to change the initial password according to hospital policy.</p>
+<hr>
+<h2>Department access</h2>
+<p><strong>Approved access only.</strong> Departments and roles are the hospital options on the screen. Technical permissions cannot be assigned here.</p>
+<p>Hospital Administrator rows cannot have department access changed here — that is technical support.</p>
+<hr>
+<h2>Hospital overview (Analytics)</h2>
+<p><strong>PURPOSE:</strong> See hospital-wide counts.</p>
+<p><strong>WHO DOES IT:</strong> Hospital Admin.</p>
+<p><strong>STEP-BY-STEP</strong></p>
+<ol>
+<li>Open <strong>Analytics</strong>.</li>
+<li>Choose <strong>Today</strong>, <strong>Yesterday</strong>, <strong>This week</strong>, <strong>Last week</strong>, <strong>This month</strong>, <strong>Last month</strong>, or a custom range. Dates use <strong>Ilorin time</strong>.</li>
+</ol>
+<table><tr><th>Label</th><th>Date filter?</th></tr><tr><td>Patients registered</td><td>Yes</td></tr><tr><td>Outpatient visits (Reception subsection)</td><td>Yes</td></tr><tr><td>Consultations</td><td>Yes</td></tr><tr><td>Admissions</td><td>Yes</td></tr><tr><td>Discharges</td><td>Yes</td></tr><tr><td>Laboratory orders</td><td>Yes</td></tr><tr><td>Prescriptions</td><td>Yes</td></tr><tr><td>Dispensed</td><td>Yes</td></tr><tr><td>Billed</td><td>Yes (₦)</td></tr><tr><td>Collected</td><td>Yes (₦)</td></tr><tr><td><strong>Current occupancy</strong></td><td><strong>No — now</strong></td></tr><tr><td><strong>Current occupancy rate</strong></td><td><strong>No — now</strong></td></tr><tr><td><strong>Outstanding</strong></td><td><strong>No — now</strong></td></tr></table>
+<p><strong>Current occupancy</strong> and <strong>Current outstanding</strong> are <strong>snapshots of now</strong>. They do not mean occupancy or unpaid amounts as of the selected dates.</p>
+<p>If a figure cannot be read, the screen shows <strong>Unavailable</strong>, not a fake zero.</p>
+<p>These counts are <strong>not</strong> “revenue.” Billed, collected, and outstanding are bill totals.</p>
+<p><strong>Not shown:</strong> named patients, new versus returning split, aged receivables, historical occupancy.</p>
+<hr>
+<h2>Staff activity</h2>
+<p><strong>PURPOSE:</strong> See who changed staff accounts and access.</p>
+<p><strong>Recorded:</strong> created staff / hospital administrator, disabled or enabled account, updated / assigned / removed department access, linked clinical profile.</p>
+<p><strong>Not recorded:</strong> clinical chart views, patient care, laboratory processing, payments.</p>
+<p>Passwords, cookies, and secrets are <strong>not displayed</strong>.</p>
+<hr>
+<h2>Accommodation Prices</h2>
+<p><strong>SuperAdmin</strong> sets the daily naira tariff per ward/room.</p>
+<p>Hospital Admin may see the menu item and be <strong>denied</strong> write. That is expected.</p>
+<p>Wards without a tariff show <strong>0</strong> until configured. Changing a tariff does not rewrite old bills.</p>
+<hr>
+<h2>System Settings</h2>
+<p><strong>Not currently available in this release</strong> (Coming soon).</p>
+<hr>
+<h2>What Hospital Admin cannot do (unless also given that department)</h2>
+<ul>
+<li>Collect payment</li>
+<li>Record clinical or nursing data</li>
+<li>Process specimens or dispense</li>
+<li>Change Reception / Laboratory / Pharmacy catalogue prices (view only)</li>
+</ul>
+<p>SuperAdmin <strong>can</strong> change those catalogue prices and accommodation tariffs. That is an accepted limitation of this release. Use it carefully.</p>
+</section><section class="chapter">
+<h1>Clinical and hospital workflows</h1>
+<p>These diagrams describe <strong>this release only</strong>. Steps that are not implemented are marked.</p>
+<p>For staff how-to, use the department manuals. For money, use BILLING_AND_PAYMENTS.md.</p>
+<hr>
+<h2>1. New patient</h2>
+<pre>Reception: Search first
+    ↓ (no safe match)
+Reception: Register Patient
+    → choose Individual Card or Family Card
+    → enter name, sex, birth date or age, contact, address
+    → Save
+    → hospital number is assigned
+    ↓
+Reception: Start visit
+    ↓
+Reception: Create registration fee (after a visit exists)
+    ↓
+Accountant: Collect payment when the patient is ready
+    ↓
+Direct the patient to Clinical (or Emergency / ward as started)</pre>
+<p>If similar patients appear, open the existing record unless you are sure this is a new person. See Reception.</p>
+<hr>
+<h2>2. Returning patient</h2>
+<pre>Reception: Search by name, hospital number, or phone
+    ↓
+Open the existing patient
+    ↓
+Start a new visit only if they need a different kind of care
+    ↓
+Card fee is per visit when Reception creates it
+    ↓
+Clinical: Today&#x27;s Patients (outpatient visits started today)
+    or search if the visit type is Emergency or Admission</pre>
+<hr>
+<h2>3. OPD consultation</h2>
+<pre>Reception starts General Outpatient or Follow-up
+    ↓
+Doctor: Today&#x27;s Patients → open the name
+    ↓
+Review allergies / known problems
+    ↓
+Record OPD vitals on this open outpatient visit (if needed)
+    ↓
+Chief complaint, history of present illness, clinical notes
+    ↓
+Diagnosis (optional)
+    ↓
+Laboratory and / or radiology orders (optional)
+    ↓
+Prescription (optional)
+    ↓
+Admit Patient (optional)
+    ↓
+Save consultation
+    ↓
+Create consultation fee (optional) → Accountant collects</pre>
+<p><strong>Not currently available on this screen:</strong> Examination, Review of Systems, Past Medical History, Medication History, Family History, Social History, Refer, doctor follow-up disposition, doctor discharge decision.</p>
+<hr>
+<h2>4. Laboratory</h2>
+<pre>Doctor: Order → Laboratory → submit tests
+    → laboratory fee is sent to Accounts
+    ↓
+Laboratory: Pending Orders (and patient search)
+    ↓
+Laboratory staff: Open laboratory processing
+    → collect specimen, accession, test, enter result, validate
+    (those steps are not done inside Hospital EMR)
+    ↓
+Result returns to Hospital EMR
+    ↓
+Doctor: Laboratory results on the same visit</pre>
+<p>Hospital EMR does <strong>not</strong> collect the specimen or enter the result. See Laboratory.</p>
+<p>A new result should be processed during hospital UAT.</p>
+<hr>
+<h2>5. Pharmacy</h2>
+<pre>Doctor: Prescribe
+    ↓
+Charge / invoice is created for the prescription
+    ↓
+Accountant: Collect payment (full payment)
+    ↓
+Pharmacy: Ready to Dispense
+    ↓
+Pharmacist: Confirm identity → Dispense
+    ↓
+Stock moves; status becomes Dispensed
+    ↓
+Patient receives the medicine at the pharmacy</pre>
+<p>Unpaid and partly paid prescriptions are <strong>not</strong> ready to dispense. This is not the same as Nursing MAR.</p>
+<hr>
+<h2>6. Admission</h2>
+<pre>Doctor: Admit Patient
+    → &quot;Admission requested. Nursing will assign a bed.&quot;
+    ↓
+Nursing: Admissions (Admit requested)
+    ↓
+Nursing: Assign Bed
+    → inpatient stay starts
+    → accommodation charge may be created
+    ↓
+Accountant: Collect accommodation when billed</pre>
+<p>Reception can also start an <strong>Admission</strong> visit and choose a ward. That is a Reception visit start, not the Doctor admit button.</p>
+<p>Doctor does <strong>not</strong> choose the bed. Nursing does <strong>not</strong> decide the clinical admission.</p>
+<hr>
+<h2>7. Nursing (inpatient chart)</h2>
+<pre>Ward Board or Patients → open the patient
+    ↓
+Confirm name and hospital number
+    ↓
+Implemented:
+    Nursing Notes
+    Vitals
+    Medication Administration (scheduled doses)
+    Assign / Transfer / Discharge
+    ↓
+Coming soon (not stored):
+    Nursing tasks
+    Care plan
+    Intake and output</pre>
+<hr>
+<h2>8. Vitals</h2>
+<p><strong>Outpatient (Doctor)</strong></p>
+<pre>Open OPD visit
+    ↓
+Consultation → Vitals
+    ↓
+Enter measurements → Save consultation</pre>
+<p><strong>Inpatient (Nursing)</strong></p>
+<pre>Admitted patient with a bed
+    ↓
+Inpatient chart → Vitals → Record vitals
+    ↓
+Review and record
+    → time and nurse are stored automatically
+    → a new reading is added; earlier readings stay</pre>
+<p>Doctor can <strong>read</strong> inpatient vitals. Doctor cannot record inpatient vitals.</p>
+<hr>
+<h2>9. MAR (scheduled medication)</h2>
+<pre>Doctor prescribes an inpatient scheduled medicine
+    ↓
+Schedule / dose slots are prepared for the admission
+    ↓
+Nurse: Medication Administration
+    ↓
+Within the normal window: Administer (Given / Not done / Refused / Held)
+    ↓
+Outside the window: Administer outside scheduled window + reason
+    ↓
+Actual time is recorded automatically</pre>
+<p>When-needed (PRN) medicines are <strong>not</strong> added to the scheduled sheet. Pharmacy dispense is a different workflow.</p>
+<hr>
+<h2>10. Radiology</h2>
+<pre>Doctor: Order → Radiology → submit examination
+    ↓
+Radiology: Worklist
+    ↓
+Set price in naira (Accounts collects)
+    ↓
+Write or edit the report (free text)
+    ↓
+Doctor: Radiology reports on the visit</pre>
+<p><strong>Images are not currently available in Hospital EMR.</strong> Connecting a scanner and viewing files needs hospital imaging setup outside this manual. Do not invent a PACS procedure from Hospital EMR.</p>
+<hr>
+<h2>11. Discharge</h2>
+<pre>Nursing: Ward Board (or Discharges list) → Discharge
+    → confirm
+    → bed is released
+    ↓
+Historical notes, vitals, and MAR remain readable
+    (Nursing cannot add new notes / vitals / administrations after discharge)
+    ↓
+Doctor can still read historical inpatient records on the consultation</pre>
+<p>Doctor discharge decision is <strong>not currently available</strong>. Unpaid accommodation does <strong>not</strong> block discharge.</p>
+<hr>
+<h2>12. Billing and payment</h2>
+<pre>Department creates a charge
+    ↓
+Bill appears for Accountant
+    ↓
+Accountant: Collect payment → receipt
+    ↓
+Department screen shows Paid
+    (Pharmacy: Ready to Dispense, then Dispense)</pre>
+<p>See BILLING_AND_PAYMENTS.md.</p>
+</section><section class="chapter">
+<h1>Billing and payments</h1>
+<p>Staff language. The billing engine stores the commercial record. Hospital EMR is the cashier and department charge screens.</p>
+<p>Related: Accountant · Department pricing</p>
+<hr>
+<h2>How a bill is born</h2>
+<pre>Catalogue selling price (today)
+    → department creates a charge
+    → posted bill
+    → Accountant collects payment
+    → collected</pre>
+<table><tr><th>Step</th><th>Meaning</th></tr><tr><td><strong>Catalogue price</strong></td><td>Current selling price on the hospital item</td></tr><tr><td><strong>Charge</strong></td><td>That price copied onto this visit / order / day</td></tr><tr><td><strong>Bill</strong></td><td>Posted amount the cashier can collect</td></tr><tr><td><strong>Payment</strong></td><td>Money recorded as received</td></tr><tr><td><strong>Collection</strong></td><td>Same as payment from the cashier’s point of view</td></tr></table>
+<p>Hospital EMR does not keep a second ledger.</p>
+<hr>
+<h2>Price snapshot</h2>
+<p><strong>Changing today’s catalogue price does not change yesterday’s bill.</strong></p>
+<p>The amount is copied when the charge is created. Later price edits leave that bill, its payments, and its outstanding amount unchanged.</p>
+<p>Price history (who changed a catalogue price) is separate from the bill.</p>
+<hr>
+<h2>Billed, collected, outstanding</h2>
+<p>Do <strong>not</strong> call these “revenue.” They are bill totals.</p>
+<table><tr><th>Term</th><th>Meaning</th></tr><tr><td><strong>Billed</strong></td><td>Amount on bills created</td></tr><tr><td><strong>Collected</strong></td><td>Amount received</td></tr><tr><td><strong>Outstanding</strong></td><td>Amount still unpaid <strong>now</strong></td></tr></table>
+<p>Hospital overview <strong>Outstanding</strong> and <strong>Current occupancy</strong> are snapshots of now, not historical values for the selected date range.</p>
+<hr>
+<h2>Who creates the charge</h2>
+<table><tr><th>Charge</th><th>Who creates it</th><th>When</th></tr><tr><td>Individual Card / Family Card</td><td>Reception</td><td>After a visit exists</td></tr><tr><td>Consultation fee</td><td>Doctor</td><td>On the visit</td></tr><tr><td>Laboratory fee</td><td>With the laboratory order</td><td>When the doctor submits</td></tr><tr><td>Radiology price</td><td>Radiology</td><td>Per examination</td></tr><tr><td>Pharmacy</td><td>From the prescription</td><td>Commercial record after prescribe</td></tr><tr><td>Accommodation</td><td>After ward assignment</td><td>Daily room charge</td></tr></table>
+<p>Only Accountant <strong>collects</strong>.</p>
+<p><strong>Paid does not mean</strong> the consultation is finished, the specimen is collected, the medicine is dispensed, or the scan was performed.</p>
+<p>Pharmacy dispenses only when the prescription bill is <strong>fully</strong> paid. Partial payment is not ready to dispense.</p>
+<hr>
+<h2>Currency</h2>
+<ul>
+<li>Staff pricing screens and new departmental bills use <strong>naira (₦)</strong>.</li>
+<li>The financial <strong>company currency may still be US dollars</strong>.</li>
+<li><strong>Historical accommodation invoices in dollars stay in dollars.</strong> New accommodation uses the naira accommodation list.</li>
+<li>If Patient Account mixes currencies, collect same-currency bills together.</li>
+</ul>
+<hr>
+<h2>Accommodation</h2>
+<p>SuperAdmin sets daily naira tariffs. Unconfigured wards may show <strong>0</strong>. Unpaid accommodation does not block Nursing assign, transfer, or discharge.</p>
+<hr>
+<h2>Refunds</h2>
+<p><strong>Not currently available in this release.</strong></p>
+</section><section class="chapter">
+<h1>User roles and permissions</h1>
+<p>This matrix is from <strong>server rules</strong> in this release, not from a hidden menu. If the screen hides a button but the server allows it, the server wins. If the screen shows a link but the server refuses, the server wins.</p>
+<p>Related: Hospital Admin · Department pricing</p>
+<p>Unauthenticated requests: <strong>Sign in required.</strong> Everything below is <strong>NO</strong>.</p>
+<hr>
+<h2>How access is granted</h2>
+<p>Hospital Admin assigns <strong>departments</strong> on Staff accounts. That grants the hospital role for that desk.</p>
+<p><strong>SuperAdmin</strong> (technical) may open every department and is treated as a departmental actor on many server paths (including catalogue price writes).</p>
+<p><strong>Hospital Admin</strong> opens Administration only. They cannot write department catalogue prices. They cannot write accommodation tariffs.</p>
+<p>Frontend Pharmacy and Radiology switches for SuperAdmin are offered on the department switcher; the server also accepts SuperAdmin on those APIs.</p>
+<hr>
+<h2>Capability key</h2>
+<table><tr><th>Value</th><th>Meaning</th></tr><tr><td><strong>YES</strong></td><td>Allowed on the server for that job</td></tr><tr><td><strong>NO</strong></td><td>Refused</td></tr><tr><td><strong>READ ONLY</strong></td><td>Can view, cannot change</td></tr><tr><td><strong>OWN DEPT</strong></td><td>Only that department’s list</td></tr><tr><td><strong>N/A</strong></td><td>Not a function of this release</td></tr></table>
+<p><strong>DELETE/VOID</strong> of clinical notes, vitals, and MAR is <strong>NO</strong> for everyone (immutable). Radiology cannot cancel an order from the Radiology desk.</p>
+<p><strong>APPROVE</strong> of laboratory results is <strong>not in Hospital EMR</strong>. Validation is laboratory processing.</p>
+<hr>
+<h2>Matrix</h2>
+<table><tr><th>Capability</th><th>SuperAdmin</th><th>Hospital Admin</th><th>Reception</th><th>Doctor</th><th>Nurse</th><th>Laboratory</th><th>Pharmacy</th><th>Accountant</th><th>Radiology</th></tr><tr><td>Open own department</td><td>YES</td><td>YES (Admin)</td><td>YES</td><td>YES</td><td>YES</td><td>YES</td><td>YES</td><td>YES</td><td>YES</td></tr><tr><td>Open other operational departments</td><td>YES</td><td>NO</td><td>NO</td><td>NO</td><td>NO</td><td>NO</td><td>NO</td><td>NO</td><td>NO</td></tr><tr><td>Register / edit demographics</td><td>YES</td><td>NO</td><td>YES</td><td>NO</td><td>NO</td><td>NO</td><td>NO</td><td>NO</td><td>NO</td></tr><tr><td>Start visit</td><td>YES</td><td>NO</td><td>YES</td><td>NO</td><td>NO</td><td>NO</td><td>NO</td><td>NO</td><td>NO</td></tr><tr><td>Create registration card charge</td><td>YES</td><td>NO</td><td>YES</td><td>NO</td><td>NO</td><td>NO</td><td>NO</td><td>NO</td><td>NO</td></tr><tr><td>Consultation write (notes, OPD vitals, diagnosis, Rx, lab/rad order)</td><td>YES</td><td>NO</td><td>NO</td><td>YES</td><td>NO</td><td>NO</td><td>NO</td><td>NO</td><td>NO</td></tr><tr><td>Admit decision</td><td>YES</td><td>NO</td><td>NO</td><td>YES</td><td>NO</td><td>NO</td><td>NO</td><td>NO</td><td>NO</td></tr><tr><td>Assign / transfer / discharge bed</td><td>YES</td><td>NO</td><td>NO</td><td>NO</td><td>YES</td><td>NO</td><td>NO</td><td>NO</td><td>NO</td></tr><tr><td>Nursing notes / inpatient vitals / MAR <strong>write</strong></td><td>YES</td><td>NO</td><td>NO</td><td>NO</td><td>YES</td><td>NO</td><td>NO</td><td>NO</td><td>NO</td></tr><tr><td>Nursing notes / inpatient vitals / MAR <strong>read</strong></td><td>YES</td><td>NO</td><td>NO</td><td>YES</td><td>YES*</td><td>NO</td><td>NO</td><td>NO</td><td>NO</td></tr><tr><td>Laboratory board</td><td>YES</td><td>NO</td><td>NO</td><td>NO</td><td>NO</td><td>YES</td><td>NO</td><td>NO</td><td>NO</td></tr><tr><td>Enter lab result in Hospital EMR</td><td>NO</td><td>NO</td><td>NO</td><td>NO</td><td>NO</td><td>NO</td><td>NO</td><td>NO</td><td>NO</td></tr><tr><td>Dispense</td><td>YES</td><td>NO</td><td>NO</td><td>NO</td><td>NO</td><td>NO</td><td>YES</td><td>NO</td><td>NO</td></tr><tr><td>Collect payment</td><td>YES</td><td>NO</td><td>NO</td><td>NO</td><td>NO</td><td>NO</td><td>NO</td><td>YES</td><td>NO</td></tr><tr><td>Radiology price / report</td><td>YES</td><td>NO</td><td>NO</td><td>NO</td><td>NO</td><td>NO</td><td>NO</td><td>NO</td><td>YES</td></tr><tr><td>Reception card prices</td><td>YES</td><td>READ ONLY</td><td>YES</td><td>NO</td><td>NO</td><td>NO</td><td>NO</td><td>READ ONLY</td><td>NO</td></tr><tr><td>Laboratory test prices</td><td>YES</td><td>READ ONLY</td><td>NO</td><td>NO</td><td>NO</td><td>YES</td><td>NO</td><td>READ ONLY</td><td>NO</td></tr><tr><td>Pharmacy drug prices</td><td>YES</td><td>READ ONLY</td><td>NO</td><td>NO</td><td>NO</td><td>NO</td><td>YES</td><td>READ ONLY</td><td>NO</td></tr><tr><td>Accommodation tariffs</td><td>YES</td><td>NO</td><td>NO</td><td>NO</td><td>NO</td><td>NO</td><td>NO</td><td>NO</td><td>NO</td></tr><tr><td>Hospital overview</td><td>YES</td><td>YES</td><td>NO</td><td>NO</td><td>NO</td><td>NO</td><td>NO</td><td>NO</td><td>NO</td></tr><tr><td>Staff activity</td><td>YES</td><td>YES</td><td>NO</td><td>NO</td><td>NO</td><td>NO</td><td>NO</td><td>NO</td><td>NO</td></tr><tr><td>Staff accounts / department access</td><td>YES</td><td>YES</td><td>NO</td><td>NO</td><td>NO</td><td>NO</td><td>NO</td><td>NO</td><td>NO</td></tr><tr><td>Create Hospital Administrator</td><td>YES</td><td>NO</td><td>NO</td><td>NO</td><td>NO</td><td>NO</td><td>NO</td><td>NO</td><td>NO</td></tr><tr><td>Patient Account (money view)</td><td>YES</td><td>YES†</td><td>YES</td><td>YES</td><td>YES</td><td>YES</td><td>YES</td><td>YES</td><td>YES</td></tr><tr><td>Delete / void clinical records</td><td>NO</td><td>NO</td><td>NO</td><td>NO</td><td>NO</td><td>NO</td><td>NO</td><td>NO</td><td>NO</td></tr><tr><td>Refund</td><td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td></tr></table>
+<p>\* Nurse reads notes on the <strong>active</strong> admission. After discharge, Nursing may be unable to load notes; the doctor can still read history.</p>
+<p>† Hospital Admin can open Patient Account if they also open a patient workspace; they do not collect payment.</p>
+<p>Pharmacy <strong>Receive / Adjust stock</strong> needs the extra inventory right. Without it: view and dispense only.</p>
+<hr>
+<h2>Unauthenticated</h2>
+<p>VIEW, CREATE, EDIT, DELETE, APPROVE, DISPENSE, ADMINISTER, PRICE MANAGEMENT, ANALYTICS, AUDIT, STAFF ADMIN: <strong>NO</strong>.</p>
+</section><section class="chapter">
+<h1>Troubleshooting</h1>
+<p>For hospital staff. Do not change hidden records or share accounts.</p>
+<hr>
+<h2>I cannot log in</h2>
+<p><strong>Possible cause:</strong> Wrong username or password; account disabled; network.</p>
+<p><strong>Check:</strong> Caps lock. Your own username. Hospital address.</p>
+<p><strong>Do:</strong> Try again. Ask Hospital Admin whether the account is disabled.</p>
+<p><strong>Contact Hospital Admin:</strong> After two or three failures, or if many staff fail at once.</p>
+<p><strong>Do not:</strong> Use another person’s account or a development password.</p>
+<hr>
+<h2>The EMR is unavailable / Unable to connect</h2>
+<p><strong>Possible cause:</strong> Network, power, or the hospital system is down.</p>
+<p><strong>Check:</strong> Another computer on the hospital network. Whether others are affected.</p>
+<p><strong>Do:</strong> Wait and try again. If everyone is down, contact Hospital Admin.</p>
+<p><strong>Do not:</strong> Recreate patients on paper without a supervisor’s downtime plan.</p>
+<hr>
+<h2>I cannot find the patient</h2>
+<p><strong>Possible cause:</strong> Spelling; they were never registered; you searched phone but no phone is stored.</p>
+<p><strong>Check:</strong> Hospital number. Alternate spelling. Ask Reception.</p>
+<p><strong>Do:</strong> Search again. Register only after a supervisor agrees this is a new person.</p>
+<p><strong>Do not:</strong> Create a duplicate record to “get on with it.”</p>
+<hr>
+<h2>The patient is not appearing in my department</h2>
+<p><strong>Possible cause:</strong> Wrong visit type; not admitted; not ordered; not paid (Pharmacy).</p>
+<p><strong>Check:</strong></p>
+<ul>
+<li><strong>Doctor Today&#x27;s Patients:</strong> visit must be General Outpatient or Follow-up <strong>started today</strong>. Emergency and admission are excluded.</li>
+<li><strong>Nursing:</strong> doctor admit and/or bed assignment.</li>
+<li><strong>Laboratory:</strong> doctor submitted the order.</li>
+<li><strong>Pharmacy Ready to dispense:</strong> bill must be <strong>fully</strong> paid.</li>
+<li><strong>Radiology:</strong> an imaging order exists.</li>
+</ul>
+<p><strong>Do:</strong> Ask the department that starts that step.</p>
+<p><strong>Do not:</strong> Start extra visits or extra registrations to force the list.</p>
+<hr>
+<h2>The medication is not appearing on MAR</h2>
+<p><strong>Possible cause:</strong> When-needed (PRN) medicine; outpatient order; not admitted; schedule not created yet.</p>
+<p><strong>Check:</strong> The patient is occupied on a bed. The prescription is an inpatient scheduled order, not PRN.</p>
+<p><strong>Do:</strong> PRN is <strong>not</strong> on the scheduled sheet in this release. Use the doctor and hospital policy outside MAR. Reload the chart.</p>
+<p><strong>Do not:</strong> Administer from Pharmacy as if it were MAR.</p>
+<hr>
+<h2>I cannot administer the medication</h2>
+<p><strong>Possible cause:</strong> Outside the window; already recorded; discharged; wrong patient.</p>
+<p><strong>Check:</strong> Scheduled versus actual window (30 minutes early / 60 minutes late). Slot status. Admission still active.</p>
+<p><strong>Do:</strong> Use <strong>Administer outside scheduled window</strong> with a true reason when the time is outside the window. Confirm identity.</p>
+<p><strong>Do not:</strong> Change the clock or ask anyone to backdate.</p>
+<hr>
+<h2>The medication is outside the administration window</h2>
+<p><strong>Possible cause:</strong> You are more than 30 minutes early or more than 60 minutes late.</p>
+<p><strong>Do:</strong> Use the outside-window action and record the clinical reason. Time is stored automatically.</p>
+<p><strong>Do not:</strong> Skip the reason or record a false time.</p>
+<hr>
+<h2>The laboratory order is not visible</h2>
+<p><strong>Possible cause:</strong> Order not submitted; different patient; board still loading.</p>
+<p><strong>Check:</strong> Doctor consultation orders. Hospital number. Wait several seconds and refresh — the board can be slow.</p>
+<p><strong>Do:</strong> Ask the doctor to confirm submit.</p>
+<p><strong>Do not:</strong> Create a new patient.</p>
+<hr>
+<h2>The laboratory result is not visible</h2>
+<p><strong>Possible cause:</strong> Specimen not collected; result not validated; processing not finished.</p>
+<p><strong>Check:</strong> Laboratory processing, not only Hospital EMR.</p>
+<p><strong>Do:</strong> Complete collection, testing, and validation in laboratory processing. Process a <strong>new</strong> result during UAT.</p>
+<p><strong>Do not:</strong> Type a result into Hospital EMR or invent a value.</p>
+<hr>
+<h2>The prescription is not available for dispensing</h2>
+<p><strong>Possible cause:</strong> Unpaid or partial payment; already dispensed; no stock.</p>
+<p><strong>Check:</strong> Accountant. Stock on the prescription.</p>
+<p><strong>Do:</strong> Send the patient to pay. Do not dispense unpaid medication.</p>
+<p><strong>Do not:</strong> Bypass the block.</p>
+<hr>
+<h2>The patient has not paid</h2>
+<p><strong>Possible cause:</strong> Charge not created; cashier not collected.</p>
+<p><strong>Check:</strong> Patient Account. Which department should have created the fee.</p>
+<p><strong>Do:</strong> Reception / Doctor / Radiology / Pharmacy path as appropriate, then Accountant.</p>
+<p><strong>Do not:</strong> Treat unpaid as dispensed or as a completed laboratory result.</p>
+<hr>
+<h2>The accommodation charge looks wrong</h2>
+<p><strong>Possible cause:</strong> Tariff was <strong>0</strong>; old bill in dollars; price changed after the bill.</p>
+<p><strong>Check:</strong> Whether the bill is old. Whether that ward has a tariff.</p>
+<p><strong>Do:</strong> Collect the billed amount. Ask SuperAdmin to set missing tariffs for <strong>new</strong> days. Do not expect an old bill to change.</p>
+<p><strong>Do not:</strong> Edit hidden financial records.</p>
+<hr>
+<h2>The price I changed did not change an old bill</h2>
+<p><strong>Possible cause:</strong> This is how the system works.</p>
+<p><strong>Do:</strong> Explain that the bill keeps the price from the day it was created.</p>
+<p><strong>Do not:</strong> Create a fake second bill to “fix” history unless a supervisor starts a formal correction process.</p>
+<hr>
+<h2>The EMR is slow</h2>
+<p><strong>Possible cause:</strong> Laboratory board load; busy hour; workstation.</p>
+<p><strong>Check:</strong> Whether only Laboratory is slow (known). Whether all screens are slow.</p>
+<p><strong>Do:</strong> Wait for the laboratory board. Try again. Tell Hospital Admin if the whole system is unusable.</p>
+<p><strong>Do not:</strong> Click submit repeatedly on payments or dispense.</p>
+<hr>
+<h2>Diagnoses unavailable / Coming soon on Nursing</h2>
+<p><strong>Possible cause:</strong> Known limits of this release.</p>
+<p><strong>Do:</strong> Continue notes, vitals, and MAR. Ask the doctor for the diagnosis.</p>
+<p><strong>Do not:</strong> Invent a diagnosis or use Coming soon boxes as if they stored data.</p>
+<hr>
+<h2>When to contact Hospital Admin</h2>
+<ul>
+<li>Nobody can sign in</li>
+<li>A staff account must be disabled</li>
+<li>A department is missing from someone who should have it</li>
+<li>The system is down</li>
+<li>Repeated errors after you confirmed identity and payment</li>
+</ul>
+<h2>What never to do</h2>
+<ul>
+<li>Share accounts</li>
+<li>Change times</li>
+<li>Bypass payment</li>
+<li>Fabricate results</li>
+<li>Manipulate hidden records</li>
+</ul>
+</section><section class="chapter">
+<h1>System architecture</h1>
+<p>This document is for Hospital Admin, implementers, and technical support. Staff desk manuals avoid these names.</p>
+<p>Release: <code>v1.0.0-uat</code>.</p>
+<p>Related: Hospital deployment · Deployment secrets</p>
+<hr>
+<h2>Non-technical: how information moves</h2>
+<ol>
+<li>A staff member signs in to <strong>Hospital EMR</strong> in the browser.</li>
+<li>Hospital EMR shows the <strong>department</strong> that person is allowed to use.</li>
+<li>When they save clinical work (consultation, diagnosis, prescription, visit), it is stored in the <strong>clinical chart</strong>.</li>
+<li>When they create a charge or collect payment, the <strong>financial record</strong> is stored in the billing system.</li>
+<li>Laboratory <strong>processing</strong> (specimen, accession, result entry) happens in the laboratory system. Hospital EMR only shows orders and released results.</li>
+<li>Imaging <strong>files</strong>, if a scanner is connected, live in the imaging archive. Hospital EMR does not show images in this release.</li>
+<li>Ward notes, vitals, and MAR are recorded through Hospital EMR and stored as clinical observations / administrations on the admission.</li>
+</ol>
+<p>Hospital EMR does <strong>not</strong> keep a second patient database. It does not invent a second invoice book.</p>
+<hr>
+<h2>Technical: request path</h2>
+<pre>Staff browser
+    → Bahmni proxy (ports 80 / 443)
+        → Hospital EMR UI (`/` and `/abikan/` from `abikan-shell/dist`)
+        → Hospital EMR API (`/openmrs/abikan-api` → abikan-api)
+        → OpenMRS / Bahmni clinical apps
+        → OpenELIS (`/openelis`)
+        → other Bahmni paths (documents, IPD UI, and so on)
+
+Hospital EMR API
+    → OpenMRS REST (and MySQL for admin analytics)
+    → OpenELIS (server-side read of accession status only)
+    → Odoo XML-RPC (charges, invoices, payments, stock)</pre>
+<table><tr><th>System</th><th>Authoritative for</th></tr><tr><td><strong>OpenMRS</strong></td><td>Patient identity, visits, encounters, diagnoses, orders, observations, admissions, MAR administrations</td></tr><tr><td><strong>OpenELIS</strong></td><td>Specimen, accession, analysis, result validation</td></tr><tr><td><strong>Odoo</strong></td><td>Products, pricelists, sale orders, invoices, payments, pharmacy pickings / stock</td></tr><tr><td><strong>dcm4chee / PACS</strong></td><td>Imaging files when configured. <strong>Not wired into Hospital EMR screens in this release</strong></td></tr><tr><td><strong>Hospital EMR API + UI</strong></td><td>Department workflow, RBAC for hospital jobs, department pricing writes, cashier, ward board helpers, schedule ensure, analytics, staff-admin audit</td></tr><tr><td><strong>Bahmni proxy</strong></td><td>Single staff entry, TLS, routing</td></tr></table>
+<p>Staff administration audit (who created or disabled accounts) is SQLite in Docker volume <code>abikan-admin-audit</code>.</p>
+<hr>
+<h2>Why there is no duplicate clinical database</h2>
+<p>Hospital EMR reads and writes the existing engines. A nursing note is an observation on the admission encounter. A prescription is an OpenMRS drug order; the bill is an Odoo invoice. A laboratory result displayed in Hospital EMR is the result already posted to OpenMRS after OpenELIS validation.</p>
+<hr>
+<h2>Observations and vitals</h2>
+<ul>
+<li><strong>OPD vitals:</strong> doctor saves with the consultation encounter on an open OPD visit.</li>
+<li><strong>Inpatient vitals:</strong> nurse posts through Hospital EMR; each save creates <strong>new</strong> OpenMRS observations on the admission encounter. Time and author are server-owned. No overwrite, no client timestamp.</li>
+</ul>
+<hr>
+<h2>MAR scheduling</h2>
+<p>Bahmni IPD does not always create slots when the doctor saves a drug order. On MAR load, Hospital EMR asks the installed IPD schedule service to create schedules for eligible <strong>inpatient</strong> orders. PRN / as-needed orders are refused for the scheduled sheet. Administration uses the medication administration module; actual time is server clock.</p>
+<hr>
+<h2>Pharmacy</h2>
+<p>Atomfeed creates the commercial draft. Confirm / automated invoicing posts the invoice. Accountant payment is required. Pharmacist dispense validates the Odoo picking. Hospital EMR does not write an OpenMRS “Dispensed” observation in this release.</p>
+<hr>
+<h2>Billing</h2>
+<p>See BILLING_AND_PAYMENTS.md. Catalogue <code>list_price</code> is copied onto the charge line at creation. Historical <code>account.move</code> lines are not rewritten.</p>
+<p>Company currency may remain <strong>USD</strong> while departmental pricelists and new charges use <strong>NGN</strong>.</p>
+<hr>
+<h2>Docker services (summary)</h2>
+<p>Bahmni Standard compose plus Hospital EMR overlay (<code>docker-compose.override.yml</code>). Hospital LAN hardening is <code>docker-compose.hospital.yml</code> (do not apply on the development Mac).</p>
+<p>Hospital UI updates: <code>git checkout v1.0.0-uat</code> then <code>npm ci &amp;&amp; npm run build</code>. Dist is generated, not tracked.</p>
+<p>Never run <code>docker compose down -v</code> on a hospital host.</p>
+</section>
+</body>
+</html>

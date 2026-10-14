@@ -1,0 +1,174 @@
+{
+  "stamp": 1788464726,
+  "checks": [
+    {
+      "name": "metadata",
+      "ok": true,
+      "detail": {
+        "status": 200
+      }
+    },
+    {
+      "name": "no_24_hour_expiry_setting",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "value": "0"
+      }
+    },
+    {
+      "name": "register_synthetic",
+      "ok": true,
+      "detail": {
+        "uuid": "85f41dda-26f7-486e-a113-1f5ac429bdb1",
+        "mrn": "ABC200057"
+      }
+    },
+    {
+      "name": "start_opd",
+      "ok": true,
+      "detail": {
+        "status": "ok",
+        "created": true,
+        "uuid": "0c15e3f3-3668-4d56-b898-d6b4cdb67aa2",
+        "visitType": "OPD",
+        "visitTypeLabel": "General Outpatient",
+        "location": "OPD-1",
+        "locationUuid": "5e232c47-8ff5-4c5c-8057-7e39a64fefa5",
+        "startDatetime": "2026-09-03T19:45:47.000+0000",
+        "dailyVisitNumber": "016",
+        "open": true
+      }
+    },
+    {
+      "name": "doctor_attended",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "encounter": "aabbd57d-7c1b-4834-88be-e66da69c3ee4"
+      }
+    },
+    {
+      "name": "doctor_cannot_close",
+      "ok": true,
+      "detail": {
+        "status": 403,
+        "code": "forbidden"
+      }
+    },
+    {
+      "name": "nurse_cannot_close",
+      "ok": true,
+      "detail": {
+        "status": 403,
+        "code": "forbidden"
+      }
+    },
+    {
+      "name": "reception_closes_opd",
+      "ok": true,
+      "detail": {
+        "status": "ok",
+        "uuid": "0c15e3f3-3668-4d56-b898-d6b4cdb67aa2",
+        "visitType": "OPD",
+        "visitTypeLabel": "General Outpatient",
+        "location": "OPD-1",
+        "startDatetime": "2026-09-03T19:45:47.000+0000",
+        "stopDatetime": "2026-09-03T19:46:08.000+0000",
+        "open": false,
+        "message": "Visit closed successfully."
+      }
+    },
+    {
+      "name": "stop_datetime_set_and_consultation_kept",
+      "ok": true,
+      "detail": {
+        "stop": "2026-09-03T19:46:08.000+0000",
+        "encounters": [
+          "aabbd57d-7c1b-4834-88be-e66da69c3ee4"
+        ]
+      }
+    },
+    {
+      "name": "already_closed_rejected",
+      "ok": true,
+      "detail": {
+        "status": "error",
+        "code": "visit_already_closed",
+        "message": "This visit is already closed."
+      }
+    },
+    {
+      "name": "subsequent_create_visit_no_card",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "new": "e69c5c04-87f4-4163-9298-e9f23a180442",
+        "keys": [
+          "created",
+          "dailyVisitNumber",
+          "location",
+          "locationUuid",
+          "open",
+          "startDatetime",
+          "status",
+          "uuid",
+          "visitType",
+          "visitTypeLabel"
+        ]
+      }
+    },
+    {
+      "name": "clinical_records_unchanged",
+      "ok": true,
+      "detail": {
+        "uuid": "aabbd57d-7c1b-4834-88be-e66da69c3ee4",
+        "visit": {
+          "uuid": "0c15e3f3-3668-4d56-b898-d6b4cdb67aa2"
+        },
+        "obs": [
+          {
+            "uuid": "3a776884-fd78-444b-8bde-67d347eb4607",
+            "display": "Consultation Note: Attended. Close Visit must keep this consultation."
+          },
+          {
+            "uuid": "48dcdd69-5297-4c64-b569-89965602b40e",
+            "display": "History of present illness: UATFIX Close Visit. Synthetic."
+          }
+        ]
+      }
+    },
+    {
+      "name": "ipd_cannot_be_closed",
+      "ok": true,
+      "detail": {
+        "status": 409,
+        "body": {
+          "status": "error",
+          "code": "cannot_close_admission",
+          "message": "An admitted patient's stay is closed by discharge, not by closing an outpatient visit."
+        },
+        "after": {
+          "uuid": "2db4f84e-d5e6-4916-ba9e-c327f6f74b70",
+          "stopDatetime": null,
+          "visitType": {
+            "name": "IPD"
+          }
+        }
+      }
+    },
+    {
+      "name": "patient_isolation_or_ipd_guard",
+      "ok": true,
+      "detail": {
+        "status": "error",
+        "code": "wrong_patient",
+        "message": "This visit does not belong to this patient."
+      }
+    }
+  ],
+  "failures": [],
+  "visit": "0c15e3f3-3668-4d56-b898-d6b4cdb67aa2",
+  "patient": "85f41dda-26f7-486e-a113-1f5ac429bdb1",
+  "mrn": "ABC200057"
+}

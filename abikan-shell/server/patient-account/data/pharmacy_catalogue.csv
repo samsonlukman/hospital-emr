@@ -1,0 +1,101 @@
+S/N,Medicine Name,Medicine Company,Medicine Composition,Medicine Category,Medicine Group,Unit,Available Qty
+1,Marcfix tab,,,Tablet,,Tablet,9
+2,Sodium Bicarbonate,,,Injection,,Injection,0  (Out of Stock)
+3,Astymin injection,,,Injection,,Injection,0  (Out of Stock)
+4,Caffein,,,Injection,,Injection,0  (Out of Stock)
+5,Cabergoline,,,Tablet,,Tablet,0  (Out of Stock)
+6,Amatem Forte softgel,,,Tablet,,Tablet,34
+7,LYNTRIAXONE,,,Injection,,Injection,74
+8,Abidec drop,,,Syrup,,ml,9
+9,Meropenum,,,Injection,,Injection,17
+10,Otrivin Child,,,Nasal,,ml,2
+11,Ceftazidime,,,Injection,,Injection,1
+12,Vitamin D3 1000iu,,,Tablet,,Tablet,8
+13,Gentamycin eye,,,Goute,,L,4
+14,Rivaroxaban 10mg,,-,Tablet,,Tablet,0  (Out of Stock)
+15,D/SALINE 1LITRE,,-,Drip,,,3
+16,Calcimax,,-,Suspension,,ml,1
+17,Aminophylline,,-,,,,1000
+18,Clarithromycin,,-,Tablet,,Tablet,30
+19,shaltoux,,-,,, ,0
+20,cetirizine 10mg,,-,,, ,131
+21,neurocalm,,-,capsule,,,90
+22,Cyclogest,,-,Tablet,,Tablet,0  (Out of Stock)
+23,Propranolol,,-,,, ,14
+24,Chloramphenicol injection,,-,Injection,,Injection,14
+25,Levofloxacin IV,,-,Drip,,,13
+26,Glycopyrrolate inj,,-,Injection,,,3
+27,Catheter size 14,,-,Consumables,,,2
+28,Rosuvastatin,,-,,, ,90
+29,Losartan,,-,,, ,42
+30,Primolut N,,-,Tablet,,,18
+31,Tranexamic Acid tab,,-,Tablet,,,11
+32,Tissue paper,,-,Consumables,,,29
+33,lactulose,,-,Syrup,,,6
+34,Loratyn,,-,Tablet,,,0
+35,COFTA,,-,Tablet,,,0
+36,Rulox Antacid,,-,Suspension,,,5
+37,GESTID,,-,Suspension,,,4
+38,Amoxiclav 457mg,,-,Suspension,,,5
+39,Tetracycline,,-,capsule,,,0
+40,23G NEEDLE,,-,Consumables,,Consumable,17
+41,Progesterone 100mg,,-,Injection,,,0  (Out of Stock)
+42,BIOFLOR,,-,Suspension,,,10
+43,Vicryl 6/0,,-,Consumables,,Ampule,3
+44,ventolin nebules,,-,Injection,,,10
+45,Nitroglycerin,,-,Tablet,,,15
+46,Quinine Tablet,,-,Tablet,,,40
+47,Torsemide inj,,-,Injection,,,10
+48,21G NEEDLE,,-,Consumables,,Consumable,10
+49,Loratidine syrup,,-,Syrup,,,1
+50,oxytocin,,-,Injection,,,4
+51,Dobutamine,,-,Injection,,,3
+52,Vicryl 5/0,,-,Consumables,,Tablet,3
+53,Chlorpromazine tab,,-,Tablet,,,4
+54,Clofenac 100mg,,-,Tablet,,,167
+55,Astymin,,-,Syrup,,mg,0  (Out of Stock)
+56,Anusol,,-,Tablet,,,7
+57,Bicalutamide,,-,Tablet,,,4
+58,Ducolax,,-,Tablet,,,3
+59,Gentamycin ointment,,-,Topical Gel,,Consumable,1
+60,Vitamin B2,,-,Tablet,,,11
+61,silk 0,,-,Consumables,,,4
+62,Phenytoin 100mg,,-,Tablet,,,100
+63,Marcfix,,-,Suspension,,,4
+64,Midazolam,,-,Injection,,,7
+65,C Q,,-,Injection,,Injection,15
+66,tube,,-,Consumables,,,1
+67,Cotten wool big size,,-,Consumables,,Consumable,0  (Out of Stock)
+68,Glibenclamide 5mg,,-,Tablet,,,95
+69,Astymin,,-,capsule,,,78
+70,Aldomet,,-,Tablet,,,98
+71,Chewable Vitamin C 1000mg,,-,Tablet,,,20
+72,Pampas,,-,Consumables,,,0  (Out of Stock)
+73,Astyfer,,-,capsule,,Capsule,78
+74,mannitol 20%,,-,Drip,,,9
+75,Artesunate 60mg,,-,Injection,,,27
+76,Tavanic,,-,Drip,,Drip,0  (Out of Stock)
+77,Progesterone per mil,,-,Injection,,,2
+78,guaze,,-,Consumables,,,48
+79,Linagliptin,,-,Tablet,,,8
+80,Metolazone,,-,Tablet,,,0  (Out of Stock)
+81,Dapagliflozin,,-,Tablet,,,0  (Out of Stock)
+82,Terbinafine 250mg,,-,Tablet,,,8
+83,Plastic Bell 1.5,,-,Consumables,,,6
+84,Plastic Bell 1.3,,-,Consumables,,,3
+85,Plastic Bell 1.4,,-,Consumables,,,2
+86,Telmisartan 80mg,,-,Tablet,,,74
+87,insulin syring,,-,Consumables,,,7
+88,Tab Ranitidine,,-,Tablet,,,200
+89,Feeding Tube size 8,,-,Consumables,,,0  (Out of Stock)
+90,Catheter size 10,,-,Consumables,,,3
+91,Catheter size 8,,-,Consumables,,,0  (Out of Stock)
+92,Surgical blade size 15,,-,Consumables,,,57
+93,Skin Traction Kit,,-,Consumables,,,0  (Out of Stock)
+94,Multivitamin,,-,capsule,,,15
+95,olanzapine 5mg,,-,Tablet,,,2
+96,ondasetron,,-,Tablet,,,30
+97,ondansetron,,-,Injection,,,13
+98,silk 2/0,,-,Consumables,,,8
+99,amitryiptyline,,-,Tablet,,,257
+100,Antalgex T,,-,capsule,,,396

@@ -1,0 +1,33 @@
+.abikan-quick-action {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  min-width: 0;
+  padding: var(--space-4) var(--space-2);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  color: var(--color-ink);
+  cursor: pointer;
+  font: inherit;
+}
+
+.abikan-quick-action span {
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-align: center;
+  line-height: 1.25;
+  color: var(--color-navy-soft);
+}
+
+.abikan-quick-action:hover:not(:disabled) {
+  border-color: #c5d0dc;
+  background: #fafbfc;
+}
+
+.abikan-quick-action.is-disabled,
+.abikan-quick-action:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}

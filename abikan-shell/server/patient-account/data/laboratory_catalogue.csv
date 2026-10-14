@@ -1,0 +1,81 @@
+S/N,Department,Laboratory Test,Type,Price (₦),Specimen,TAT,Available?
+1,Haematology,Full Blood Count (FBC),Panel,"5,000",Blood,30 minutes ,Yes
+2,Haematology,PCV,Single,"1,500",Blood ,30 minutes ,Yes
+3,Haematology,ESR,Single,"5,000",Blood,1 hour 30 minutes ,Yes
+4,Haematology,Blood Grouping,Single,"2,000",Blood,30 minutes ,Yes
+5,Haematology,Grouping & Cross Match – per unit,Service/Panel,"15,000",Blood,1 hour ,Yes
+6,Haematology,Genotype,Single,"3,000",Blood ,24 hours ,Yes
+7,Haematology,Peripheral Blood Film with FBC,Combined,"10,000",Blood,2-5 days,Yes
+8,Haematology,Clotting Profile (PT/PTTK),Panel,"15,000",Blood,24 hours ,Outsource 
+9,Haematology,VDRL,Single,"2,500",Blood,30 minutes ,Yes
+10,Haematology,HBsAg,Single,"2,500",Blood,30 minutes ,Yes
+11,Haematology,Anti-HCV,Single,"2,500",Blood,30 minutes ,Yes
+12,Haematology,LVS,Single,"2,500",Blood,30 minutes ,Yes
+13,Haematology,Rheumatoid Factor,Single,"15,000",Blood,24 hours ,Outsource 
+14,Haematology,"Viral Marker (LVS, HBsAg, HCV)",Panel,"7,500",Blood,30 minutes ,Yes
+15,Haematology,HBsAg Serology Panel,Panel,"12,500",Blood,2-5 hours ,Yes
+16,Microbiology,Microscopy MP,Single,"1,500",Blood,30 minutes ,Yes
+17,Microbiology,Malaria Parasite (RDT),Single,"1,500",Blood,30 minutes ,Yes
+18,Microbiology,Urine M/C/S,Panel,"8,000",Urine ,3-5 days,Yes
+19,Microbiology,Stool M/C/S,Panel,"8,000",Stool,3-5 days,Yes
+20,Microbiology,HVS M/C/S,Panel,"8,000",Swab,3-5 days,Yes
+21,Microbiology,Blood Culture,Single/Panel,"20,000",Blood,7 days,Yes
+22,Microbiology,Wound M/C/S,Panel,"8,000",Swab,3-5 days ,Yes
+23,Microbiology,Sputum M/C/S,Panel,"8,000",sputum ,3-5 days ,Yes
+24,Microbiology,Urinalysis with Microscopy,Combined,"3,000",urine ,3-5 days ,Yes
+25,Microbiology,Stool Microscopy,Single,"3,000",Stool ,3-5 days ,Yes
+26,Microbiology,Seminal Fluid Analysis,Single,"10,000",Semen ,24 hours ,Yes
+27,Microbiology,Seminal Fluid Analysis + MCS,Combined,"15,000",Semen ,3-5 days,Yes
+28,Microbiology,Typhoid/Widal,Single,"5,000",Blood,3 hours ,Yes
+29,Microbiology,H. pylori,Single,"7,500",Blood,3 hours ,Yes
+30,Microbiology,Fungal Studies,Single/Panel,"20,000",Swab/Skin,7 days,Outsource 
+31,Microbiology,Chlamydia,Single,"12,000",Swab,24 hours ,outsource 
+32,Microbiology,Gonorrhea,Single,"12,000",Swab,24 hours ,outsource 
+33,Clinical Chemistry,E/U/Cr,Panel,"7,000",Blood,3-5 hours ,Yes
+34,Clinical Chemistry,Lipid Profile,Panel,"10,000",Blood,24 hours,Yes
+35,Clinical Chemistry,Liver Function Test (LFT),Panel,"10,000",Blood,24 hours ,Yes
+36,Clinical Chemistry,Random Blood Sugar (RBS),Single,"1,500",Blood,30 minutes ,Yes
+37,Clinical Chemistry,Fasting Blood Sugar (FBS),Single,"1,500",Blood,30 minutes ,Yes
+38,Clinical Chemistry,2-Hour Post-Prandial Blood Sugar (2HPP),Single,"3,000",Blood,2 hours 30 minutes ,Outsource 
+39,Clinical Chemistry,Faecal Occult Blood,Single,"5,000",Stool ,24 hours ,Outsource 
+40,Clinical Chemistry,HCG Quantitative,Single,"12,000",Blood ,24 hours ,Outsource 
+41,Clinical Chemistry,Calcium,Single,"4,000",Blood ,2-3 hours ,Yes
+42,Clinical Chemistry,Inorganic Phosphate,Single,"4,000",Blood,2-3 hours,Yes
+43,Clinical Chemistry,Uric Acid,Single,"4,000",Blood,2-3 hours,Outsource test 
+44,Clinical Chemistry,Glycated Haemoglobin (HbA1c),Single,"10,000",Blood,2-3 hours ,Yes
+45,Clinical Chemistry,Hormonal Profile,Panel,"8,000 each",Blood,24 hours ,Yes
+46,Clinical Chemistry,Urine Toxicology/Drug Test,Panel/Screen,"15,000",urine ,2 hours ,Outsource 
+47,Clinical Chemistry,Albumin,Single,"4,000",Blood,2 hours ,Yes
+48,Clinical Chemistry,Bilirubin – Direct & Total,Combined,"4,000",Blood,2-3 hours ,Yes
+49,Clinical Chemistry,Magnesium,Single,"5,000",Blood,2 hours ,Outsource 
+50,Clinical Chemistry,Urinalysis Only,Single,"1,500",Urine ,30 minutes ,Yes
+51,Clinical Chemistry,Serum Pregnancy Test,Single,"2,000",Blood,30 minutes ,Yes
+52,Clinical Chemistry,Urine Pregnancy Test,Single,"2,000",Urine ,30 minutes ,Yes
+53,Clinical Chemistry,Prolactin,Single,"8,000",Blood,2-3 hours ,Yes
+54,Clinical Chemistry,FSH,Single,"8,000",Blood,2-3 hours ,Yes
+55,Clinical Chemistry,LH,Single,"8,000",Blood ,2-3 hours ,Yes
+56,Clinical Chemistry,Testosterone,Single,"8,000",Blood,2-3 hours ,Yes
+57,Clinical Chemistry,Progesterone,Single,"8,000",Blood ,2-3 hours,Yes
+58,Clinical Chemistry,Estradiol,Single,"8,000",Blood,2-3 hours ,Yes
+59,Clinical Chemistry,C-Reactive Protein (CRP),Single,"12,000",Blood,24 hours ,Outsource 
+60,Clinical Chemistry,"Thyroid Function – Free T3, Free T4 & TSH",Panel,"20,000",Blood ,24 hours ,Outsource 
+61,Clinical Chemistry,Total T3 & T4,Panel,"8,000 each",Blood ,24 hours ,Outsource 
+62,Clinical Chemistry,PSA,Single,"10,000",Blood,2-3 hours ,Yes
+63,Clinical Chemistry,CEA,Single,"15,000",Blood ,24 hours ,Outsource 
+64,Clinical Chemistry,CA-125 / CA-19-9 / CA-15-3,Single,"15,000 each",Blood,24 hours ,outsource 
+65,Clinical Chemistry,D-Dimer Assay,Single,"15,000",Blood,24 hours ,outsource 
+66,Clinical Chemistry,Alpha-Fetoprotein (AFP),Single,15000,Blood,24 hours ,Not stat
+67,Clinical Chemistry,Vitamin D,Single,"15,000",Blood ,24 hours ,outsource 
+68,Clinical Chemistry,Procalcitonin,Single,35000,Blood,24 hours ,outsource 
+69,Clinical Chemistry,Serum Potassium,Single,"3,000",Blood,2-3 hours ,Yes
+70,Clinical Chemistry,AMH,Single,"25,000",Blood,24 hours ,Outsource 
+71,Clinical Chemistry,IGF-1 Assay,Single,"80,000",Blood ,24 hours ,Outsource 
+72,Clinical Chemistry,Anti-TG & Anti-TPO,Panel,"40,000",Blood ,24 hours ,Outsource 
+73,Molecular Biology,Hepatitis B Viral Load,Single,"35,000",Blood ,24 hours ,Outsource 
+74,Molecular Biology,HIV Viral Load,Single,"35,000",Blood ,24 hours ,Outsource 
+75,Molecular Biology,Hepatitis C Viral Load,Single,"38,000",Blood,24 hours ,outsource 
+76,Molecular Biology,DNA/Paternity Testing – per person,Special test,"250,000",All samples ,2 months ,Outsource 
+77,Molecular Biology,DNA/Paternity Testing – Father & Child,Special test,"500,000",All samples ,2 months ,Outsource 
+78,Blood Bank,Positive Blood Pint,Blood Bank Service,"25,000",Blood,2 hours ,Yes
+79,Blood Bank,Negative Blood Pint,Blood Bank Service,"35,000",Blood,2 hours ,Yes
+80,Blood Bank,"Prospective Donor Viral Marker Screening, Grouping & Crossmatch",Panel/Service,"15,000",Blood,2 hours ,Yes

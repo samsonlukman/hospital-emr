@@ -1,0 +1,52 @@
+.abikan-icon-well {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border-radius: 10px;
+}
+
+.abikan-icon-well--sm {
+  width: 32px;
+  height: 32px;
+}
+
+.abikan-icon-well--md {
+  width: 48px;
+  height: 48px;
+}
+
+.abikan-icon-well--lg {
+  width: 56px;
+  height: 56px;
+}
+
+.abikan-icon-well--registration {
+  color: var(--color-registration);
+  background: var(--color-registration-soft);
+}
+
+.abikan-icon-well--appointments {
+  color: var(--color-appointments);
+  background: var(--color-appointments-soft);
+}
+
+.abikan-icon-well--visits {
+  color: var(--color-visits);
+  background: var(--color-visits-soft);
+}
+
+.abikan-icon-well--collection {
+  color: var(--color-collection);
+  background: var(--color-collection-soft);
+}
+
+.abikan-icon-well--teal {
+  color: var(--color-teal);
+  background: var(--color-teal-soft);
+}
+
+.abikan-icon-well--neutral {
+  color: var(--color-navy-soft);
+  background: #eef2f6;
+}

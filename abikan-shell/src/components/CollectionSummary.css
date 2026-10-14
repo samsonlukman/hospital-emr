@@ -1,0 +1,65 @@
+.abikan-collection {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.abikan-collection li {
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+  align-items: center;
+  gap: var(--space-3);
+  min-height: 44px;
+  padding: var(--space-2) var(--space-3);
+}
+
+.abikan-collection__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.abikan-collection__dot.is-registration {
+  background: var(--color-registration);
+}
+
+.abikan-collection__dot.is-appointments {
+  background: var(--color-appointments);
+}
+
+.abikan-collection__dot.is-visits {
+  background: var(--color-visits);
+}
+
+.abikan-collection strong {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-navy-soft);
+}
+
+.abikan-collection em {
+  font-style: normal;
+  font-size: 0.78rem;
+  color: var(--color-ink-subtle);
+}
+
+.abikan-collection__count,
+.abikan-collection__amount {
+  font-weight: 600;
+  color: var(--color-ink);
+}
+
+.abikan-collection__total {
+  margin-top: var(--space-2);
+  border-radius: var(--radius-sm);
+  background: var(--color-collection-soft);
+}
+
+.abikan-collection__total strong,
+.abikan-collection__total .abikan-collection__amount {
+  color: var(--color-collection);
+}

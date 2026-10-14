@@ -1,0 +1,117 @@
+.lab-fee__tests {
+  list-style: none;
+  margin: 0 0 var(--space-4);
+  padding: 0;
+  display: grid;
+  gap: var(--space-3);
+}
+
+.lab-fee__tests li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.lab-fee__tests strong {
+  display: block;
+  color: var(--color-navy);
+}
+
+.lab-fee__tests span {
+  color: var(--color-ink-muted);
+  font-weight: 650;
+}
+
+.lab-fee__pending {
+  color: var(--color-ink-muted);
+  font-size: 0.86rem;
+  font-weight: 600;
+}
+
+.lab-fee__facts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-4);
+  margin: 0 0 var(--space-4);
+}
+
+.lab-fee__facts dt {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-ink-subtle);
+}
+
+.lab-fee__facts dd {
+  margin: 6px 0 0;
+  color: var(--color-navy);
+  font-weight: 650;
+}
+
+.lab-fee__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.lab-fee__block {
+  margin: 0;
+  color: var(--color-ink-muted);
+  font-weight: 600;
+}
+
+.lab-fee .abikan-alert {
+  margin-bottom: var(--space-4);
+}
+
+.abikan-dialog {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  display: grid;
+  place-items: center;
+  background: rgba(21, 35, 59, 0.45);
+  padding: var(--space-4);
+}
+
+.abikan-dialog__panel {
+  width: min(520px, 100%);
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  padding: var(--space-6);
+}
+
+.cashier-confirm dl {
+  display: grid;
+  gap: var(--space-3);
+  margin: 0 0 var(--space-5);
+}
+
+.cashier-confirm dt {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-ink-subtle);
+}
+
+.cashier-confirm dd {
+  margin: 4px 0 0;
+  color: var(--color-navy);
+  font-weight: 650;
+}
+
+.cashier-confirm__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+@media (max-width: 768px) {
+  .lab-fee__facts {
+    grid-template-columns: 1fr;
+  }
+}

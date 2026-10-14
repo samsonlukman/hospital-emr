@@ -1,0 +1,87 @@
+.abikan-workspace-tile {
+  display: flex;
+  flex-direction: column;
+  min-height: 188px;
+  padding: var(--space-5);
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-top-width: 3px;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+}
+
+.abikan-workspace-tile--registration {
+  border-top-color: var(--color-registration);
+}
+
+.abikan-workspace-tile--appointments {
+  border-top-color: var(--color-appointments);
+}
+
+.abikan-workspace-tile--visits {
+  border-top-color: var(--color-visits);
+}
+
+.abikan-workspace-tile--collection {
+  border-top-color: var(--color-collection);
+}
+
+.abikan-workspace-tile--teal {
+  border-top-color: var(--color-teal);
+}
+
+.abikan-workspace-tile--neutral {
+  border-top-color: var(--color-line-strong);
+}
+
+.abikan-workspace-tile__top {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.abikan-workspace-tile h3 {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 650;
+  color: var(--color-navy);
+}
+
+.abikan-workspace-tile__current {
+  margin-top: 2px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-registration);
+}
+
+.abikan-workspace-tile__copy {
+  margin: var(--space-4) 0 0;
+  color: var(--color-ink-muted);
+  font-size: 0.9rem;
+}
+
+.abikan-workspace-tile__action {
+  margin-top: auto;
+  padding: var(--space-4) 0 0;
+  border: 0;
+  background: none;
+  color: var(--color-registration);
+  font-weight: 600;
+  font-size: 0.88rem;
+  text-align: left;
+  cursor: pointer;
+}
+
+.abikan-workspace-tile__action:hover {
+  text-decoration: underline;
+}
+
+.abikan-workspace-tile__status {
+  margin-top: auto;
+  padding-top: var(--space-4);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-ink-subtle);
+}

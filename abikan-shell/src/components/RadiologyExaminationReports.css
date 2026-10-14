@@ -1,0 +1,40 @@
+.rad-exam-reports {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.rad-exam-reports__item h5 {
+  margin: 0 0 4px;
+  font-size: 0.98rem;
+  color: var(--color-navy);
+}
+
+.rad-exam-reports__label {
+  margin: 8px 0 4px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-ink-subtle);
+}
+
+.rad-exam-reports__text {
+  margin: 0;
+  white-space: pre-wrap;
+  color: var(--color-navy);
+}
+
+.rad-exam-reports__meta {
+  margin: 4px 0 0;
+  font-size: 0.88rem;
+  color: var(--color-ink-muted);
+}
+
+.rad-exam-reports__empty {
+  margin: 0;
+  color: var(--color-ink-muted);
+}

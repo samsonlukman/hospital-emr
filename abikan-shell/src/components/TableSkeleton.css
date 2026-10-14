@@ -1,0 +1,20 @@
+.abikan-table-wrap--skeleton {
+  position: relative;
+  animation: abikan-deferred-show 0ms 160ms both;
+}
+
+.abikan-skeleton-bar {
+  display: block;
+  height: 0.7rem;
+  max-width: 9rem;
+  border-radius: 4px;
+  background: #e8eef3;
+}
+
+.abikan-table-wrap--skeleton tr:nth-child(odd) .abikan-skeleton-bar {
+  max-width: 7.5rem;
+}
+
+.abikan-table-wrap--skeleton tr:nth-child(3n) .abikan-skeleton-bar {
+  max-width: 11rem;
+}

@@ -1,0 +1,596 @@
+{
+  "allTestsAndPanelsUuid": "d3e6fb5f-5e07-11ef-8f7c-0242ac120002",
+  "testClassUuid": "8d4907b2-c2cc-11de-8d13-0010c6dffd0f",
+  "labSetClassUuid": "8d492026-c2cc-11de-8d13-0010c6dffd0f",
+  "naDatatypeUuid": "8d4a4c94-c2cc-11de-8d13-0010c6dffd0f",
+  "items": [
+    {
+      "sn": "1",
+      "action": "reuse",
+      "conceptUuid": "1019AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "openmrsName": "Complete blood count",
+      "conceptClass": "LabSet"
+    },
+    {
+      "sn": "2",
+      "action": "reuse",
+      "conceptUuid": "1015AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "openmrsName": "Hematocrit",
+      "conceptClass": "Test"
+    },
+    {
+      "sn": "3",
+      "action": "reuse",
+      "conceptUuid": "855AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "openmrsName": "Erythrocyte sedimentation rate",
+      "conceptClass": "Test"
+    },
+    {
+      "sn": "4",
+      "action": "reuse",
+      "conceptUuid": "161473AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "openmrsName": "Blood grouping test",
+      "conceptClass": "LabSet"
+    },
+    {
+      "sn": "5",
+      "action": "reuse",
+      "conceptUuid": "161233AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "openmrsName": "Blood cross-matching",
+      "conceptClass": "Test"
+    },
+    {
+      "sn": "6",
+      "action": "reuse",
+      "conceptUuid": "161421AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "openmrsName": "Hemoglobin electrophoresis",
+      "conceptClass": "Test",
+      "note": "Mapped as haemoglobin genotype (electrophoresis)."
+    },
+    {
+      "sn": "7",
+      "action": "create",
+      "createName": "Peripheral Blood Film with FBC",
+      "conceptClass": "Test"
+    },
+    {
+      "sn": "8",
+      "action": "reuse",
+      "conceptUuid": "163436AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "openmrsName": "Coagulation profile",
+      "conceptClass": "LabSet",
+      "note": "PT/PTT/INR. Not Clotting Panel (bleeding/clotting time)."
+    },
+    {
+      "sn": "9",
+      "action": "reuse",
+      "conceptUuid": "299AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "openmrsName": "VDRL",
+      "conceptClass": "Test"
+    },
+    {
+      "sn": "10",
+      "action": "reuse",
+      "conceptUuid": "165301AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "openmrsName": "HBsAg Rapid Diagnostic Test",
+      "conceptClass": "Test"
+    },
+    {
+      "sn": "11",
+      "action": "reuse",
+      "conceptUuid": "165302AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "openmrsName": "Anti-HCV rapid diagnostic test",
+      "conceptClass": "Test"
+    },
+    {
+      "sn": "12",
+      "action": "reuse",
+      "conceptUuid": "163722AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "openmrsName": "Rapid test for HIV",
+      "conceptClass": "Test",
+      "note": "LVS treated as HIV screening (Viral Marker lists LVS with HBsAg and HCV)."
+    },
+    {
+      "sn": "13",
+      "action": "reuse",
+      "conceptUuid": "161470AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "openmrsName": "Rheumatoid factor",
+      "conceptClass": "Test"
+    },
+    {
+      "sn": "14",
+      "action": "create",
+      "createName": "Viral Marker (LVS, HBsAg, HCV)",
+      "conceptClass": "LabSet",
+      "memberSns": [
+        "12",
+        "10",
+        "11"
+      ],
+      "note": "Members taken from the hospital panel name."
+    },
+    {
+      "sn": "15",
+      "action": "create",
+      "createName": "HBsAg Serology Panel",
+      "conceptClass": "LabSet",
+      "note": "Orderable panel without invented components."
+    },
+    {
+      "sn": "16",
+      "action": "reuse",
+      "conceptUuid": "32AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "openmrsName": "Malarial smear",
+      "conceptClass": "Test"
+    },
+    {
+      "sn": "17",
+      "action": "create",
+      "createName": "Malaria Parasite (RDT)",
+      "conceptClass": "Test"
+    },
+    {
+      "sn": "18",
+      "action": "reuse",
+      "conceptUuid": "161156AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "openmrsName": "Culture and sensitivity, urine",
+      "conceptClass": "Test"
+    },
+    {
+      "sn": "19",
+      "action": "reuse",
+      "conceptUuid": "163603AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "openmrsName": "Stool culture (bacterial)",
+      "conceptClass": "Test"
+    },
+    {
+      "sn": "20",
+      "action": "create",
+      "createName": "HVS M/C/S",
+      "conceptClass": "Test"
+    },
+    {
+      "sn": "21",
+      "action": "reuse",
+      "conceptUuid": "161155AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "openmrsName": "Culture and sensitivity, blood",
+      "conceptClass": "Test"
+    },
+    {
+      "sn": "22",
+      "action": "reuse",
+      "conceptUuid": "161484AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "openmrsName": "Pus culture and sensitivity",
+      "conceptClass": "Test"
+    },
+    {
+      "sn": "23",
+      "action": "create",
+      "createName": "Sputum M/C/S",
+      "conceptClass": "Test"
+    },
+    {
+      "sn": "24",
+      "action": "create",
+      "createName": "Urinalysis with Microscopy",
+      "conceptClass": "Test",
+      "note": "Separate from Urinalysis Only so prices stay distinct."
+    },
+    {
+      "sn": "25",
+      "action": "reuse",
+      "conceptUuid": "161447AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "openmrsName": "Stool microscopy with concentration",
+      "conceptClass": "Test"
+    },
+    {
+      "sn": "26",
+      "action": "reuse",
+      "conceptUuid": "161467AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "openmrsName": "Semen analysis",
+      "conceptClass": "Test"
+    },
+    {
+      "sn": "27",
+      "action": "create",
+      "createName": "Seminal Fluid Analysis + MCS",
+      "conceptClass": "Test"
+    },
+    {
+      "sn": "28",
+      "action": "reuse",
+      "conceptUuid": "306AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "openmrsName": "Widal test",
+      "conceptClass": "Test"
+    },
+    {
+      "sn": "29",
+      "action": "reuse",
+      "conceptUuid": "163620AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "openmrsName": "Helicobacter Pylori Ab presence in serum by immunofluorescence test",
+      "conceptClass": "Test"
+    },
+    {
+      "sn": "30",
+      "action": "reuse",
+      "conceptUuid": "161463AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "openmrsName": "Skin fungal test",
+      "conceptClass": "LabSet"
+    },
+    {
+      "sn": "31",
+      "action": "reuse",
+      "conceptUuid": "1034AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "openmrsName": "Chlamydia trachomatis polymerase chain reaction, qualitative",
+      "conceptClass": "Test"
+    },
+    {
+      "sn": "32",
+      "action": "reuse",
+      "conceptUuid": "1038AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "openmrsName": "Neisseria gonorrhoeae polymerase chain reaction, qualitative",
+      "conceptClass": "Test"
+    },
+    {
+      "sn": "33",
+      "action": "create",
+      "createName": "E/U/Cr",
+      "conceptClass": "LabSet",
+      "note": "Hospital panel; components not listed so none invented. Not Basic metabolic panel."
+    },
+    {
+      "sn": "34",
+      "action": "reuse",
+      "conceptUuid": "1010AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "openmrsName": "Lipid panel",
+      "conceptClass": "LabSet"
+    },
+    {
+      "sn": "35",
+      "action": "create",
+      "createName": "Liver Function Test (LFT)",
+      "conceptClass": "LabSet",
+      "note": "New panel. Dictionary LFT includes HBsAg/HCV and was not reused."
+    },
+    {
+      "sn": "36",
+      "action": "reuse",
+      "conceptUuid": "887AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "openmrsName": "Serum glucose",
+      "conceptClass": "Test"
+    },
+    {
+      "sn": "37",
+      "action": "reuse",
+      "conceptUuid": "160912AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "openmrsName": "Fasting blood glucose measurement (mg/dL)",
+      "conceptClass": "Test"
+    },
+    {
+      "sn": "38",
+      "action": "reuse",
+      "conceptUuid": "167177AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "openmrsName": "Post-prandial blood glucose measurement (mg/dL) 2 hours after meal",
+      "conceptClass": "Test"
+    },
+    {
+      "sn": "39",
+      "action": "reuse",
+      "conceptUuid": "159362AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "openmrsName": "Fecal occult blood test",
+      "conceptClass": "Test"
+    },
+    {
+      "sn": "40",
+      "action": "reuse",
+      "conceptUuid": "160922AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "openmrsName": "Human chorionic gonadotropin measurement",
+      "conceptClass": "Test"
+    },
+    {
+      "sn": "41",
+      "action": "reuse",
+      "conceptUuid": "159497AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "openmrsName": "Serum calcium",
+      "conceptClass": "Test"
+    },
+    {
+      "sn": "42",
+      "action": "skip",
+      "note": "Unavailable: no safe Laboratory/Diagnostic concept exists; the same-name concept is Drug class."
+    },
+    {
+      "sn": "43",
+      "action": "reuse",
+      "conceptUuid": "159825AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "openmrsName": "uric acid, serum",
+      "conceptClass": "Test"
+    },
+    {
+      "sn": "44",
+      "action": "create",
+      "createName": "Glycated Haemoglobin (HbA1c)",
+      "conceptClass": "Test"
+    },
+    {
+      "sn": "45",
+      "action": "skip",
+      "note": "Hormonal Profile is \u20a68,000 each. Order the individual hormones (Prolactin, FSH, LH, Testosterone, Progesterone, Estradiol)."
+    },
+    {
+      "sn": "46",
+      "action": "create",
+      "createName": "Urine Toxicology/Drug Test",
+      "conceptClass": "Test"
+    },
+    {
+      "sn": "47",
+      "action": "reuse",
+      "conceptUuid": "848AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "openmrsName": "Serum albumin",
+      "conceptClass": "Test"
+    },
+    {
+      "sn": "48",
+      "action": "create",
+      "createName": "Bilirubin \u2013 Direct & Total",
+      "conceptClass": "Test"
+    },
+    {
+      "sn": "49",
+      "action": "reuse",
+      "conceptUuid": "159643AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "openmrsName": "Serum magnesium measurement",
+      "conceptClass": "Test"
+    },
+    {
+      "sn": "50",
+      "action": "reuse",
+      "conceptUuid": "302AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "openmrsName": "Urinalysis order",
+      "conceptClass": "Test"
+    },
+    {
+      "sn": "51",
+      "action": "reuse",
+      "conceptUuid": "1945AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "openmrsName": "Serum Pregnancy Test, Qualitative",
+      "conceptClass": "Test"
+    },
+    {
+      "sn": "52",
+      "action": "reuse",
+      "conceptUuid": "45AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "openmrsName": "Urine pregnancy test",
+      "conceptClass": "Test"
+    },
+    {
+      "sn": "53",
+      "action": "reuse",
+      "conceptUuid": "161516AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "openmrsName": "Serum prolactin",
+      "conceptClass": "Test"
+    },
+    {
+      "sn": "54",
+      "action": "reuse",
+      "conceptUuid": "161489AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "openmrsName": "Follicle stimulating hormone test",
+      "conceptClass": "Test"
+    },
+    {
+      "sn": "55",
+      "action": "create",
+      "createName": "LH",
+      "conceptClass": "Test"
+    },
+    {
+      "sn": "56",
+      "action": "skip",
+      "note": "Unavailable: no safe serum testosterone Laboratory/Diagnostic concept exists; same-name concepts are Drug class."
+    },
+    {
+      "sn": "57",
+      "action": "skip",
+      "note": "Unavailable: no safe serum progesterone Laboratory/Diagnostic concept exists; Progesterone Receptor Assay is a different test."
+    },
+    {
+      "sn": "58",
+      "action": "skip",
+      "note": "Unavailable: no safe serum estradiol Laboratory/Diagnostic concept exists; same-name concepts are Drug class."
+    },
+    {
+      "sn": "59",
+      "action": "reuse",
+      "conceptUuid": "161500AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "openmrsName": "C-reactive protein",
+      "conceptClass": "Test"
+    },
+    {
+      "sn": "60",
+      "action": "reuse",
+      "conceptUuid": "161506AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "openmrsName": "Thyroid panel",
+      "conceptClass": "LabSet",
+      "note": "Dictionary T3/T4/TSH; hospital asked Free T3/Free T4/TSH."
+    },
+    {
+      "sn": "61a",
+      "sourceSn": "61",
+      "action": "reuse",
+      "conceptUuid": "161503AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "openmrsName": "Tri-iodothyronine test",
+      "conceptClass": "Test",
+      "hospitalName": "Total T3",
+      "priceNgn": 8000
+    },
+    {
+      "sn": "61b",
+      "sourceSn": "61",
+      "action": "reuse",
+      "conceptUuid": "161504AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "openmrsName": "Thyroxine test",
+      "conceptClass": "Test",
+      "hospitalName": "Total T4",
+      "priceNgn": 8000
+    },
+    {
+      "sn": "61",
+      "action": "skip",
+      "note": "Expanded to Total T3 and Total T4 at \u20a68,000 each."
+    },
+    {
+      "sn": "62",
+      "action": "reuse",
+      "conceptUuid": "160913AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "openmrsName": "Prostate specific antigen (PSA) measurement (ng/mL)",
+      "conceptClass": "Test"
+    },
+    {
+      "sn": "63",
+      "action": "reuse",
+      "conceptUuid": "160915AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "openmrsName": "Carcinoembryonic antigen (CEA) measurement (ng/mL)",
+      "conceptClass": "Test"
+    },
+    {
+      "sn": "64a",
+      "sourceSn": "64",
+      "action": "reuse",
+      "conceptUuid": "160919AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "openmrsName": "Cancer antigen 125 measurement (units/mL)",
+      "conceptClass": "Test",
+      "hospitalName": "CA-125",
+      "priceNgn": 15000
+    },
+    {
+      "sn": "64b",
+      "sourceSn": "64",
+      "action": "reuse",
+      "conceptUuid": "160921AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "openmrsName": "Cancer antigen 19-9 measurement (units/mL)",
+      "conceptClass": "Test",
+      "hospitalName": "CA-19-9",
+      "priceNgn": 15000
+    },
+    {
+      "sn": "64c",
+      "sourceSn": "64",
+      "action": "reuse",
+      "conceptUuid": "160920AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "openmrsName": "Cancer antigen 15-3 measurement (units/mL)",
+      "conceptClass": "Test",
+      "hospitalName": "CA-15-3",
+      "priceNgn": 15000
+    },
+    {
+      "sn": "64",
+      "action": "skip",
+      "note": "Expanded to CA-125, CA-19-9, and CA-15-3 at \u20a615,000 each."
+    },
+    {
+      "sn": "65",
+      "action": "reuse",
+      "conceptUuid": "166018AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "openmrsName": "D-dimer",
+      "conceptClass": "Test"
+    },
+    {
+      "sn": "66",
+      "action": "reuse",
+      "conceptUuid": "160917AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "openmrsName": "Alpha-1-fetoprotein measurement (ng/mL)",
+      "conceptClass": "Test"
+    },
+    {
+      "sn": "67",
+      "action": "reuse",
+      "conceptUuid": "17bd7da1-e876-45dd-b0a5-1961c1c491fc",
+      "openmrsName": "25-hydroxyvitamin D3 measurement",
+      "conceptClass": "Test"
+    },
+    {
+      "sn": "68",
+      "action": "reuse",
+      "conceptUuid": "165953AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "openmrsName": "Procalcitonin measurement, serum/plasma",
+      "conceptClass": "Test"
+    },
+    {
+      "sn": "69",
+      "action": "reuse",
+      "conceptUuid": "1133AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "openmrsName": "Serum potassium",
+      "conceptClass": "Test"
+    },
+    {
+      "sn": "70",
+      "action": "create",
+      "createName": "AMH",
+      "conceptClass": "Test"
+    },
+    {
+      "sn": "71",
+      "action": "create",
+      "createName": "IGF-1 Assay",
+      "conceptClass": "Test"
+    },
+    {
+      "sn": "72",
+      "action": "create",
+      "createName": "Anti-TG & Anti-TPO",
+      "conceptClass": "Test"
+    },
+    {
+      "sn": "73",
+      "action": "reuse",
+      "conceptUuid": "a8c0a4d6-4878-4bca-af99-514e6d19b40a",
+      "openmrsName": "Hepatitis B DNA quantitative (IU/mL)",
+      "conceptClass": "Test"
+    },
+    {
+      "sn": "74",
+      "action": "reuse",
+      "conceptUuid": "856AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "openmrsName": "HIV viral load",
+      "conceptClass": "Test"
+    },
+    {
+      "sn": "75",
+      "action": "reuse",
+      "conceptUuid": "166137AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "openmrsName": "HCV viral load, qualitative",
+      "conceptClass": "Test"
+    },
+    {
+      "sn": "76",
+      "action": "create",
+      "createName": "DNA/Paternity Testing \u2013 per person",
+      "conceptClass": "Test"
+    },
+    {
+      "sn": "77",
+      "action": "create",
+      "createName": "DNA/Paternity Testing \u2013 Father & Child",
+      "conceptClass": "Test"
+    },
+    {
+      "sn": "78",
+      "action": "create",
+      "createName": "Positive Blood Pint",
+      "conceptClass": "Test"
+    },
+    {
+      "sn": "79",
+      "action": "create",
+      "createName": "Negative Blood Pint",
+      "conceptClass": "Test"
+    },
+    {
+      "sn": "80",
+      "action": "create",
+      "createName": "Prospective Donor Viral Marker Screening, Grouping & Crossmatch",
+      "conceptClass": "Test"
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+.abikan-table-wrap {
+  overflow-x: auto;
+  max-width: 100%;
+  width: 100%;
+}
+
+.abikan-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.abikan-table th,
+.abikan-table td {
+  text-align: left;
+  padding: 14px var(--space-4);
+  border-bottom: 1px solid var(--color-line);
+  vertical-align: middle;
+}
+
+.abikan-table a {
+  color: var(--color-link);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.abikan-table a:hover {
+  text-decoration: underline;
+}
+
+.abikan-table th {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-ink-subtle);
+  background: #f8fafb;
+}
+
+.abikan-table tbody tr:hover {
+  background: #f7f9fa;
+}

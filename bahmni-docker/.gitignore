@@ -1,0 +1,13 @@
+.idea/
+.cache/
+**/backup-artifacts/*
+**/restore-artifacts/*
+.DS_Store
+
+# Local/deployment secret files. Commit only corresponding *.example templates.
+**/.env
+**/.env.dev
+**/.env.abikan
+**/.env.local
+**/.env.production
+**/*.secrets.env

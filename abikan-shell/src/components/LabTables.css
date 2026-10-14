@@ -1,0 +1,20 @@
+.lab-desk__link {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--color-link);
+  font-weight: 600;
+  cursor: pointer;
+  min-height: 44px;
+}
+
+.lab-desk__link:hover {
+  text-decoration: underline;
+}
+
+.lab-desk__panel {
+  display: block;
+  margin-top: 2px;
+  color: var(--color-ink-subtle);
+  font-size: 0.8rem;
+}

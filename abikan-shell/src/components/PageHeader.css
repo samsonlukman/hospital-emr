@@ -1,0 +1,19 @@
+.abikan-page-header {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-6);
+  align-items: flex-start;
+}
+
+.abikan-page-header h1 {
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: var(--color-navy);
+  letter-spacing: -0.03em;
+}
+
+.abikan-page-header p {
+  margin-top: var(--space-2);
+  color: var(--color-ink-muted);
+  max-width: 42rem;
+}

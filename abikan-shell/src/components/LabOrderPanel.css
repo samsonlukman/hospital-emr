@@ -1,0 +1,132 @@
+.lab-order-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-3);
+  width: 100%;
+  max-width: 40rem;
+}
+
+.lab-order-panel__composer {
+  position: relative;
+  width: 100%;
+}
+
+.lab-order-panel__search-label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-ink-subtle);
+}
+
+.lab-order-panel__composer input {
+  width: 100%;
+  min-height: 44px;
+  padding: 0 12px;
+  border: 1px solid var(--color-line-strong);
+  border-radius: var(--radius-sm);
+  background: #fff;
+  color: var(--color-navy);
+  font-size: 1rem;
+}
+
+.lab-order-panel__composer input:focus {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 1px;
+}
+
+.lab-order-panel__status {
+  margin: 6px 0 0;
+  font-size: 0.82rem;
+  color: var(--color-ink-muted);
+}
+
+.lab-order-panel__status.is-error {
+  color: var(--color-danger);
+}
+
+.lab-order-panel__hits,
+.lab-order-panel__draft {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.lab-order-panel__hits {
+  position: absolute;
+  z-index: 7;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  max-height: 280px;
+  overflow: auto;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-sm);
+  background: #fff;
+  box-shadow: var(--shadow-card);
+}
+
+.lab-order-panel__hits button,
+.lab-order-panel__empty {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  width: 100%;
+  padding: 10px 12px;
+  border: 0;
+  background: none;
+  text-align: left;
+  color: var(--color-navy);
+}
+
+.lab-order-panel__hits button:hover {
+  background: var(--color-surface-muted, #f4f6f8);
+}
+
+.lab-order-panel__hits span,
+.lab-order-panel__draft span,
+.lab-order-panel__hint {
+  color: var(--color-ink-muted);
+  font-size: 0.82rem;
+}
+
+.lab-order-panel__hint {
+  margin: 0;
+  max-width: 38rem;
+}
+
+.lab-order-panel__draft {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.lab-order-panel__draft li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  min-height: 44px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--color-line);
+}
+
+.lab-order-panel__draft li div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.lab-order-panel__remove {
+  border: 0;
+  background: none;
+  color: var(--color-link);
+  font-weight: 600;
+  cursor: pointer;
+  min-height: 44px;
+}

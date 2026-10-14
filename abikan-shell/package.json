@@ -1,0 +1,25 @@
+{
+  "name": "abikan-shell",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "test": "node --experimental-strip-types --test src/app/hashRoute.test.ts src/config/receptionVisitTypes.test.ts src/config/optionalClinicalSections.test.ts src/config/workspaceMap.test.ts src/config/workplaces.test.ts src/config/radiologyMenu.test.ts src/workspaces/Admin/adminView.test.ts src/workspaces/Admin/adminAnalytics.test.ts src/workspaces/Admin/adminExport.test.ts src/workspaces/Admin/adminStaffLogView.test.ts src/workspaces/StaffLog/staffLogView.test.ts src/workspaces/shared/departmentRevenue.test.ts src/workspaces/Pharmacy/pharmacyView.test.ts src/workspaces/Pharmacy/pharmacyCatalogueMap.test.ts src/workspaces/Doctor/todaysPatients.test.ts src/workspaces/Doctor/consultationVisit.test.ts src/workspaces/Doctor/consultationFeeAmount.test.ts src/workspaces/Doctor/myPatients.test.ts src/workspaces/Doctor/doctorWorkspaceAudit.test.ts src/workspaces/Doctor/doctorPharmacyMedicines.test.ts src/workspaces/Accountant/accountantHonesty.test.ts src/utils/datetime.test.ts src/services/openmrs/drugOrderMap.test.ts src/services/openmrs/drugOrdersAnnounce.test.ts src/services/openmrs/visitWindow.test.ts src/services/openmrs/visitAttendingProvider.test.ts src/services/openmrs/clinicalDocumentation.test.ts src/services/openmrs/observationScope.test.ts src/services/openmrs/bahmniUserCookie.test.ts src/workspaces/Laboratory/laboratoryView.test.ts src/workspaces/Laboratory/laboratoryCreateTest.test.ts src/workspaces/Laboratory/laboratoryBloodBank.test.ts src/workspaces/Laboratory/laboratoryWorklist.test.ts src/workspaces/Radiology/radiologyOrder.test.ts src/workspaces/Radiology/radiologyPrice.test.ts src/workspaces/Radiology/radiologyReport.test.ts src/workspaces/Radiology/radiologyWorkspace.test.ts src/workspaces/Radiology/radiologyWorklist.test.ts src/workspaces/Radiology/radiologyCancellation.test.ts src/workspaces/PatientAccount/patientAccountVisit.test.ts src/utils/dailyVisitNumber.test.ts src/utils/dataLoadState.test.ts src/utils/nursingNotes.test.ts src/utils/allergies.test.ts src/utils/mar.test.ts src/utils/marSchedule.test.ts src/utils/vitalValidation.test.ts src/utils/inpatientVitals.test.ts src/utils/patientCallSpeech.test.ts src/workspaces/Nursing/nursingBoard.test.ts src/workspaces/Nursing/nursingTasks.test.ts src/workspaces/Pricing/pricingView.test.ts src/workspaces/RegistrationDesk/receptionVisit.test.ts src/workspaces/RegistrationDesk/createVisitWorkspace.test.ts src/workspaces/RegistrationDesk/opdVisitLifecycle.test.ts src/workspaces/RegistrationDesk/hospitalFamilyView.test.ts src/workspaces/PatientDirectory/patientDirectoryView.test.ts src/workspaces/Antenatal/antenatalView.test.ts",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "lucide-react": "^1.31.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.4",
+    "@vitejs/plugin-basic-ssl": "^2.3.0",
+    "@vitejs/plugin-react": "^6.0.5",
+    "typescript": "^7.0.2",
+    "vite": "^8.2.1"
+  }
+}
