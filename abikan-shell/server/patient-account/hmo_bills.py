@@ -18,8 +18,8 @@ import hospital_admin
 import server as core
 
 HOSPITAL_NAME = "Hospital EMR"
-HOSPITAL_PHONE = "0803 555 0142"
-HOSPITAL_EMAIL = "accounts@abikanhospital.test"
+HOSPITAL_PHONE = "0000 000 0000"
+HOSPITAL_EMAIL = "lorem@ipsum.test"
 _EMAIL = re.compile(r"^[^@\s]+@[^@\s]+\.[^@\s]+$")
 
 

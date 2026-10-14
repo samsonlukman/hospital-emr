@@ -32,7 +32,7 @@ class HmoBillsTest(unittest.TestCase):
         self.assertIn("Amount due from the HMO", html)
         self.assertNotIn("Already paid", html)
         self.assertIn("Hygeia", html)
-        self.assertIn("0803 555 0142", html)
+        self.assertIn("0000 000 0000", html)
 
     def test_both_coverage_types_are_listed(self) -> None:
         bodies = hmo_bills.list_bodies(
